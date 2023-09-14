@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Advertise;
+use App\Models\Advertisment;
 use Illuminate\Support\Facades\Route;
 
 /*

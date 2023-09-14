@@ -1,140 +1,194 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body style="">
+    <div>
+        <div class="" style="background-color: #378EFF;height: 38px; padding-top: 4px">
+              <button style="border-radius: 15px; background-color: white;margin-left: 200px">
+                <span >
+                    <svg style="padding-top: 3px" xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 25 24" fill="none">
+                        <path d="M24.1484 11.8266C24.1484 10.2756 23.8409 8.73972 23.2436 7.30673C22.6463 5.87374 21.7708 4.57169 20.6671 3.47493C19.5634 2.37817 18.2532 1.50817 16.8111 0.914601C15.3691 0.321037 13.8235 0.0155334 12.2627 0.0155334C9.11038 0.0155334 6.0872 1.25992 3.8582 3.47493C1.62919 5.68994 0.376953 8.69415 0.376953 11.8266C0.376953 14.9592 1.62919 17.9634 3.8582 20.1784C6.0872 22.3934 9.11038 23.6378 12.2627 23.6378C15.415 23.6378 18.4381 22.3934 20.6671 20.1784C22.8961 17.9634 24.1484 14.9592 24.1484 11.8266ZM21.688 10.6455H18.2055C18.0095 7.86773 17.0517 5.1963 15.4362 2.92107C17.096 3.50686 18.5594 4.53927 19.6633 5.90319C20.7672 7.2671 21.4682 8.90891 21.688 10.6455ZM8.79204 13.0078H15.8284C15.5242 15.9258 14.2726 18.6662 12.2627 20.8149C10.2541 18.6752 9.03117 15.9243 8.79204 13.0078ZM8.79204 10.6455C9.06884 7.74216 10.2868 5.00658 12.2627 2.8502C14.2888 4.98343 15.5433 7.72588 15.8284 10.6455H8.79204ZM9.21992 2.88563C7.5958 5.17347 6.62266 7.85424 6.40301 10.6455H2.8373C3.06182 8.88745 3.77937 7.22755 4.90798 5.85539C6.0366 4.48323 7.5308 3.45414 9.21992 2.88563ZM2.8373 13.0078H6.40301C6.59876 15.7967 7.56529 18.4778 9.19615 20.7558C7.5131 20.1846 6.02503 19.1557 4.90097 17.786C3.77692 16.4164 3.06195 14.761 2.8373 13.0078ZM15.3767 20.744C17.0032 18.4653 17.9805 15.7925 18.2055 13.0078H21.7118C21.487 14.7561 20.7746 16.4071 19.6552 17.7742C18.5357 19.1413 17.0537 20.17 15.3767 20.744Z" fill="#0061E0"/>
                     </svg>
-                </div>
-
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
-            </div>
+                </span>
+                  <span style="padding: 7px; font-weight: bold">العربية</span>
+                </button>
+                <span style="margin-left: 30px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="20" viewBox="0 0 29 29" fill="none">
+                        <path d="M14.5011 0C10.5631 0 10.0688 0.017219 8.52216 0.0876044C6.9785 0.158292 5.92482 0.402677 5.00285 0.76125C4.04917 1.1316 3.24018 1.62702 2.43421 2.43328C1.62764 3.23924 1.13222 4.04822 0.760654 5.00159C0.401171 5.92385 0.156481 6.97782 0.087001 8.52087C0.0181252 10.0675 0 10.562 0 14.5C0 18.438 0.0175213 18.9307 0.0876054 20.4773C0.158596 22.021 0.402984 23.0746 0.761258 23.9966C1.13192 24.9503 1.62734 25.7593 2.43361 26.5652C3.23927 27.3718 4.04826 27.8684 5.00134 28.2388C5.92392 28.5973 6.9779 28.8417 8.52126 28.9124C10.0679 28.9828 10.5619 29 14.4995 29C18.4379 29 18.9306 28.9828 20.4772 28.9124C22.0209 28.8417 23.0758 28.5973 23.9984 28.2388C24.9517 27.8684 25.7595 27.3718 26.5652 26.5652C27.3718 25.7593 27.8672 24.9503 28.2387 23.9969C28.5952 23.0746 28.8399 22.0207 28.9124 20.4776C28.9819 18.931 29 18.438 29 14.5C29 10.562 28.9819 10.0678 28.9124 8.52117C28.8399 6.97752 28.5952 5.92385 28.2387 5.0019C27.8672 4.04822 27.3718 3.23924 26.5652 2.43328C25.7586 1.62672 24.952 1.1313 23.9975 0.76125C23.0731 0.402677 22.0188 0.158292 20.4751 0.0876044C18.9284 0.017219 18.436 0 14.4968 0H14.5011ZM13.2003 2.61302C13.5863 2.61242 14.0171 2.61302 14.5011 2.61302C18.3726 2.61302 18.8315 2.62692 20.3603 2.6964C21.7741 2.76104 22.5414 2.99727 23.0525 3.19574C23.7292 3.45855 24.2116 3.77272 24.7188 4.28022C25.2263 4.78772 25.5405 5.27105 25.8039 5.94772C26.0024 6.45824 26.2389 7.22553 26.3033 8.63928C26.3728 10.1678 26.3879 10.627 26.3879 14.4967C26.3879 18.3664 26.3728 18.8255 26.3033 20.3541C26.2386 21.7678 26.0024 22.5351 25.8039 23.0456C25.5411 23.7223 25.2263 24.2041 24.7188 24.7113C24.2113 25.2188 23.7295 25.533 23.0525 25.7958C22.542 25.9952 21.7741 26.2308 20.3603 26.2954C18.8318 26.3649 18.3726 26.38 14.5011 26.38C10.6292 26.38 10.1703 26.3649 8.64179 26.2954C7.22802 26.2302 6.46072 25.994 5.94929 25.7955C5.27262 25.5327 4.78928 25.2185 4.28177 24.711C3.77427 24.2035 3.4601 23.7214 3.19668 23.0444C2.99821 22.5339 2.76168 21.7666 2.69733 20.3529C2.62785 18.8243 2.61395 18.3652 2.61395 14.4931C2.61395 10.6209 2.62785 10.1642 2.69733 8.63566C2.76198 7.22191 2.99821 6.45461 3.19668 5.94349C3.45949 5.26682 3.77427 4.78349 4.28177 4.27599C4.78928 3.76849 5.27262 3.45432 5.94929 3.19091C6.46042 2.99153 7.22802 2.75591 8.64179 2.69096C9.97943 2.63054 10.4978 2.61242 13.2003 2.6094V2.61302Z" fill="white"/>
+                        <path d="M22.2099 4.98501C21.8658 4.98501 21.5293 5.08707 21.2432 5.27829C20.957 5.46951 20.734 5.7413 20.6023 6.05928C20.4706 6.37726 20.4362 6.72714 20.5034 7.06469C20.5706 7.40223 20.7364 7.71227 20.9798 7.95559C21.2232 8.19891 21.5333 8.36458 21.8708 8.43165C22.2084 8.49872 22.5583 8.46417 22.8762 8.33238C23.1942 8.20059 23.4659 7.97748 23.657 7.69126C23.8481 7.40504 23.9501 7.06857 23.95 6.7244C23.95 5.76378 23.1706 4.98501 22.2099 4.98501Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.4699 7.01803C10.3576 7.01803 7.02344 10.3521 7.02344 14.4644C7.02344 18.5766 10.3576 21.9092 14.4699 21.9092C18.5822 21.9092 21.9154 18.5766 21.9154 14.4644C21.9154 10.3521 18.5822 7.01803 14.4699 7.01803ZM14.5 19.2578C17.1277 19.2578 19.2578 17.1277 19.2578 14.5C19.2578 11.8724 17.1277 9.74222 14.5 9.74222C11.8723 9.74222 9.7422 11.8724 9.7422 14.5C9.7422 17.1277 11.8723 19.2578 14.5 19.2578Z" fill="white"/>
+                      </svg>
+                </span >
+                <span style="margin-left: 20px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="20" viewBox="0 0 30 29" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 14.5C0 6.49187 6.71573 0 15 0C23.2843 0 30 6.49187 30 14.5C30 22.5081 23.2843 29 15 29C6.71573 29 0 22.5081 0 14.5ZM14.5508 11.7858L14.5822 12.2875L14.0576 12.2261C12.148 11.9906 10.4798 11.1919 9.06334 9.85053L8.37085 9.18496L8.19248 9.67646C7.81477 10.7721 8.05609 11.9291 8.843 12.7073C9.26269 13.1374 9.16826 13.1988 8.4443 12.9428C8.19248 12.8609 7.97215 12.7995 7.95116 12.8302C7.87772 12.9019 8.12953 13.8337 8.32888 14.2023C8.60168 14.7143 9.15777 15.216 9.76631 15.5129L10.2804 15.7484L9.67188 15.7587C9.08432 15.7587 9.06334 15.7689 9.12629 15.984C9.33613 16.6495 10.165 17.356 11.0883 17.6632L11.7388 17.8783L11.1723 18.2059C10.3329 18.6769 9.34663 18.9432 8.36036 18.9636C7.88821 18.9739 7.5 19.0148 7.5 19.0455C7.5 19.1479 8.78005 19.7213 9.52499 19.9466C11.7598 20.6122 14.4144 20.3255 16.4079 19.1889C17.8243 18.38 19.2408 16.7724 19.9018 15.216C20.2585 14.3866 20.6152 12.8712 20.6152 12.1442C20.6152 11.6731 20.6467 11.6117 21.2343 11.0485C21.5805 10.7209 21.9058 10.3625 21.9687 10.2601C22.0737 10.0656 22.0632 10.0656 21.5281 10.2396C20.6362 10.5468 20.5103 10.5059 20.951 10.0451C21.2762 9.71741 21.6645 9.12353 21.6645 8.94946C21.6645 8.91874 21.5071 8.96994 21.3287 9.06209C21.1398 9.16448 20.7202 9.31808 20.4054 9.41023L19.8388 9.5843L19.3247 9.2464C19.0414 9.06209 18.6427 8.8573 18.4329 8.79587C17.8978 8.65251 17.0794 8.67299 16.5967 8.83682C15.2852 9.2976 14.4563 10.4854 14.5508 11.7858Z" fill="white"/>
+                      </svg>
+                </span >
+                <span style="margin-left: 20px">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="20" viewBox="0 0 25 24" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.72439 17.3582L0 23.3551L6.44319 21.7458C8.21857 22.668 10.2173 23.154 12.2513 23.1548H12.2565C18.9551 23.1548 24.408 17.9625 24.411 11.5818C24.4121 8.48927 23.1487 5.58168 20.8543 3.39415C18.5592 1.20662 15.5077 0.00151048 12.2565 0C5.55675 0 0.104709 5.19139 0.101984 11.5725C0.101301 13.6122 0.660847 15.6032 1.72439 17.3582ZM2.15419 11.5731C2.15624 6.26962 6.68794 1.95486 12.2604 1.95486C14.9589 1.95595 17.495 2.95764 19.4024 4.77571C21.3099 6.59377 22.3596 9.01069 22.3586 11.5809C22.3563 16.8848 17.8246 21.2001 12.2565 21.2001H12.2526C10.4395 21.1992 8.66157 20.7356 7.11087 19.859L6.74166 19.6506L2.91813 20.6055L3.93893 17.0562L3.69854 16.6923C2.68735 15.1607 2.15336 13.3905 2.15419 11.5731Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.21885 6.7343C8.9912 6.25274 8.75172 6.24298 8.53546 6.23452C8.35836 6.22737 8.15576 6.2278 7.95338 6.2278C7.75078 6.2278 7.42184 6.30022 7.14366 6.58968C6.86525 6.87914 6.08057 7.57883 6.08057 9.00205C6.08057 10.4253 7.16893 11.8004 7.32054 11.9936C7.47238 12.1865 9.42145 15.2004 12.5085 16.3597C15.0738 17.3233 15.5958 17.1316 16.1528 17.0835C16.7096 17.0353 17.9496 16.3838 18.2025 15.7084C18.4557 15.033 18.4557 14.4543 18.3799 14.3333C18.3038 14.2125 18.1014 14.1403 17.7975 13.9957C17.4939 13.8511 16.0008 13.1512 15.7224 13.0547C15.444 12.9582 15.2416 12.9101 15.039 13.1995C14.8366 13.489 14.255 14.1403 14.0776 14.3333C13.9005 14.5265 13.7234 14.5506 13.4195 14.4059C13.1159 14.2609 12.1377 13.9558 10.9774 12.9703C10.0746 12.2037 9.46515 11.2568 9.28782 10.9673C9.11072 10.6779 9.26893 10.5213 9.42122 10.3771C9.55758 10.2475 9.72489 10.0393 9.87696 9.87043C10.0283 9.70152 10.0791 9.58097 10.1802 9.38822C10.2815 9.19503 10.2309 9.02612 10.1549 8.8815C10.0791 8.73688 9.48883 7.30628 9.21885 6.7343Z" fill="white"/>
+                  </svg>
+                </span >
+               <span style="margin-left: 260px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none">
+                    <path d="M21 0V2.16667L10.5 6.5L0 2.16667V0H21ZM21 4.33333V13H0V4.33333L10.5 8.66667L21 4.33333Z" fill="white"/>
+                  </svg>
+               </span>
+               <span style="margin-left: 10px">info@alfuraij.com.kw</span>
+               <span style="margin-left: 25px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+                    <path d="M14.4998 15.6261C11.0976 15.6224 7.83593 14.5067 5.43017 12.5235C3.02441 10.5403 1.67091 7.85152 1.6665 5.04685C1.6665 4.20876 2.07037 3.405 2.78926 2.81238C3.50815 2.21976 4.48317 1.88683 5.49984 1.88683C5.71512 1.88548 5.93004 1.90158 6.1415 1.93492C6.34593 1.95985 6.54689 2.00127 6.7415 2.05857C6.87838 2.09816 7.00035 2.16651 7.09535 2.25688C7.19035 2.34724 7.25509 2.45648 7.28317 2.57379L8.42484 6.69556C8.45561 6.80744 8.4519 6.9239 8.41406 7.03429C8.37621 7.14469 8.30543 7.24551 8.20817 7.32757C8.09984 7.42374 8.0915 7.43061 7.0665 7.87027C7.88733 9.35469 9.3275 10.5468 11.1248 11.2295C11.6665 10.3777 11.6748 10.3708 11.7915 10.2815C11.891 10.2013 12.0133 10.143 12.1473 10.1118C12.2812 10.0806 12.4225 10.0775 12.5582 10.1029L17.5582 11.044C17.6959 11.0704 17.8233 11.1252 17.9282 11.2033C18.0332 11.2814 18.1123 11.3803 18.1582 11.4906C18.2285 11.6536 18.2815 11.8214 18.3165 11.992C18.35 12.1647 18.3668 12.3393 18.3665 12.5141C18.3511 13.3486 17.9359 14.1442 17.2115 14.7273C16.487 15.3103 15.5122 15.6334 14.4998 15.6261Z" fill="white"/>
+                  </svg>
+               </span>
+               <span style="margin-left: 3px">
+                +للتواصل مع خدمة العملاء : 99661696 965
+               </span>
         </div>
-    </body>
+    </div>
+    <div >
+        <div style=" height: 112px;
+                background: url('images/a4725821ed4336badbb24027a1fd9ef1.jfif');
+                background-size: cover;">
+                <div  style="padding: 12px 0px 0 200px">
+               <button class="btn btn-primary">
+                  اضافه اعلان
+                </button>
+                <button  style="margin-left: 40px;border-radius: 15px; background-color: white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="23" viewBox="0 0 18 23" fill="none">
+                    <path d="M8.5801 10.2222C9.5498 10.2222 10.4977 9.92246 11.304 9.36085C12.1103 8.79923 12.7387 8.00098 13.1098 7.06705C13.4808 6.13312 13.5779 5.10544 13.3888 4.11398C13.1996 3.12253 12.7326 2.21181 12.0469 1.49701C11.3613 0.78221 10.4877 0.295424 9.5366 0.0982109C8.58554 -0.0990025 7.59974 0.00221455 6.70386 0.389062C5.80798 0.77591 5.04226 1.43101 4.50353 2.27153C3.96479 3.11205 3.67725 4.10023 3.67725 5.11111C3.67725 6.46666 4.1938 7.7667 5.11326 8.72521C6.03272 9.68373 7.27978 10.2222 8.5801 10.2222Z" fill="#0061E0"/>
+                    <path d="M15.9343 23C16.2594 23 16.5711 22.8654 16.801 22.6258C17.0309 22.3861 17.16 22.0611 17.16 21.7222C17.16 19.35 16.256 17.075 14.647 15.3976C13.0379 13.7201 10.8556 12.7778 8.58 12.7778C6.30444 12.7778 4.12209 13.7201 2.51302 15.3976C0.903961 17.075 3.39084e-08 19.35 0 21.7222C0 22.0611 0.129138 22.3861 0.359004 22.6258C0.58887 22.8654 0.900634 23 1.22571 23H15.9343Z" fill="#0061E0"/>
+                  </svg>
+                    الدخول
+                </button>
+                <button style="margin-left: 40px">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                    <path d="M9 1L5.70707 6.5118C5.31818 7.16273 4.68182 7.16273 4.29293 6.5118L1 1" stroke="#7C8893" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="17" viewBox="0 0 25 17" fill="none">
+                      <mask id="mask0_435_30" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="17">
+                        <path d="M0 0H25V17H0V0Z" fill="white"/>
+                      </mask>
+                      <g mask="url(#mask0_435_30)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.66446H37.4982V11.3322H0V5.66446Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 11.3322H37.4982V17H0V11.3322Z" fill="#F31830"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H37.4982V5.66777H0V0Z" fill="#00D941"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V17L9.35257 11.3322L9.37454 5.66113L0 0Z" fill="black"/>
+                      </g>
+                    </svg>
+                       الكويت
+                </button>
+
+
+                <span style="margin-left: 40px; ">الصفحة الرئيسية</span>
+                <span style="margin-left: 60px; ">الشروط و الاحكام</span>
+                <span style="margin-left: 150px; ">للتواصل</span>
+                <span style="margin-left: 100px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="54" height="65" viewBox="0 0 54 65" fill="none">
+                    <path d="M40.7438 31.8516V18.7526L26.8376 10.7289C22.1972 13.4035 17.5668 16.078 12.9314 18.7526V39.0381H37.8702H50.7913C51.2635 37.9621 51.7458 36.9014 52.1367 35.8C53.7411 31.2781 54.0914 26.4162 53.1928 21.7419C52.218 16.6465 49.7556 11.7896 45.8158 7.85633C40.5711 2.61877 33.7018 0 26.8376 0C19.9632 0 13.0939 2.61877 7.85939 7.85633C2.6198 13.099 6.86646e-05 19.9657 6.86646e-05 26.8272C6.86646e-05 33.6939 2.6198 40.5656 7.85939 45.7981L26.8376 64.769L45.8158 45.8032C46.6179 45.0014 47.3795 44.1385 48.0751 43.2402H42.4446L26.8376 58.8463L10.8194 42.8343C6.40231 38.4189 4.18865 32.618 4.18865 26.8272C4.18865 21.0365 6.40231 15.2406 10.8194 10.8202C15.2415 6.39469 21.0446 4.187 26.8376 4.187C32.6306 4.187 38.4285 6.39976 42.8507 10.8151C46.1813 14.1445 48.2528 18.235 49.0753 22.5184C49.8673 26.6191 49.5119 30.8873 48.0243 34.8357H17.125V21.1583C20.3693 19.2856 23.6035 17.4179 26.8376 15.5503L36.545 21.1583V31.8617H40.7438V31.8516Z" fill="#0061E0" fill-opacity="0.5"/>
+                  </svg>
+                  </span>
+                  </div>
+                  <span style="margin-left: 78%">الفريج العقاري</span>
+
+        </div>
+    </div>
+    <div style=" height: 550px ;background: url('images/de13c5b6c2ea097545fb58a0e0735ea7.jfif');
+          background-size: cover;"><br><br>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
+            <img src="images/d9b0f19ed73c89a36dd5c74f5aa5908f.jfif" width="400px" height="120px" style="border-radius: 16px">
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
+            <img src="images/149ba0e6f976aa9851a53da9e3d4246b.png" width="400px" height="120px" style="border-radius: 16px">
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div style="width:130px; height:130px;border-radius: 50%;background-color: white ; margin-left: 120px">
+            <img src="images/703c7382f2f8912a07317774a1f8c4c6.png" width="50px" height="50px" style="margin: 30px 0 0 40px"><br>
+            <span style="margin-left: 20px"> نصائح عقارية </span>
+            </div>
+            <div style="width:130px; height:130px;border-radius: 50%;background-color: white ; margin-left: 120px">
+            <img src="images/8aad55a275adc3f4b01fb1d3425990d8.png" width="50px" height="50px" style="margin: 30px 0 0 40px"><br>
+            <span style="margin-left: 20px;font-size: 12px;font-weight: bold"> نموذج عقد ايجار <br><span style="margin-left: 40px">استثماري</span></span>
+            </div>
+            <div style="width:130px; height:130px;border-radius: 50%;background-color: white ; margin-left: 120px">
+            <img src="images/d57a31bdf0c0ae6475a66035d80e2328.png" width="50px" height="50px" style="margin: 30px 0 0 40px"><br>
+            <span style="margin-left: 30px;font-size: 10px;font-weight: bold">  التقييم العقاري <span style="margin-left: 37px">للسكن الخاص</span> </span>
+            </div>
+        </div><br>
+        <span style="margin-left:65%">
+        <button class="btn btn-light" style="width: 100px;color: #050810;">للبيع</button>
+        <button class="btn btn-light" style="width: 100px;color: #050810;margin-left: -3px">للايجار</button>
+        </span>
+        <div style="width: 700px;height: 50px;margin: 0 30px 30px 500px;flex-shrink: 0;border-radius: 0px 10px 10px 10px;border: 1px solid #3B86E3;background: #FFF;">
+        <button style="margin: 5px 0 0 35px" class = "btn btn-primary">البحث</button>
+        <span style="margin-left: 5%">نوع العقار</span>
+
+        <span style="margin-left: 5%">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                <path d="M18 1.25989L11.0025 13.2021C10.1761 14.6125 8.82386 14.6125 7.99748 13.2021L1 1.25989" stroke="#7C8893" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+        </span>
+
+
+        <span style="margin-left: 5%">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+                <path d="M11.8894 18.9084C16.8814 18.9084 20.9282 15.082 20.9282 10.3619C20.9282 5.64171 16.8814 1.81528 11.8894 1.81528C6.8974 1.81528 2.85059 5.64171 2.85059 10.3619C2.85059 15.082 6.8974 18.9084 11.8894 18.9084Z" stroke="#050810" stroke-width="1.16091" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21.8797 19.8081L19.9768 18.0088" stroke="#050810" stroke-width="1.16091" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+        </span>
+
+        <span style="margin-left: 30%">المنطقة</span>
+        <span style="margin-left: 8%">
+            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                <path d="M14.2534 3.23121L19.3817 7.0097C20.2381 7.63944 20.9326 8.97991 20.9326 9.9965V16.6628C20.9326 18.75 19.1344 20.4593 16.927 20.4593H5.90916C3.70179 20.4593 1.90355 18.75 1.90355 16.6718V10.1224C1.90355 9.03389 2.67422 7.63944 3.61616 7.01869L9.49614 3.12325C10.8282 2.24161 12.969 2.28659 14.2534 3.23121Z" stroke="#050810" stroke-width="1.16091" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.418 16.8607V14.1618" stroke="#050810" stroke-width="1.16091" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+        </span>
+        </div>
+   </div>
+<div style="width: 900px;
+height: 400px;
+flex-shrink: 0;
+border-radius: 5px;
+border: 1px solid #EAEAEA;
+background: #FFF;
+box-shadow: 8px 10px 20px 1px rgba(152, 152, 152, 0.16);
+margin: -3% 0 0 23%">
+<div class="row">
+    <div class="col-lg-3">
+        <span style="background-color: #378EFF; margin-top: 35%">
+            <img src="images/Icon.png" style="">
+        </span><br>
+        <img src="images/a997438687ace2ba33cb8e174977b744.jfif"
+        width= "246px";
+        height= "149px";>
+    </div>
+    <div class="col-lg-6">
+        <img src="images/e8dd3286938c9dcda9fa03ae8e975fdd.png"
+        width= "777px";
+        height= "187px";>
+           <div style="margin-left: 10%; ">
+            منصة موقع و تطبيق التابعة لشركة عبدالعزيز سعود الفريج هي الوجهه الاولى لاصحاب المكاتب وملاك العقار من خلالها يمكنك
+البحث عن شقق للايجار، بيوت للبيع، اراضي او اضافة اعلان ، من خلال موقعنا او التطبيق يمكنك البحث في آلاف الشقق والعقارات
+المعروضه للايجار او للبيع او للبدل في الكويت من الملاك مباشره او من خلال المكاتب العقارية. باستخدام محرك البحث المبسط
+           </div>
+    </div>
+</div>
+</div>
+
+<script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+</body>
 </html>
