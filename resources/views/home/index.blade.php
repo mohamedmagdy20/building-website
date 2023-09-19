@@ -2,10 +2,11 @@
 @section('title','Advertisments')
 @section('slider-content')
 <div class="col-md-9 pt-5 text-center "  data-aos="fade-up" data-aos-duration="1000">
-    <p class="breadcrumbs"><span class="mr-2"><a> جميع الاعلانات العقارات <i class="fa fa-chevron-right"></i></a></span> <span> 
-
-    <a href="{{route('home')}}">الصفحة الرئيسية</a><i class="fa fa-chevron-right"></i></span></p>
-    <h1 class="mb-0 bread" id="bread">جميع الاعلانات </h1>
+    <div id="home-content">
+        <p class="breadcrumbs"><span class="mr-2"><a> جميع الاعلانات العقارات <i class="fa fa-chevron-right"></i></a></span> <span> 
+        <a href="{{route('home')}}">الصفحة الرئيسية</a><i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread" id="bread">جميع الاعلانات </h1>
+    </div>
 </div>
 @endsection
 @section('content')
