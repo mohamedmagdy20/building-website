@@ -97,6 +97,11 @@ class Advertisment extends Model
         $query->where('type','instead');
     }
 
+    public function scopeNotExpire($query)
+    {
+        $query->where('is_expire',false);
+    }
+
     public function scopeFilter($query, $params)
     {
         if(isset($params['category_id']))

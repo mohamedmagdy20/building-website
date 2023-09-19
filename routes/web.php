@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Home\HomeController;
 use App\Models\Advertise;
 use App\Models\Advertisment;
 use Illuminate\Support\Facades\Route;
@@ -16,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('login',[AuthController::class,'loginView'])->name('login.view');
 Route::post('login',[AuthController::class,'login'])->name('login');
