@@ -1,111 +1,52 @@
 @extends('layout.app')
 @section('title','Home')
-@section('content')
-<section class="slider-hero">
-    <div class="overlay"></div>
-    <div class="hero-slider">
-        <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center js-fullheight"
-                    style="background-image: url({{asset('assets/images/background.png')}});">
-                    <div class="container-xl">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6 col-xl-8" data-aos="fade-up" data-aos-duration="1000">
-                                <div id="first-content" class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/ads1.png')}}" class="img-fluid" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/ads2.png')}}" class="img-fluid" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="secound-content" class="row align-items-center justify-content-center">
-                                    <div class="col-sm-4 col-md-4 ">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/About.png')}}" alt="">
-                                            <div class="title">نصائح عقارية</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/Agreement.png')}}" alt="">
-                                            <div class="title ">نموذج عقد ايجار استثماري </div>
-                                        </div>
-                                    </div>
 
 
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
-                                            <div class="title">التقييم العقاري للسكن الخاص</div>
 
-                                        </div>
-                                    </div>
+@section('slider-content')
+<div class="col-md-6 col-xl-8" data-aos="fade-up" data-aos-duration="1000">
 
-                                </div>
-                                <!-- <div class="text text-center" data-aos="fade-up" data-aos-duration="1000">
-                                    <h2>Your Property Is Our Priority</h2>
-                                    <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Learn More <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div id="first-content" class="row mb-3">
+        <div class="col-md-6">
+            <div class="content">
+                <img src="{{asset('assets/images/ads1.png')}}" class="img-fluid" alt="">
             </div>
         </div>
-        <!-- <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center justify-content-center js-fullheight"
-                    style="background-image: url(images/bg_2.jpg);">
-                    <div class="container-xl">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-xl-6">
-                                <div class="text text-center" data-aos="fade-up" data-aos-duration="1000">
-                                    <h2>Let Your Home Be Unique &amp; Stylist</h2>
-                                    <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Learn More <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-6">
+            <div class="content">
+                <img src="{{asset('assets/images/ads2.png')}}" class="img-fluid" alt="">
             </div>
         </div>
-        <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center justify-content-center js-fullheight"
-                    style="background-image: url(images/bg_3.jpg);">
-                    <div class="container-xl">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-xl-6">
-                                <div class="text text-center" data-aos="fade-up" data-aos-duration="1000">
-                                    <h2>Modern House Make Better Life</h2>
-                                    <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Learn More <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-</section>
+    <div id="secound-content" class="row align-items-center justify-content-center">
+        <div class="col-sm-4 col-md-4 ">
+            <div class="content">
+                <img src="{{asset('assets/images/About.png')}}" alt="">
+                <div class="title">نصائح عقارية</div>
+            </div>
+        </div>
+    
+        <div class="col-sm-4 col-md-4">
+            <div class="content">
+                <img src="{{asset('assets/images/Agreement.png')}}" alt="">
+                <div class="title ">نموذج عقد ايجار استثماري </div>
+            </div>
+        </div>
+    
+    
+        <div class="col-sm-4 col-md-4">
+            <div class="content">
+                <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
+                <div class="title">التقييم العقاري للسكن الخاص</div>
+    
+            </div>
+        </div>
+    
+    </div>
+</div>                   
+@endsection
+
+@section('content')
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
         <div class="row">
@@ -125,7 +66,7 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                     aria-labelledby="v-pills-nextgen-tab">
-                                    <form action="#" class="search-property-1">
+                                    <form action="{{route('home.main')}}" method="GET" class="search-property-1">
                                         <div class="row g-0">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4 border-0">
@@ -137,6 +78,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="type" value="sale">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
                                                     <label for="#">Type</label>
@@ -209,30 +151,32 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
                                     aria-labelledby="v-pills-performance-tab">
-                                    <form action="#" class="search-property-1">
+                                    <form action="{{route('home.main')}}" method="GET" class="search-property-1">
                                         <div class="row g-0">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4 border-0">
                                                     <label for="#">Enter Keyword</label>
                                                     <div class="form-field">
                                                         <div class="icon"><span class="fa fa-search"></span></div>
-                                                        <input type="text" class="form-control"
+                                                        <input type="text" class="form-control" name="q"
                                                             placeholder="Enter Keyword">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="type" value="rent">
+
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Property Type</label>
+                                                    <label for="#">Type</label>
                                                     <div class="form-field">
                                                         <div class="select-wrap">
                                                             <div class="icon"><span
                                                                     class="fa fa-chevron-down"></span></div>
-                                                            <select name id class="form-control">
-                                                                <option value>Residential</option>
-                                                                <option value>Commercial</option>
-                                                                <option value>Land</option>
-                                                                <option value>Industrial</option>
+                                                            <select name="category_id" id="category_id" class="form-control">
+                                                                @foreach ($categories as $category )
+                                                                    <option value="{{$category->id}}">{{ $category->name_en}}</option>
+                                                                @endforeach
+                                                           
                                                             </select>
                                                         </div>
                                                     </div>
@@ -240,45 +184,23 @@
                                             </div>
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Location</label>
-                                                    <div class="form-field">
-                                                        <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Search Location">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md d-flex">
-                                                <div class="form-group p-4">
-                                                    <label for="#">Price Limit</label>
-                                                    <div class="form-field">
-                                                        <div class="select-wrap">
-                                                            <div class="icon"><span
-                                                                    class="fa fa-chevron-down"></span></div>
-                                                            <select name id class="form-control">
-                                                                <option value>$100</option>
-                                                                <option value>$10,000</option>
-                                                                <option value>$50,000</option>
-                                                                <option value>$100,000</option>
-                                                                <option value>$200,000</option>
-                                                                <option value>$300,000</option>
-                                                                <option value>$400,000</option>
-                                                                <option value>$500,000</option>
-                                                                <option value>$600,000</option>
-                                                                <option value>$700,000</option>
-                                                                <option value>$800,000</option>
-                                                                <option value>$900,000</option>
-                                                                <option value>$1,000,000</option>
-                                                                <option value>$2,000,000</option>
-                                                            </select>
-                                                        </div>
+                                                    <label for="#">Areas</label>
+                                                    <div class="select-wrap">
+                                                        <div class="icon"><span
+                                                                class="fa fa-chevron-down"></span></div>
+                                                        <select name="area_id" id="area_id" class="form-control">
+                                                            @foreach ($areas as $area )
+                                                                <option value="{{$area->id}}">{{ $area->name_en}}</option>
+                                                            @endforeach
+                                                       
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md d-flex">
                                                 <div class="form-group d-flex w-100 border-0">
                                                     <div class="form-field w-100 align-items-center d-flex">
-                                                        <input type="submit" value="Search"
+                                                        <input type="submit" value="Search" 
                                                             class="align-self-stretch form-control btn btn-primary">
                                                     </div>
                                                 </div>

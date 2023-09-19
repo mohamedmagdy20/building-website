@@ -1513,11 +1513,11 @@ a, button {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #5ea51d;
+  color: #0a53be;
   text-decoration: none; }
   a:hover, a:focus, button:hover, button:focus {
     text-decoration: none;
-    color: #5ea51d;
+    color: #0a53be;
     outline: none !important; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
@@ -1731,13 +1731,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
         .hero-wrap .slider-text .breadcrumbs span a {
           color: rgba(255, 255, 255, 0.8); }
           .hero-wrap .slider-text .breadcrumbs span a:hover, .hero-wrap .slider-text .breadcrumbs span a:focus {
-            color: #5ea51d; }
+            color: #0a58ca; }
             .hero-wrap .slider-text .breadcrumbs span a:hover i, .hero-wrap .slider-text .breadcrumbs span a:focus i {
-              color: #5ea51d; }
+              color: #0b5ed7; }
     .hero-wrap .slider-text .bread {
       font-weight: 700;
       color: #fff;
       font-size: 70px; }
+
+
+      #bread{
+          font-weight: 700;
+          color: #fff;
+          font-size: 70px; 
+      }
 
 .slider-hero {
   position: relative;

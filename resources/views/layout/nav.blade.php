@@ -87,15 +87,15 @@
 
             <ul class="navbar-nav m-auto  mb-2 mb-lg-0">
                 
-                <li class="nav-item"><a class="nav-link" href="index-2.html">الصفحة الرئيسية</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">الشروط و الاحكام</a></li>
-                <li class="nav-item"><a class="nav-link" href="properties.html">للتواصل</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('home')}}">الصفحة الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">الشروط و الاحكام</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">للتواصل</a></li>
             </ul>
         
 
         </div>
         
-        <a class="navbar-brand align-items-center" href="index-2.html">
+        <a class="navbar-brand align-items-center" href="{{route('home')}}">
             <img src="{{asset('assets/images/logo-white 1.png')}}" class="img-fluid" alt="">
         </a>
     </div>

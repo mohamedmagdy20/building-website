@@ -26,6 +26,69 @@
 </head>
 <body>
     @include('layout.nav')
+    <section class="slider-hero">
+        <div class="overlay"></div>
+        <div class="hero-slider">
+            <div class="item">
+                <div class="work">
+                    <div class="img d-flex align-items-center js-fullheight"
+                        style="background-image: url({{asset('assets/images/background.png')}});">
+                        <div class="container-xl">
+                            <div class="row justify-content-center">
+                                    @yield('slider-content')
+                                    {{-- <div id="first-content" class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="content">
+                                                <img src="{{asset('assets/images/ads1.png')}}" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="content">
+                                                <img src="{{asset('assets/images/ads2.png')}}" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="secound-content" class="row align-items-center justify-content-center">
+                                        <div class="col-sm-4 col-md-4 ">
+                                            <div class="content">
+                                                <img src="{{asset('assets/images/About.png')}}" alt="">
+                                                <div class="title">نصائح عقارية</div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-sm-4 col-md-4">
+                                            <div class="content">
+                                                <img src="{{asset('assets/images/Agreement.png')}}" alt="">
+                                                <div class="title ">نموذج عقد ايجار استثماري </div>
+                                            </div>
+                                        </div>
+    
+    
+                                        <div class="col-sm-4 col-md-4">
+                                            <div class="content">
+                                                <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
+                                                <div class="title">التقييم العقاري للسكن الخاص</div>
+    
+                                            </div>
+                                        </div>
+    
+                                    </div> --}}
+                                    <!-- <div class="text text-center" data-aos="fade-up" data-aos-duration="1000">
+                                        <h2>Your Property Is Our Priority</h2>
+                                        <p class="mb-5">A small river named Duden flows by their place and supplies it
+                                            with the necessary regelialia. It is a paradisematic country, in which
+                                            roasted parts of sentences fly into your mouth.</p>
+                                        <p><a href="#" class="btn btn-primary px-5 py-3">Learn More <span
+                                                    class="ion ion-ios-arrow-round-forward"></span></a></p>
+                                    </div> -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     @yield('content')
     @include('layout.footer')
     @yield('script')

@@ -22,9 +22,19 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->model->with('adsImage')->with('user')->normal()->notDraft()->notExpire()->take(9)->latest()->get();
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->take(9)->latest()->get();
+        // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
         return view('welcome',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
+    }
+
+    public function home(Request $request)
+    {
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->filter($request->all())->latest()->paginate(9);
+        // return $data;
+        $areas =$this->area->all();
+        $categroy = $this->category->all();
+        return view('home.index',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
     }
 }
