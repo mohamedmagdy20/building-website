@@ -24,7 +24,7 @@ class AuthController extends Controller
     {
         $data =  $request->validated();
 
-        if(auth()->attempt($request->only(['phone','password'])))
+        if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
         {
             return redirect()->route('home')->with('success','Welcome');
         }else{
@@ -50,5 +50,12 @@ class AuthController extends Controller
         }else{
             return redirect()->route('login')->with('error','Error Accure');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect()->back()->with('success','Logout Succesfuly');
     }
 }

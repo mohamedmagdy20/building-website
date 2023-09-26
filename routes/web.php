@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\LocalizationController;
 use App\Models\Advertise;
 use App\Models\Advertisment;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,9 @@ Route::get('login',[AuthController::class,'loginView'])->name('login.view');
 Route::post('login',[AuthController::class,'login'])->name('login');
 Route::get('register',[AuthController::class,'registerView'])->name('register.view');
 Route::post('register',[AuthController::class,'register'])->name('register');
+
+Route::get('change/{lang}',[LocalizationController::class,'setLang'])->name('change-lang');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('logout',[AuthController::class,'logout'])->name('logout');
+});

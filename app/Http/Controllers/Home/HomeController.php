@@ -22,7 +22,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->take(9)->latest()->get();
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->take(6)->latest()->get();
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();

@@ -9,11 +9,16 @@
 </div>
 @endsection
 @section('content')
-<section class="ftco-section ftco-no-pb ftco-no-pt mb-5">
+<section class="ftco-section ftco-no-pb ftco-no-pt mb-5" id="Login">
     <div class="container">
         <div class="row">
             <div class="col-md-12 " data-aos="fade-up" data-aos-duration="1000">
                 <div class="ftco-search d-flex justify-content-center">
+                    @if(Session::has('error'))
+                    <div class="alert alert-danger">
+                      {{ Session::get('error')}}
+                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-xl-10 align-items-center justify-content-center">
                             <form action="{{route('login')}}" method="POST" >
@@ -22,28 +27,34 @@
                                     <div class="login-form">
                                     
                                     <div class="login-heading">
-                                    <span>Login</span>
-                                    <p>Enter Login details to get access</p>
+                                    <span>@lang('lang.login')</span>
+                                    <p>@lang('lang.enter_login_details_get_access')</p>
                                     </div>
                                     <div class="input-box">
                                     <div class="single-input-fields">
-                                    <label>Phone Number</label>
+                                    <label>@lang('lang.phone')</label>
                                     <input type="text" name="phone" value="{{old('phone')}}" class="form-control" placeholder="+965">
-                                    </div>
+                                @error('phone')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror    
+                                </div>
                                     <div class="single-input-fields">
-                                    <label>Password</label>
+                                    <label>@lang('lang.password')</label>
                                     <input type="password" name="password" class="form-control" placeholder="Enter Password">
-                                    </div>
+                                    @error('password')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror        
+                                </div>
                                     <div class="single-input-fields login-check">
                                     {{-- <input type="checkbox" id="fruit1" name="keep-log"> --}}
                                     {{-- <label for="fruit1">Keep me logged in</label> --}}
-                                    <a href="#" class="f-right">Forgot Password?</a>
+                                    <a href="#" class="f-right">@lang('lang.forget_password')?</a>
                                     </div>
                                     </div>
                                     
                                     <div class="login-footer">
-                                    <p>Don’t have an account? <a href="{{route('register.view')}}">Sign Up</a> here</p>
-                                    <button type="submit" class="submit-btn3">Login</button>
+                                    <p>@lang('lang.dont_have_account')? <a href="{{route('register.view')}}#Register">@lang('lang.sign_up')</a> @lang('lang.here')</p>
+                                    <button type="submit" class="submit-btn3">@lang('lang.login')</button>
                                     </div>
                                     </div>
                                     </div>

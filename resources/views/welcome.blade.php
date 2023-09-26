@@ -22,22 +22,22 @@
         <div class="col-sm-4 col-md-4 ">
             <div class="content">
                 <img src="{{asset('assets/images/About.png')}}" alt="">
-                <div class="title">نصائح عقارية</div>
+                <div class="title">@lang('lang.real_estate_tips')</div>
             </div>
         </div>
     
         <div class="col-sm-4 col-md-4">
             <div class="content">
                 <img src="{{asset('assets/images/Agreement.png')}}" alt="">
-                <div class="title ">نموذج عقد ايجار استثماري </div>
+                <div class="title ">@lang('lang.investment_lease')</div>
             </div>
         </div>
     
     
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-4 col-md-4" >
             <div class="content">
                 <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
-                <div class="title">التقييم العقاري للسكن الخاص</div>
+                <div class="title">@lang('lang.real_estate_evaluation')</div>
     
             </div>
         </div>
@@ -57,38 +57,39 @@
                             <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
                                 <a class="nav-link btn rounded active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1"
-                                    role="tab" aria-controls="v-pills-1" aria-selected="true">للبيع</a>
+                                    role="tab" aria-controls="v-pills-1" aria-selected="true">@lang('lang.sale')</a>
                                 <a class="nav-link btn rounded" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"
-                                    role="tab" aria-controls="v-pills-2" aria-selected="false">للايجار</a>
+                                    role="tab" aria-controls="v-pills-2" aria-selected="false">@lang('lang.rent')</a>
                             </div>
                         </div>
                         <div class="col-md-12 tab-wrap">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                     aria-labelledby="v-pills-nextgen-tab">
-                                    <form action="{{route('home.main')}}" method="GET" class="search-property-1">
+                                    <form action="{{route('home.main')}}#Advertisments" method="GET" class="search-property-1">
                                         <div class="row g-0">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4 border-0">
-                                                    <label for="#">Enter Keyword</label>
+                                                    <label for="#">@lang('lang.key_word')</label>
                                                     <div class="form-field">
                                                         <div class="icon"><span class="fa fa-search"></span></div>
                                                         <input type="text" class="form-control" name="q"
-                                                            placeholder="Enter Keyword">
+                                                            placeholder="@lang('lang.key_word')">
                                                     </div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="type" value="sale">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Type</label>
+                                                    <label for="#">@lang('lang.type')</label>
                                                     <div class="form-field">
                                                         <div class="select-wrap">
                                                             <div class="icon"><span
                                                                     class="fa fa-chevron-down"></span></div>
                                                             <select name="category_id" id="category_id" class="form-control">
+                                                               <option value="" selected>@lang('lang.choose_type')</option>
                                                                 @foreach ($categories as $category )
-                                                                    <option value="{{$category->id}}">{{ $category->name_en}}</option>
+                                                                    <option value="{{$category->id}}">{{ app()->getLocale() === 'en' ? $category->name_en : $category->name_ar }}</option>
                                                                 @endforeach
                                                            
                                                             </select>
@@ -98,13 +99,14 @@
                                             </div>
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Areas</label>
+                                                    <label for="#">@lang('lang.area')</label>
                                                     <div class="select-wrap">
                                                         <div class="icon"><span
                                                                 class="fa fa-chevron-down"></span></div>
                                                         <select name="area_id" id="area_id" class="form-control">
+                                                            <option value="" selected>@lang('lang.choose_area')</option>
                                                             @foreach ($areas as $area )
-                                                                <option value="{{$area->id}}">{{ $area->name_en}}</option>
+                                                                <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                             @endforeach
                                                        
                                                         </select>
@@ -140,9 +142,8 @@
                                             </div> --}}
                                             <div class="col-md d-flex">
                                                 <div class="form-group d-flex w-100 border-0">
-                                                    <div class="form-field w-100 align-items-center d-flex">
-                                                        <input type="submit" value="Search" 
-                                                            class="align-self-stretch form-control btn btn-primary">
+                                                    <div class="form-field w-100 align-items-center justify-content-center d-flex">
+                                                        <button type="submit" class="btn btn-primary rounded" style="padding: 12px 60px; " >@lang('lang.search')</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,15 +152,15 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
                                     aria-labelledby="v-pills-performance-tab">
-                                    <form action="{{route('home.main')}}" method="GET" class="search-property-1">
+                                    <form action="{{route('home.main')}}#Advertisments" method="GET" class="search-property-1">
                                         <div class="row g-0">
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4 border-0">
-                                                    <label for="#">Enter Keyword</label>
+                                                    <label for="#">@lang('lang.key_word')</label>
                                                     <div class="form-field">
                                                         <div class="icon"><span class="fa fa-search"></span></div>
                                                         <input type="text" class="form-control" name="q"
-                                                            placeholder="Enter Keyword">
+                                                            placeholder="@lang('lang.key_word')">
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,14 +168,15 @@
 
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Type</label>
+                                                    <label for="#">@lang('lang.type')</label>
                                                     <div class="form-field">
                                                         <div class="select-wrap">
                                                             <div class="icon"><span
                                                                     class="fa fa-chevron-down"></span></div>
                                                             <select name="category_id" id="category_id" class="form-control">
+                                                             <option value="" selected>@lang('lang.choose_type')</option>
                                                                 @foreach ($categories as $category )
-                                                                    <option value="{{$category->id}}">{{ $category->name_en}}</option>
+                                                                    <option value="{{$category->id}}">{{ app()->getLocale() === 'en' ? $category->name_en : $category->name_ar}}</option>
                                                                 @endforeach
                                                            
                                                             </select>
@@ -184,13 +186,14 @@
                                             </div>
                                             <div class="col-md d-flex">
                                                 <div class="form-group p-4">
-                                                    <label for="#">Areas</label>
+                                                    <label for="#">@lang('lang.area')</label>
                                                     <div class="select-wrap">
                                                         <div class="icon"><span
                                                                 class="fa fa-chevron-down"></span></div>
                                                         <select name="area_id" id="area_id" class="form-control">
+                                                           <option value="" selected>@lang('lang.choose_area')</option>
                                                             @foreach ($areas as $area )
-                                                                <option value="{{$area->id}}">{{ $area->name_en}}</option>
+                                                                <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                             @endforeach
                                                        
                                                         </select>
@@ -199,9 +202,8 @@
                                             </div>
                                             <div class="col-md d-flex">
                                                 <div class="form-group d-flex w-100 border-0">
-                                                    <div class="form-field w-100 align-items-center d-flex">
-                                                        <input type="submit" value="Search" 
-                                                            class="align-self-stretch form-control btn btn-primary">
+                                                    <div class="form-field w-100 align-items-center justify-content-center d-flex">
+                                                        <button type="submit" class="btn btn-primary rounded" style="padding: 12px 60px; " >@lang('lang.search')</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,7 +239,7 @@
                                 <img src="{{asset('assets/images/logo gold 1.png')}}" class="img-fluid" alt="">
                             </div>
                             <div class="content-title">
-                                منصة موقع و تطبيق (الاسم) التابعة لشركة عبدالعزيز سعود الفريج هي الوجهه الاولى لاصحاب المكاتب وملاك العقار من خلالها يمكنك البحث عن شقق للايجار، بيوت للبيع، اراضي او اضافة اعلان ، من خلال موقعنا او التطبيق يمكنك البحث في آلاف الشقق والعقارات المعروضه للايجار او للبيع او للبدل في الكويت من الملاك مباشره او من خلال المكاتب العقارية. باستخدام محرك البحث المبسط
+                                @lang('lang.about_us_content')
                             </div>
                         </div>
                     </div>
@@ -252,7 +254,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 heading-section text-center mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <!-- <span class="subheading" style="c;">Our Properties</span> -->
-                <h2 class="mb-4">عقارات مميزة</h2>
+                <h2 class="mb-4" style="color: #ffb001">@lang('lang.feature_prop')</h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -262,27 +264,30 @@
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <div class="property-wrap">
                             <a href="#" class="img img-property" style="background-image: url({{asset('uploads/ads/'.$item->adsImage[0]->image)}});">
-                                <p class="price"><span class="orig-price">KWD {{$item->price}}</span></p>
+                                {{-- <p class="price"><span class="orig-price">KWD {{$item->price}}</span></p> --}}
                                 <p class="love"><span class="love-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
+                                        <g filter="url(#filter0_d_416_90)">
+                                          <circle cx="22.5" cy="18.5" r="18.5" fill="white"/>
                                         </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
+                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="#ffb001"/>
                                         <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                          <filter id="filter0_d_416_90" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                                             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                                             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                                             <feOffset dy="4"/>
                                             <feGaussianBlur stdDeviation="2"/>
                                             <feComposite in2="hardAlpha" operator="out"/>
                                             <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_90"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_90" result="shape"/>
                                           </filter>
                                         </defs>
                                       </svg>
                                 </span></p>
+                                <p class="type">
+                                    <span class="sale">{{$item->type}}</span>
+                                </p>
 
                             </a>
                             <div class="text">
@@ -294,17 +299,25 @@
                                     <span class="text-right">{{$item->updated_at}}</span>
                                 </div>
                                 <h3><a href="#">{{$item->title}}</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> {{$item->area->name_en}} <span
-                                        class="sale">{{$item->type}}</span></span>
+                                <span class="location"><i class="ion-ios-pin"></i> {{$item->area->name_en}}</span>
                                 {{-- <ul class="property_list mt-3 mb-0">
                                     <li><span class="flaticon-bed"></span>3</li>
                                     <li><span class="flaticon-bathtub"></span>2</li>
                                     <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
                                 </ul> --}}
                             </div>
-                        </div>
+                            <a href="#">
+                                <div class="price-button">
+                                    {{$item->price}} د.ك 
+                                </div>
+                            
+                            </a>
+                          </div>
                     </div>      
                     @endforeach
+                    <div class="col-md-3 text-center  m-auto"  data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        <a href="{{route('home.main')}}#Advertisments" class="btn btn-primary rounded" style="font-size: 16px;">See More ></a>
+                    </div>
                   
                     {{-- <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                         <div class="property-wrap">

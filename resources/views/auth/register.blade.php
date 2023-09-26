@@ -75,7 +75,7 @@
 </div>
 @endsection
 @section('content')
-<section class="ftco-section ftco-no-pb ftco-no-pt mb-5">
+<section class="ftco-section ftco-no-pb ftco-no-pt mb-5" id="Register">
     <div class="container">
         <div class="row">
             <div class="col-md-12 " data-aos="fade-up" data-aos-duration="1000">

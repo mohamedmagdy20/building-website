@@ -8,7 +8,7 @@
     margin-left: 10px;
     color:#000;
     font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 1px;
     
 }
@@ -120,7 +120,7 @@
 .ftco-section .ftco-content .content-icon
 {
     border-radius: 17px;
-    background: linear-gradient(180deg, #5DA0EE 0%, #0075FF 98.44%);
+    background: linear-gradient(180deg, #ffb001 0%, #ffb001 98.44%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding-top: 15px;
     padding-bottom: 12px;
@@ -138,7 +138,7 @@
 
 .ftco-footer-widget .content-icon{
     border-radius: 17px;
-    background: linear-gradient(180deg, #5DA0EE 0%, #0075FF 98.44%);
+    background: linear-gradient(180deg, #ffb001 0%, #ffb001 98.44%);
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -247,7 +247,7 @@ line-height: 150%; /* 36px */
     text-align: left;
 }
 .login-check a {
-    color: #00AEFF;
+    color: #00004a;
     font-size: 14px;
     font-weight: 400;
 }
@@ -259,7 +259,7 @@ line-height: 150%; /* 36px */
 }
 
 .login-footer .submit-btn3 {
-    background: #00AEFF;
+    background: #00004a;
     height: 60px;
     padding: 10px 43px;
     border: 0;
@@ -278,4 +278,50 @@ line-height: 150%; /* 36px */
         padding-top: 5px;
         padding-bottom: 10px;
     }   
+}
+
+.property-wrap .price-button{
+    
+    background-color:#00004a ;
+    color: #FFF;
+    padding-top: 15px;
+    padding-bottom: 10px;
+
+    text-align: center;
+    font-family: Cairo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px
+}
+
+.property-wrap .price-button:hover{
+    cursor: pointer;
+    background-color: #140C40 ;
+    transition: ease-in-out 0.8s;
+}
+
+.property-wrap .type{
+    position: absolute;
+    right: 8px;
+    top: 12px;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #243065;
+    border-color: #243065;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+
+.page-item .page-link {
+    z-index: 3;
+    color: #333;
+    background-color: #fff;
+    border-color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
 }
