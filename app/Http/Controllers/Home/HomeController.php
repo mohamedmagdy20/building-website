@@ -22,7 +22,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->take(6)->latest()->get();
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(6)->latest()->get();
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
@@ -39,7 +39,7 @@ class HomeController extends Controller
     }
     public function home(Request $request)
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->filter($request->all())->latest()->paginate(9);
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->filter($request->all())->latest()->paginate(9);
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();

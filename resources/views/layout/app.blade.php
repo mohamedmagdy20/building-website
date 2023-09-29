@@ -26,12 +26,26 @@
 	<link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/css/cutom.css')}}">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+      integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  
     @yield('css')
 </head>
 <body>
     @include('layout.nav')
-    <section class="slider-hero">
+    {{-- <section class="slider-hero">
         <div class="overlay"></div>
         <div class="hero-slider">
             <div class="item">
@@ -41,62 +55,15 @@
                         <div class="container-xl">
                             <div class="row justify-content-center">
                                     @yield('slider-content')
-                                    {{-- <div id="first-content" class="row mb-3">
-                                        <div class="col-md-6">
-                                            <div class="content">
-                                                <img src="{{asset('assets/images/ads1.png')}}" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="content">
-                                                <img src="{{asset('assets/images/ads2.png')}}" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="secound-content" class="row align-items-center justify-content-center">
-                                        <div class="col-sm-4 col-md-4 ">
-                                            <div class="content">
-                                                <img src="{{asset('assets/images/About.png')}}" alt="">
-                                                <div class="title">نصائح عقارية</div>
-                                            </div>
-                                        </div>
-    
-                                        <div class="col-sm-4 col-md-4">
-                                            <div class="content">
-                                                <img src="{{asset('assets/images/Agreement.png')}}" alt="">
-                                                <div class="title ">نموذج عقد ايجار استثماري </div>
-                                            </div>
-                                        </div>
-    
-    
-                                        <div class="col-sm-4 col-md-4">
-                                            <div class="content">
-                                                <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
-                                                <div class="title">التقييم العقاري للسكن الخاص</div>
-    
-                                            </div>
-                                        </div>
-    
-                                    </div> --}}
-                                    <!-- <div class="text text-center" data-aos="fade-up" data-aos-duration="1000">
-                                        <h2>Your Property Is Our Priority</h2>
-                                        <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                            with the necessary regelialia. It is a paradisematic country, in which
-                                            roasted parts of sentences fly into your mouth.</p>
-                                        <p><a href="#" class="btn btn-primary px-5 py-3">Learn More <span
-                                                    class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                    </div> -->
-                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     @yield('content')
     @include('layout.footer')
-    @yield('script')
 
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 	<script src="{{asset('assets/js/tiny-slider.js')}}"></script>
@@ -121,5 +88,32 @@
 		integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
 		data-cf-beacon='{"rayId":"808c98a28dad11b6","version":"2023.8.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}'
 		crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+          integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+       <script>
+          $(document).ready(function() {
+              toastr.options.timeOut = 10000;
+              @if (Session::has('error'))
+                  toastr.error('{{ Session::get('error') }}');
+              @elseif(Session::has('success'))
+                  toastr.success('{{ Session::get('success') }}');
+              @endif
+          });
+      </script>
+      <script>
+        $(document).ready(function() {
+        $('.select2').selectize();
+    });
+      </script>
+    @yield('script')
+
+      
+    </body>
 </html>

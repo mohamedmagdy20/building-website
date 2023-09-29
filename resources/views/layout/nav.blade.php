@@ -55,7 +55,7 @@
             </button>
 
             <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
-                <p class="mb-0"><a href="#" class="btn btn-primary rounded" style="font-size: 16px;">@lang('lang.add_ads')</a></p>
+                <p class="mb-0"><a href="{{route('ads.create')}}" class="btn btn-primary rounded" style="font-size: 16px;">@lang('lang.add_ads')</a></p>
                 @guest
                 <a class="mb-0 btn login-btn" href="{{route('login.view')}}#Login"><i class="fa fa-user" style="font-size: 25px; color:#00004a; border:none"></i> @lang('lang.login')</a>
                 @endguest
@@ -106,9 +106,14 @@
                     <li class="nav-item"><a class="nav-link" href="#">@lang('lang.contact')</a></li>
                 </ul>
 
-                <p class="mb-0"><a href="#" class="btn btn-primary rounded" style="font-size: 16px;">@lang('lang.add_ads')</a></p>
+                <p class="mb-0"><a href="{{route('ads.create')}}" class="btn btn-primary rounded" style="font-size: 16px;">@lang('lang.add_ads')</a></p>
             
+                @guest
                 <a class="mb-0 btn login-btn" href="{{route('login.view')}}#Login"><i class="fa fa-user" style="font-size: 25px; color:#00004a; border:none"></i> @lang('lang.login')</a>
+                @endguest
+                @auth
+                <a class="mb-0 btn login-btn" href="{{route('logout')}}"><i class="fa fa-right-from-bracket" style="font-size: 25px; color:#00004a; border:none"></i> @lang('lang.logout')</a>
+                @endauth
                 @if(app()->getLocale() === 'en') 
                 <a class="btn login-btn" href="{{route('change-lang','ar')}}">
                     <i class="fa fa-globe" style="font-size: 25px; color:#00004a; border:none"></i>
