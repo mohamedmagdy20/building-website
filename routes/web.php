@@ -26,6 +26,8 @@ Route::post('login',[AuthController::class,'login'])->name('login');
 Route::get('register',[AuthController::class,'registerView'])->name('register.view');
 Route::post('register',[AuthController::class,'register'])->name('register');
 
+Route::get('/Advertise/{id}', [HomeController::class , 'show'])->name('categories.show');
+
 Route::get('change/{lang}',[LocalizationController::class,'setLang'])->name('change-lang');
 
 Route::group(['middleware'=>'auth'],function(){

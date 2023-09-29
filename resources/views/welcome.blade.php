@@ -25,25 +25,25 @@
                 <div class="title">@lang('lang.real_estate_tips')</div>
             </div>
         </div>
-    
+
         <div class="col-sm-4 col-md-4">
             <div class="content">
                 <img src="{{asset('assets/images/Agreement.png')}}" alt="">
                 <div class="title ">@lang('lang.investment_lease')</div>
             </div>
         </div>
-    
-    
+
+
         <div class="col-sm-4 col-md-4" >
             <div class="content">
                 <img src="{{asset('assets/images/PriceTagUSD.png')}}" alt="">
                 <div class="title">@lang('lang.real_estate_evaluation')</div>
-    
+
             </div>
         </div>
-    
+
     </div>
-</div>                   
+</div>
 @endsection
 
 @section('content')
@@ -91,7 +91,7 @@
                                                                 @foreach ($categories as $category )
                                                                     <option value="{{$category->id}}">{{ app()->getLocale() === 'en' ? $category->name_en : $category->name_ar }}</option>
                                                                 @endforeach
-                                                           
+
                                                             </select>
                                                         </div>
                                                     </div>
@@ -108,7 +108,7 @@
                                                             @foreach ($areas as $area )
                                                                 <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                             @endforeach
-                                                       
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -178,7 +178,7 @@
                                                                 @foreach ($categories as $category )
                                                                     <option value="{{$category->id}}">{{ app()->getLocale() === 'en' ? $category->name_en : $category->name_ar}}</option>
                                                                 @endforeach
-                                                           
+
                                                             </select>
                                                         </div>
                                                     </div>
@@ -195,7 +195,7 @@
                                                             @foreach ($areas as $area )
                                                                 <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                             @endforeach
-                                                       
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -248,12 +248,11 @@
         </div>
     </div>
 </section>
-
+{{-- Advertisments Section --}}
 <section class="ftco-section bg-light">
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-md-8 heading-section text-center mb-3" data-aos="fade-up" data-aos-duration="1000">
-                <!-- <span class="subheading" style="c;">Our Properties</span> -->
                 <h2 class="mb-4" style="color: #ffb001">@lang('lang.feature_prop')</h2>
             </div>
         </div>
@@ -263,9 +262,9 @@
                     @foreach ($data as $item )
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url({{asset('uploads/ads/'.$item->adsImage[0]->image)}});">
-                                {{-- <p class="price"><span class="orig-price">KWD {{$item->price}}</span></p> --}}
-                                <p class="love"><span class="love-icon">
+                            <a href="{{ route('categories.show', $item->id) }}" class="img img-property" style="background-image: url({{asset('uploads/ads/'.$item->adsImage[0]->image)}});">
+                                <p class="love">
+                                    <span class="love-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                                         <g filter="url(#filter0_d_416_90)">
                                           <circle cx="22.5" cy="18.5" r="18.5" fill="white"/>
@@ -284,11 +283,11 @@
                                           </filter>
                                         </defs>
                                       </svg>
-                                </span></p>
+                                    </span>
+                                </p>
                                 <p class="type">
                                     <span class="sale">{{$item->type}}</span>
                                 </p>
-
                             </a>
                             <div class="text">
                                 <div class="list-team d-flex align-items-center mb-4">
@@ -300,251 +299,18 @@
                                 </div>
                                 <h3><a href="#">{{$item->title}}</a></h3>
                                 <span class="location"><i class="ion-ios-pin"></i> {{$item->area->name_en}}</span>
-                                {{-- <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul> --}}
                             </div>
                             <a href="#">
                                 <div class="price-button">
-                                    {{$item->price}} د.ك 
+                                    {{$item->price}} د.ك
                                 </div>
-                            
                             </a>
                           </div>
-                    </div>      
+                    </div>
                     @endforeach
                     <div class="col-md-3 text-center  m-auto"  data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <a href="{{route('home.main')}}#Advertisments" class="btn btn-primary rounded" style="font-size: 16px;">See More ></a>
                     </div>
-                  
-                    {{-- <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(images/work-2.jpg);">
-                                <p class="price"><span class="old-price">800,000</span></p>
-                                <p class="love"><span class="love-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
-                                        </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
-                                        <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                            <feOffset dy="4"/>
-                                            <feGaussianBlur stdDeviation="2"/>
-                                            <feComposite in2="hardAlpha" operator="out"/>
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
-                                          </filter>
-                                        </defs>
-                                      </svg>
-                                </span></p>
-                            </a>
-                            <div class="text">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                        <h3 class="ml-2">John Dorf</h3>
-                                    </div>
-                                    <span class="text-right">2 weeks ago</span>
-                                </div>
-                                <h3><a href="#">Sunny Loft Property</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                        class="rent">Rent</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(images/work-3.jpg);">
-                                <p class="price"><span class="orig-price">$300</span></p>
-                                <p class="love"><span class="love-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
-                                        </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
-                                        <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                            <feOffset dy="4"/>
-                                            <feGaussianBlur stdDeviation="2"/>
-                                            <feComposite in2="hardAlpha" operator="out"/>
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
-                                          </filter>
-                                        </defs>
-                                      </svg>
-                                </span></p>
-                            </a>
-                            <div class="text">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                        <h3 class="ml-2">John Dorf</h3>
-                                    </div>
-                                    <span class="text-right">2 weeks ago</span>
-                                </div>
-                                <h3><a href="#">Sunny Loft Property</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                        class="sale">Sale</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(images/work-3.jpg);">
-                                <p class="price"><span class="orig-price">$300</span></p>
-                                <p class="love"><span class="love-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
-                                        </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
-                                        <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                            <feOffset dy="4"/>
-                                            <feGaussianBlur stdDeviation="2"/>
-                                            <feComposite in2="hardAlpha" operator="out"/>
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
-                                          </filter>
-                                        </defs>
-                                      </svg>
-                                </span></p>
-                            </a>
-                            <div class="text">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                        <h3 class="ml-2">John Dorf</h3>
-                                    </div>
-                                    <span class="text-right">2 weeks ago</span>
-                                </div>
-                                <h3><a href="#">Sunny Loft Property</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                        class="sale">Sale</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(images/work-3.jpg);">
-                                <p class="price"><span class="orig-price">$300</span></p>
-                                <p class="love"><span class="love-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
-                                        </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
-                                        <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                            <feOffset dy="4"/>
-                                            <feGaussianBlur stdDeviation="2"/>
-                                            <feComposite in2="hardAlpha" operator="out"/>
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
-                                          </filter>
-                                        </defs>
-                                      </svg>
-                                </span></p>
-                            </a>
-                            <div class="text">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                        <h3 class="ml-2">John Dorf</h3>
-                                    </div>
-                                    <span class="text-right">2 weeks ago</span>
-                                </div>
-                                <h3><a href="#">Sunny Loft Property</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                        class="sale">Sale</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(images/work-3.jpg);">
-                                <p class="price"><span class="orig-price">$300</span></p>
-                                <p class="love"><span class="love-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
-                                        <g filter="url(#filter0_d_416_73)">
-                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#0061E0"/>
-                                        </g>
-                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
-                                        <defs>
-                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                            <feOffset dy="4"/>
-                                            <feGaussianBlur stdDeviation="2"/>
-                                            <feComposite in2="hardAlpha" operator="out"/>
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
-                                          </filter>
-                                        </defs>
-                                      </svg>
-                                </span></p>
-                            </a>
-                            <div class="text">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                        <h3 class="ml-2">John Dorf</h3>
-                                    </div>
-                                    <span class="text-right">2 weeks ago</span>
-                                </div>
-                                <h3><a href="#">Sunny Loft Property</a></h3>
-                                <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                        class="sale">Sale</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    <li><span class="flaticon-bed"></span>3</li>
-                                    <li><span class="flaticon-bathtub"></span>2</li>
-                                    <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

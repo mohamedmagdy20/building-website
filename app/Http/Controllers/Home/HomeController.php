@@ -29,6 +29,14 @@ class HomeController extends Controller
         return view('welcome',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
     }
 
+    public function show($id)
+    {
+        $category = category::findOrFail($id);
+        return view(
+            'categories.show',
+            compact('category')
+        );
+    }
     public function home(Request $request)
     {
         $data = $this->model->with('adsImage')->with('user')->notDraft()->notExpire()->filter($request->all())->latest()->paginate(9);
