@@ -31,6 +31,8 @@ Route::group(['middleware'=>'guest'],function(){
     
 });
 
+Route::get('/Advertise/{id}', [HomeController::class , 'show'])->name('categories.show');
+
 Route::get('change/{lang}',[LocalizationController::class,'setLang'])->name('change-lang');
 
 Route::group(['middleware'=>'auth'],function(){

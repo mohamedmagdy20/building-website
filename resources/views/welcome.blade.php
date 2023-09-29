@@ -278,7 +278,7 @@
                     @foreach ($data as $item )
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <div class="property-wrap">
-                            <a href="#" class="img img-property" style="background-image: url(https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}});">
+                            <a href="{{ route('categories.show', $item->id) }}" class="img img-property" style="background-image: url(https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}});">
                                 {{-- <p class="price"><span class="orig-price">KWD {{$item->price}}</span></p> --}}
                                 <p class="love"><span class="love-icon">
                                     @if($item->isFavoriteByUser($item->user_id))
