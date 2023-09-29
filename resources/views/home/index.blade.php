@@ -1,15 +1,29 @@
 @extends('layout.app')
 @section('title','Advertisments')
-@section('slider-content')
-<div class="col-md-9 pt-5 text-center "  data-aos="fade-up" data-aos-duration="1000">
-    <div id="home-content">
-        <p class="breadcrumbs"><span class="mr-2"><a> @lang('lang.all_ads') <i class="fa fa-chevron-right"></i></a></span> <span> 
-        <a href="{{route('home')}}">@lang('lang.main')</a><i class="fa fa-chevron-right"></i></span></p>
-        <h1 class="mb-0 bread" id="bread">@lang('lang.all_ads')</h1>
-    </div>
-</div>
-@endsection
 @section('content')
+<section class="slider-hero">
+    <div class="overlay"></div>
+    <div class="hero-slider">
+        <div class="item">
+            <div class="work">
+                <div class="img d-flex align-items-center js-fullheight"
+                    style="background-image: url({{asset('assets/images/background.png')}});">
+                    <div class="container-xl">
+                        <div class="row justify-content-center">
+                            <div class="col-md-9 pt-5 text-center "  data-aos="fade-up" data-aos-duration="1000">
+                                <div id="home-content">
+                                    <p class="breadcrumbs"><span class="mr-2"><a> @lang('lang.all_ads') <i class="fa fa-chevron-right"></i></a></span> <span> 
+                                    <a href="{{route('home')}}">@lang('lang.main')</a><i class="fa fa-chevron-right"></i></span></p>
+                                    <h1 class="mb-0 bread" id="bread">@lang('lang.all_ads')</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
         <div class="row">
@@ -198,6 +212,26 @@
                             <a href="#" class="img img-property" style="background-image: url(https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}});">
                                 {{-- <p class="price"><span class="orig-price">KWD {{$item->price}}</span></p> --}}
                                 <p class="love"><span class="love-icon">
+                                    @if($item->isFavoriteByUser($item->user_id))
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
+                                        <g filter="url(#filter0_d_416_73)">
+                                          <circle cx="22.5" cy="18.5" r="18.5" fill="#ffb001"/>
+                                        </g>
+                                        <path d="M17.75 12C16.4437 12 15.28 12.5462 14.4012 13.4012C13.5462 14.2562 13 15.42 13 16.75C13 18.0563 13.5462 19.22 14.4012 20.0988L22.5 28.1975L30.5987 20.0988C31.4538 19.2438 32 18.08 32 16.75C32 15.4437 31.4538 14.28 30.5987 13.4012C29.7437 12.5462 28.58 12 27.25 12C25.9438 12 24.78 12.5462 23.9013 13.4012C23.0463 14.2562 22.5 15.42 22.5 16.75C22.5 15.4437 21.9538 14.28 21.0988 13.4012C20.2438 12.5462 19.08 12 17.75 12Z" fill="white"/>
+                                        <defs>
+                                          <filter id="filter0_d_416_73" x="0" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                            <feOffset dy="4"/>
+                                            <feGaussianBlur stdDeviation="2"/>
+                                            <feComposite in2="hardAlpha" operator="out"/>
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_416_73"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_73" result="shape"/>
+                                          </filter>
+                                        </defs>
+                                      </svg>
+                                    @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                                         <g filter="url(#filter0_d_416_90)">
                                           <circle cx="22.5" cy="18.5" r="18.5" fill="white"/>
@@ -215,7 +249,9 @@
                                             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_416_90" result="shape"/>
                                           </filter>
                                         </defs>
-                                      </svg>
+                                    </svg>
+                                    @endif
+                                   
                                 </span></p>
                                 @if ($item->type == 'sale')
                                 <p class="type">

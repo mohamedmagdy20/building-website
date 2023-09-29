@@ -26,9 +26,9 @@ class AuthController extends Controller
 
         if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
         {
-            return redirect()->route('home')->with('success','Welcome');
+            return redirect()->route('home')->with('success',"@lang('lang.welcome')");
         }else{
-            return redirect()->back()->with('error','Invaild Email or Password');
+            return redirect()->back()->with('error','Invaild Phone or Password');
         }
     }
 
@@ -39,6 +39,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        return $request->all();
         $data = $request->validated();
         if($request->hasFile('image'))
         {

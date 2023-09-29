@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Advertisment extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory , SoftDeletes;
     protected $table = 'advertisments';
     public $timestamps = true;
     protected $fillable = 
@@ -43,6 +43,15 @@ class Advertisment extends Model
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'ads_favorites','advertisment_id','user_id');
+    }
+
+    public function isFavoriteByUser($userID){
+        return $this->users()->where('user_id',$userID)->exists();
     }
 
     public function area()
@@ -97,13 +106,19 @@ class Advertisment extends Model
         $query->where('type','instead');
     }
 
-    public function scopeNotExpire($query)
-    {
-        $query->where('is_expire',false);
-    }
-
     public function scopeFilter($query, $params)
     {
+        
+        if (isset($params['q'])) {
+            $word = $params['q'];
+            $query->where(function ($q) use ($word) {
+                $q->where('number', $word)
+                    ->orWhere('price', $word)
+                    ->orWhere('space', $word)
+                    ->orWhere('title', 'LIKE', '%' . $word . '%');
+            });
+    }
+        
         if(isset($params['category_id']))
         {
             $query->where('category_id',$params['category_id']);
@@ -186,20 +201,7 @@ class Advertisment extends Model
             }
         }
 
-        if(isset($params['q']))
-        {
-            $word = $params['q'];
-            $query->where('number',$word)->orWhere('price',$word)->orWhere('space',$word)->orWhere('title','LIKE', '%' . $word . '%');
-            // $query->where(function ($query) use ($word) {
-            //     $query->whereHas('city', function ($q) use ($word) {
-            //         $q->where('name_en', 'LIKE', '%' . $word . '%')
-            //           ->orWhere('name_ar', 'LIKE', '%' . $word . '%');
-            //     })->orWhereHas('category', function ($q) use ($word) {
-            //         $q->where('name_en', 'LIKE', '%' . $word . '%')
-            //           ->orWhere('name_ar', 'LIKE', '%' . $word . '%');
-            //     });
-            // });
-        }
+      
         return $query;
     }
 }
