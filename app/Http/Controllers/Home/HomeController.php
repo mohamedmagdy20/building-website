@@ -31,11 +31,10 @@ class HomeController extends Controller
 
     public function show($id)
     {
-        $category = category::findOrFail($id);
+        $advertisment = Advertisment::with('adsImage')->with('user')->with('Area')->with('Category')->findOrFail($id);
         return view(
             'categories.show',
-            compact('category')
-        );
+            ['advertisment'=>$advertisment]);
     }
     public function home(Request $request)
     {
