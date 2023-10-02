@@ -110,5 +110,5 @@ return [
     'Attic'=>'سندرة',
     'Mezzanine'=>'ميزانين',
     'floor_num'=>'عدد الادوار',
-    'num_of_apartments'=>'عدد الشقق'  
+    'num_of_apartments'=>'عدد الشقق',
 ];

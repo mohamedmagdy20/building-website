@@ -39,8 +39,4 @@ class AdvertismentController extends Controller
         // return $text;
     }
 
-    public function store(Request $request)
-    {
-        return $request->all();
-    }
 }
