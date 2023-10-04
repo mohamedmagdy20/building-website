@@ -18,12 +18,7 @@ class AdvertismentController extends Controller
         $this->model = $model;
     }
 
-    public function create()
-    {
-        $areas = Area::all();
-        $categories = Category::all();
-        return view('advertisment.create',['areas'=>$areas,'categories'=>$categories]);
-    }
+   
 
     public function getCategory(Request $request){
         $categories = Category::filter($request->all())->get();

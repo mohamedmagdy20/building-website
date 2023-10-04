@@ -26,6 +26,12 @@ class AuthController extends Controller
 
         if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
         {
+            $user = User::where('phone',$data['phone'])->first();
+            if($user->is_verified == false)
+            {
+            return redirect()->back()->with('error',"Account Is Not Verifed");
+                
+            }
             return redirect()->route('home')->with('success',"@lang('lang.welcome')");
         }else{
             return redirect()->back()->with('error','Invaild Phone or Password');
@@ -53,6 +59,25 @@ class AuthController extends Controller
         }
     }
 
+    public function verify()
+    {
+        return view('auth.verify');
+    }
+
+    public function checkOtp(Request $request)
+    {
+        $user = User::where('otp',$request->otp)->first();
+        if($user)
+        {
+            $user->update([
+                'is_verified'=>true,
+                'otp'=>null
+            ]);
+            return redirect()->route('login')->with('success','Account Verifed');
+        }else{
+            return redirect()->back()->with('error','Invaild OTP');
+        }
+    }
     public function logout(Request $request)
     {
         Auth::logout();

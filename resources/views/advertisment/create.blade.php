@@ -44,7 +44,7 @@
                                         <div class="col-md-12">
                                           <div class="input_wrap">
                                             <label for="title">@lang('lang.title')</label>
-                                            <input type="text" name="title" class="form-control" placeholder="@lang('lang.title')" id="title">
+                                            <input type="text" name="title" required class="form-control" placeholder="@lang('lang.title')" id="title">
                                             @error('title')
                                               <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                           <label for="area">@lang('lang.area')</label>
-                                          <select name="area_id" class="select2" id="area_id">
+                                          <select name="area_id" required class="select2" id="area_id">
                                             <option value="">@lang('lang.area')</option>
                                             @foreach ($areas as $area )
                                               <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
@@ -74,7 +74,7 @@
 
                                         <div class="col-md-12 mb-3">
                                           <label for="cat-type">@lang('lang.real_estate_type')</label>
-                                            <select name="cat_type" class="form-select" id="cat_type" onchange="applyCategory()">
+                                            <select name="cat_type" required class="form-select" id="cat_type" onchange="applyCategory()">
                                              <option value="" selected disabled>@lang('lang.choose_type')</option>
                                               <option value="1">@lang('lang.residential')</option>
                                               <option value="2">@lang('lang.commercial')</option>
@@ -90,7 +90,7 @@
 
                                         <div class="col-md-12 mb-3">
                                           <label for="category_id">@lang('lang.real_estate')</label>
-                                            <select name="category_id" class="form-select" id="category_id" onclick="applyType()" >
+                                            <select name="category_id" required class="form-select" id="category_id" onclick="applyType()" >
                                              <option value="" selected disabled>@lang('lang.choose_type')</option>
                                             </select>
                                         </div>
@@ -104,7 +104,7 @@
                                     <div class="form_container">
                                       <div class="input_wrap">
                                         <label for="images">@lang('lang.images') (@lang('lang.max_5'))</label>
-                                        <input type="file" name="images[]" max="5" multiple class="form-control" id="images">
+                                        <input type="file" name="images[]" required max="5" multiple class="form-control" id="images">
                                       </div>
                                       <div class="input-wrap">
                                         <div class="img-thumbs img-thumbs-hidden" id="img-preview"></div>
@@ -553,6 +553,7 @@
 <script src="{{asset('assets/js/advertisment.js')}}"></script>
 <script src="{{asset('assets/js/multiImages.js')}}"></script>
 <script src="{{asset('assets/js/touch-spin.js')}}"></script>
+<script src="{{asset('assets/js/create.js')}}"></script>
 <script>
     // let lands = document.getElementById('lands');
     // let residential = document.getElementById('residential');
@@ -1146,66 +1147,5 @@
 
     }
 
-    $(document).ready(function() {
-      $("input[class='touchspin']").TouchSpin();
-
-      // Store From Api
-      $("#ads_form").submit(function(e){
-          $(".btn_done").html('<i class="fa fa-spinner fa-spin"></i> Process...').prop('disabled', true);
-          e.preventDefault();
-
-          Alldata = new FormData(this)
-          console.log(Alldata);
-          $.ajax({
-              url:'http://admin.alfuraij.com/api/advertisment/web/store',
-              header:{
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-              },
-              type:'POST',
-              data: new FormData(this),
-              processData:false,
-              contentType:false,
-              success:function(data){
-
-                  console.log(data);
-                  if(data.status === 200){
-                       $(".btn_done").html('@lang('lang.save')').prop('disabled', false);
-                       toastr.success(`${data.message}`);
-                  }
-                  
-                  
-                  // }else{
-                  //     // console.log(data);
-                  //     $(".submit-button").html('Save').prop('disabled', false);
-                  //     toastr.error(`${data.message}`);
-                  // }
-                      
-              },
-              error:function(data)
-              {
-                  console.log(data);
-                  $(".btn_done").html('Save').prop('disabled', false);
-                  toastr.error(`${ data.responseJSON.message}`);
-                  if(data.status == 403){
-                      // printErrorMsg(data.responseJSON.errors)
-                      msg = data.responseJSON.data
-                      console.log(msg);
-                      // $.each(msg,function(key,value){
-                      //     $(`.${key}_err`).text(value)
-                      //     notyf.open({
-                      //             type: 'error',
-                      //             message: value
-                          
-                      //         });
-                      // })
-                  }
-                
-                  
-              }
-            
-          });
-      });
-    })
 </script>
 @endsection
-

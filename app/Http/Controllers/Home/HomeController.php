@@ -44,4 +44,16 @@ class HomeController extends Controller
         $categroy = $this->category->all();
         return view('home.index',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
     }
+
+    public function create()
+    {
+        $areas = Area::all();
+        $categories = Category::all();
+    // return $areas;
+        return view('advertisment.create',['areas'=>$areas,'categories'=>$categories]);
+    }
+    // public function create()
+    // {
+    //     reut
+    // }p
 }

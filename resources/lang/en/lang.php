@@ -111,8 +111,10 @@ return [
     'Mezzanine'=>'Mezzanine',
     
     'floor_num'=>'Number of Floors',
-    'num_of_apartments'=>'Number of Apartments'
+    'num_of_apartments'=>'Number of Apartments',
+    'verify_otp'=>'Verify OTP',
+    'check'=>'Check',
+    'resend'=>'Resend OTP',
 
-    
 
 ];

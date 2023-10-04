@@ -111,4 +111,7 @@ return [
     'Mezzanine'=>'ميزانين',
     'floor_num'=>'عدد الادوار',
     'num_of_apartments'=>'عدد الشقق',
+    'verify_otp'=>'ادخل رمز التحقق',
+    'check'=>'تحقق',
+    'resend'=>'ارسال رمز تحقق',
 ];

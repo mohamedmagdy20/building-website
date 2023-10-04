@@ -99,7 +99,7 @@
                         <div class="col-xl-10 align-items-center justify-content-center">
                             <form action="{{route('register')}}" id="user-form" method="POST" enctype="multipart/form-data">
                                @csrf
-                                <div class="login-form-area">
+                                <div class="login-form-area" dir="{{ app()->getLocale() === 'en' ? 'ltr' : 'rtl'}}">
                                     <div class="login-form">
                                    
                                     <div class="login-heading">
@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="single-input-fields">
                                     <label>@lang('lang.phone')</label>
-                                    <input type="text" name="phone" class="form-control" placeholder="+965">
+                                    <input type="tel" name="phone" class="form-control" id="phone" value="+965">
                                     </div>
                                     <div class="single-input-fields">
                                     <label>@lang('lang.password')</label>
@@ -197,7 +197,8 @@ $("#imageUpload").change(function() {
 $(document).ready(function(){
 
 $("#user-form").submit(function(e){
-    $(".submit-button").html('<i class="fa fa-spinner fa-spin"></i> Adding...').prop('disabled', true);
+    phone = $("#phone").val()
+    $(".submit-button").html('<i class="fa fa-spinner fa-spin"></i> Process...').prop('disabled', true);
     e.preventDefault();
     $.ajax({
         url:'https://admin.alfuraij.com/api/handle-register',
@@ -213,9 +214,7 @@ $("#user-form").submit(function(e){
             if(data.status === 200){
                 $(".submit-button").html('Save').prop('disabled', false);
                 toastr.success(`${data.message}`);
-
-
-
+                window.location.replace(`url('/verify?phone=${phone}')`);
             }else{
                 // console.log(data);
                 $(".submit-button").html('Save').prop('disabled', false);
@@ -228,16 +227,11 @@ $("#user-form").submit(function(e){
             console.log(data);
             $(".submit-button").html('Save').prop('disabled', false);
             
-            if(data.status == 422){
+            if(data.status == 400){
                 // printErrorMsg(data.responseJSON.errors)
-                msg = data.responseJSON.errors
+                msg = data.responseJSON.data
                 $.each(msg,function(key,value){
-                    $(`.${key}_err`).text(value)
-                    notyf.open({
-                            type: 'error',
-                            message: value
-                    
-                        });
+                     toastr.error(`${key}: ${value}`);
                 })
             }
 

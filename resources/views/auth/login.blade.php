@@ -49,8 +49,9 @@
                                     <div class="input-box">
                                     <div class="single-input-fields">
                                     <label>@lang('lang.phone')</label>
-                                    <input type="text" name="phone" value="{{old('phone')}}" class="form-control" placeholder="+965">
-                                @error('phone')
+                                    <input type="tel" name="phone" class="form-control" value="+965">
+                              
+                                    @error('phone')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror    
                                 </div>
