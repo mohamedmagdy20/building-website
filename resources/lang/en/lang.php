@@ -109,12 +109,38 @@ return [
     'Two_streets_on_the_corner'=>'Two Street On the Corner',
     'Attic'=>'Attic',
     'Mezzanine'=>'Mezzanine',
-    
     'floor_num'=>'Number of Floors',
     'num_of_apartments'=>'Number of Apartments',
     'verify_otp'=>'Verify OTP',
     'check'=>'Check',
     'resend'=>'Resend OTP',
+    'location'=>'Location',
+    'one_street'=>'One Street',
+    'two_streets-F+B'=>'Two Streets F+B',
+    'two_street_corner'=>'Two Street Corner',
+    'three_street'=>'Three Street',
+    'inner_street'=>'Inner Street',
+    'Inner-Throughst'=>'Inner Through st',
+    'Major-inner'=>'Major Inner',
+    'Major-2blocks'=>'Major 2 blocks',
+    'Main'=>'Main',
+    'Main-Highway'=>'Main Highway',
+    'direction'=>'Direction',
+    'street'=>'Street',
+    'do_no_know'=>'Do Not Know',
+    'rebound'=>'Rebound',
+    'has_bus_station'=>'Bus Station',
+    'street_light_pole'=>'Street Light Pole',
+    'shared'=>'Shared',
+    'alley'=>'Alley',
+    'wide_alley'=>'Wide Alley',
+    'Property_condition'=>'Estate Type',
+    'build'=>'Building',
+    'location_specs'=>'Location Specs',
+    'Facing'=>'Facing',
+    'Plot_Specs'=>'Plot Specs'
+
+
 
 
 ];

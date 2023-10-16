@@ -27,14 +27,34 @@ class AuthController extends Controller
         if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
         {
             $user = User::where('phone',$data['phone'])->first();
+           
             if($user->is_verified == false)
             {
-            return redirect()->back()->with('error',"Account Is Not Verifed");
-                
+                //  return redirect()->back()->with('error',"Account Is Not Verifed");
+                return response()->json([
+                    'status'=>412,
+                    'message'=>'Account Is Not Verifed',
+                    'data'=>null
+                ]);
+            }else{
+                $user->update([
+                    'notification_token'=>$data['token']
+                ]);
+                return response()->json([
+                    'status'=>200,
+                    'message'=>'Welcome',
+                    'data'=>$user
+                ]);
             }
-            return redirect()->route('home')->with('success',"@lang('lang.welcome')");
+            // return redirect()->route('home')->with('success',"@lang('lang.welcome')");
+           
         }else{
-            return redirect()->back()->with('error','Invaild Phone or Password');
+            // return redirect()->back()->with('error','Invaild Phone or Password');
+            return response()->json([
+                'status'=>400,
+                'message'=>'Invaild Phone or Password',
+                'data'=>null
+            ]);
         }
     }
 
@@ -45,7 +65,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        return $request->all();
+        // return $request->all();
         $data = $request->validated();
         if($request->hasFile('image'))
         {
@@ -77,6 +97,19 @@ class AuthController extends Controller
         }else{
             return redirect()->back()->with('error','Invaild OTP');
         }
+    }
+
+    public function updateFCM(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->update([
+            'notification_token'=>$request->token
+        ]);
+        return response()->json([
+            'status'=>200,
+            'message'=>'Done',
+            'data'=>$user
+        ]);
     }
     public function logout(Request $request)
     {

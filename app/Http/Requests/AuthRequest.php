@@ -24,7 +24,8 @@ class AuthRequest extends FormRequest
         return [
             //
             'phone'=>'required',
-            'password'=>'required'
+            'password'=>'required',
+            'token'=>'required'
         ];
     }
 }

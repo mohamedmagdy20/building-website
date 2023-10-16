@@ -37,7 +37,7 @@
                     @endif --}}
                     <div class="row">
                         <div class="col-xl-10 align-items-center justify-content-center">
-                            <form action="{{route('login')}}" method="POST" >
+                            <form id="LoginForm" action="{{route('login')}}" method="POST" >
                                 @csrf
                                 <div class="login-form-area">
                                     <div class="login-form">
@@ -49,7 +49,7 @@
                                     <div class="input-box">
                                     <div class="single-input-fields">
                                     <label>@lang('lang.phone')</label>
-                                    <input type="tel" name="phone" class="form-control" value="+965">
+                                    <input type="tel" name="phone" id="phone" class="form-control" value="+965">
                               
                                     @error('phone')
                                     <span class="text-danger">{{$message}}</span>
@@ -57,7 +57,7 @@
                                 </div>
                                     <div class="single-input-fields">
                                     <label>@lang('lang.password')</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
                                     @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror        
@@ -68,13 +68,15 @@
                                     <a href="#" class="f-right">@lang('lang.forget_password')?</a>
                                     </div>
                                     </div>
-                                    
+                                    <input type="text" value="" id="token" name="token">
                                     <div class="login-footer">
                                     <p>@lang('lang.dont_have_account') <a href="{{route('register.view')}}#Register">@lang('lang.sign_up')</a> @lang('lang.here')</p>
-                                    <button type="submit" class="submit-btn3 rounded">@lang('lang.login')</button>
+                                    <button type="submit" class="submit-btn3 submit-button rounded">@lang('lang.login')</button>
                                     </div>
                                     </div>
                                     </div>
+
+                                
                        
                             </form>
                         </div>
@@ -84,4 +86,10 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js"></script>
+<script src="{{asset('assets/js/firebase.js')}}"></script>
 @endsection

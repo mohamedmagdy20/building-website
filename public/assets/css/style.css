@@ -1827,7 +1827,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
   background: rgba(0, 0, 0, 0.90)  !important; }
 
 .btn {
-  padding: 9px 12px;
+  padding: 11px 25px;
   cursor: pointer;
   border-radius: 0;
   -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);

@@ -239,7 +239,13 @@
                     @foreach ($data as $item )
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <div class="property-wrap">
-                            <a href="{{ route('categories.show', $item->id) }}" class="img img-property" style="background-image: url(https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}});">
+                            <a href="{{ route('categories.show', $item->id) }}" class="img img-property" style="
+                                @if(count($item->adsImage) == 0)
+                                    background-image:url('https://admin.alfuraij.com/assets/images/default.jpg')
+                                @else
+                                    background-image: url('https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}')
+                                @endif
+                                ">
                                 <p class="love"><span class="love-icon">
                                     @if($item->isFavoriteByUser($item->user_id))
                                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
@@ -298,7 +304,7 @@
                             <div class="text">
                                 <div class="list-team d-flex align-items-center mb-4">
                                     <div class="d-flex align-items-center">
-                                        <div class="img" style="background-image: url({{asset('uploads/users/'.$item->user->image)}});"></div>
+                                        <div class="img" style="background-image: url(https://admin.alfuraij.com/uploads/users/{{$item->user->image}});"></div>
                                         <h3 class="ml-2">{{$item->user->name}}</h3>
                                     </div>
                                     <span class="text-right">{{$item->updated_at}}</span>

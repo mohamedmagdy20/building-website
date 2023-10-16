@@ -45,7 +45,7 @@
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     @foreach ($advertisment->adsImage as $item)
-                                        <div class="swiper-slide"><img src="https://admin.alfuraij.com/uploads/ads/{{$item->image}}" class="img-fluid" alt=""></div>
+                                        <div class="swiper-slide"><img src="https://admin.alfuraij.com/uploads/ads/{{$item->image}}" class="img-fluid " alt=""></div>
                                     @endforeach
                                 
                                 </div>
