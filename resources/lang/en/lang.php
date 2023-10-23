@@ -138,9 +138,21 @@ return [
     'build'=>'Building',
     'location_specs'=>'Location Specs',
     'Facing'=>'Facing',
-    'Plot_Specs'=>'Plot Specs'
-
-
-
-
+    'Plot_Specs'=>'Plot Specs',    
+    'age'=>'Age of building',
+    'Finishing_quality'=>'Finishing Quality',
+    'the_number_of_floors'=>'Number of Floors',
+    'have_basement'=>'Have Basement',
+    '1 Floor (Ground)'=>'1 Floor (Ground)',
+    '1.5 Floors (Ground + Half First floor)'=>'1.5 Floors (Ground + Half First floor)',
+    '2 Floors (First Flr)'=>'2 Floors (First Flr)',
+    '2.5 Floors (Ground + First + Half Second floor )'=>'2.5 Floors (Ground + First + Half Second floor )',
+    '3 Floors (secon Flr)'=>'3 Floors (secon Flr)',
+    'no_have_basment'=>'No Basement',
+    'new_building'=>'New Building', 
+    'Luxurious'=>'Luxurious',
+    'Super Deluxe'=>'Super Deluxe',
+    'Deluxe'=>'Deluxe',
+    'Commercial'=>'Commercial',
+   
 ];

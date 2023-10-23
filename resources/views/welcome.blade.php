@@ -12,17 +12,17 @@
                         <div class="row justify-content-center">
                             <div class="col-md-6 col-xl-8" data-aos="fade-up" data-aos-duration="1000">
                                 <div id="first-content" class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/ads1.png')}}" class="img-fluid" alt="">
+                                    @foreach ($advertises as $item )
+                                        <div class="col-md-6">
+                                            <div class="content">
+                                                <a href="{{$item->url}}" target="_blank">
+                                                    <img src="{{$item->image}}" class="img-fluid" alt="{{$item->url}}">
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="content">
-                                            <img src="{{asset('assets/images/ads2.png')}}" class="img-fluid" alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                               
+                                    @endforeach
+                                  </div>
                                 <div id="secound-content" class="row align-items-center justify-content-center">
                                     <div class="col-sm-4 col-md-4 ">
                                         <div class="content">

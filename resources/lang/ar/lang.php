@@ -136,7 +136,23 @@ return [
     'wide_alley'=>'سكة عريضة',
     'Property_condition'=>'حالة العقار',
     'build'=>'مبني',
+    'new_building'=>'مبني جديد',
     'location_specs'=>'موصفات العقار',
     'Facing'=>'عقار مواجة',
-    'Plot_Specs'=>'مواصفات القسيمة'
+    'Plot_Specs'=>'مواصفات القسيمة',
+    'age'=>'عمر المبني',
+    'Finishing_quality'=>'جودة التشطيب',
+    'the_number_of_floors'=>'عدد الطوابق',
+    'have_basement'=>'يحتوي علي طابق سفلي',
+    'Luxurious'=>'A عالية (لا يصنف فاخر)',
+    'Super Deluxe'=>'B جيدة جداً',
+    'Deluxe'=>'C جيد',
+    'Commercial'=>'D أقل من المتوسط',
+    '1 Floor (Ground)'=>'أرضي',
+    '1.5 Floors (Ground + Half First floor)'=>'أرضي + نصف دور',
+    '2 Floors (First Flr)'=>'أرضي + أول',
+    '2.5 Floors (Ground + First + Half Second floor )'=>'أرضي + أول + نصف دور',
+    '3 Floors (secon Flr)'=>'أرضي + أول+ ثاني',
+    'no_have_basment'=>'لايوجد طابق سفلي'
+
 ];

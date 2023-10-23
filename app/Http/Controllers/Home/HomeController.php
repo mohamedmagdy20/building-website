@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertise;
 use App\Models\Advertisment;
 use App\Models\Area;
 use App\Models\Category;
@@ -26,7 +27,8 @@ class HomeController extends Controller
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
-        return view('welcome',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
+        $advertise = Advertise::all();
+        return view('welcome',['data'=>$data,'areas'=>$areas,'categories'=>$categroy,'advertises'=>$advertise]);
     }
 
     public function show($id)

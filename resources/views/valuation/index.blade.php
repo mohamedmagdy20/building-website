@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="main-title d-flex flex-column justify-coloumn-center align-items-center">
                 <div class="title text-center">
-                    <span>تقييم استرشادي - سكن خاص</span>
+                    <span>تقييم العقاري</span>
                 </div>
                 <div class="description text-center">
                     <span>إعرف قيمة بيتك خلال ثواني</span>
@@ -171,13 +171,72 @@
                                             <hr>
                                             <h4 class="evtitle" >@lang('lang.Property_condition')</h4>
                                             <div class="valuation_container">
-                                                <input type="radio" name="type" id="land"  value="land">
+                                                <input type="radio" name="type" id="land" onclick="removeContent()"  value="land">
                                                 <label for="land" class="mx-3">
                                                  @lang('lang.lands')</label>
 
-                                                 <input type="radio" name="type"  id="build" value="estate">
+                                                 <input type="radio" name="type"  id="build" onclick="showContent()"  value="estate">
                                                  <label for="build" class="mx-3">
                                                   @lang('lang.build')</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-none" id="BuildContent">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="age">@lang('lang.age')</label>
+                                                            <select name="age" class="form-select" id="age" >
+                                                                <option value="" selected disabled>@lang('lang.age')</option>
+                                                                <option value="New Building">@lang('lang.new_building')</option>
+                                                                <option value="1-5 year">1 - 5</option>
+                                                                <option value="6-10 year">6 - 10</option>
+                                                                <option value="11-15 year">11 - 15</option>
+                                                                <option value="16-20 year">16 - 20</option>
+                                                                <option value="21-25 year">21 - 25</option>
+                                                                <option value="26-30 year">26 - 30</option>
+                                                       
+                                                                <option value="">@lang('lang.do_no_know')</option>
+                                                             </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="quality">@lang('lang.Finishing_quality')</label>
+                                                            <select name="quality" class="form-select" id="quality" >
+                                                                <option value="" selected disabled>@lang('lang.Finishing_quality')</option>
+                                                                <option value="Luxurious">@lang('lang.luxury_finishing')</option>
+                                                                <option value="Super Deluxe">@lang('lang.Super Deluxe')</option>
+                                                                <option value="Deluxe">@lang('lang.Deluxe')</option>
+                                                                <option value="Commercial">@lang('lang.Commercial')</option>
+                                                                <option value="">@lang('lang.do_no_know')</option>
+                                                             </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="num_of_floor">@lang('lang.the_number_of_floors')</label>
+                                                            <select name="num_of_floor" class="form-select" id="num_of_floor" >
+                                                                <option value="" selected disabled>@lang('lang.the_number_of_floors')</option>
+                                                                <option value="1 Floor (Ground)">@lang('lang.1 Floor (Ground)')</option>
+                                                                <option value="1.5 Floors (Ground + Half First floor)">@lang('lang.1.5 Floors (Ground + Half First floor)')</option>
+                                                                <option value="2 Floors (First Flr)">@lang('lang.2 Floors (First Flr)')</option>
+                                                                <option value="2.5 Floors (Ground + First + Half Second floor )">@lang('lang.2.5 Floors (Ground + First + Half Second floor )')</option>
+                                                                <option value="3 Floors (secon Flr)">@lang('lang.3 Floors (secon Flr)')</option>
+                                                              </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="num_of_floor">@lang('lang.have_basement')</label>
+                                                            <select name="have_basement" class="form-select" id="have_basement" >
+                                                                <option value="" selected >@lang('lang.have_basement')</option>
+                                                                <option value="Have Basement">@lang('lang.have_basement')</option>
+                                                                <option value="Do not Have Basement">@lang('lang.no_have_basment')</option>
+                                                              </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -242,6 +301,19 @@
     function elementClick()
     {
         let element = document.getElementById('element')
+        element.classList.remove('d-none');
+    }
+
+    function removeContent ()
+    {
+        let element = document.getElementById('BuildContent')
+        element.classList.add('d-none');
+    }
+
+    
+    function showContent ()
+    {
+        let element = document.getElementById('BuildContent')
         element.classList.remove('d-none');
     }
 </script>
