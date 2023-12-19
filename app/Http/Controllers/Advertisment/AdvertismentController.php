@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Advertisment;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdsFavorite;
 use App\Models\Advertisment;
 use App\Models\Area;
 use App\Models\Category;
@@ -32,6 +33,15 @@ class AdvertismentController extends Controller
             'type'=>$request->type,
         ]);
         // return $text;
+    }
+
+    public function addFav(Request $request)
+    {
+        AdsFavorite::firstOrCreate([
+            'user_id'=>auth()->user()->id,
+            'advertisment_id'=>$request->id
+        ]);
+        return response()->json('Success');
     }
 
 }

@@ -48,5 +48,5 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('get-category',[AdvertismentController::class,'getCategory'])->name('get-categories');
     Route::post('advertisment/store',[AdvertismentController::class,'store'])->name('ads.store');
-
+    Route::get('favourite/create',[AdvertismentController::class,'addFav'])->name('ads.fav.create');
 });

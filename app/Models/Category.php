@@ -14,6 +14,11 @@ class Category extends Model
         'type'
     ];
 
+    public function advertisment()
+    {
+        return $this->hasMany(Advertisment::class);
+    }
+
     public function scopeFilter($query, $params)
     {
         if(isset($params['type']) )

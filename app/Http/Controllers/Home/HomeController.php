@@ -23,12 +23,15 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(6)->latest()->get();
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(10)->latest()->get();
+        $dataRent = $this->model->with('adsImage')->with('user')->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get(); 
+        $dataSale = $this->model->with('adsImage')->with('user')->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get(); 
+        $dataInstead = $this->model->with('adsImage')->with('user')->notDraft()->where('type','instead')->where('is_expire',0)->take(5)->latest()->get();
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
         $advertise = Advertise::all();
-        return view('welcome',['data'=>$data,'areas'=>$areas,'categories'=>$categroy,'advertises'=>$advertise]);
+        return view('welcome',['data'=>$data,'areas'=>$areas,'dataInstead'=>$dataInstead,'dataSale'=>$dataSale,'dataRent'=>$dataRent,'categories'=>$categroy,'advertises'=>$advertise]);
     }
 
     public function show($id)

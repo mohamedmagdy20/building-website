@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Advertisment extends Model
 {
@@ -34,6 +35,12 @@ class Advertisment extends Model
         'abroved',
         'ads_type'
     ];
+
+    public function getViews()
+    {
+        $visitCount =  DB::table('shetabit_visits')->where('visitor_id',$this->id)->count();
+        return $visitCount;
+    }
 
     public function adsImage()
     {
