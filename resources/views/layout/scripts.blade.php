@@ -1,6 +1,9 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript">var c = document.body.className;
     c = c.replace(/rtcl-no-js/, 'rtcl-js');
     document.body.className = c;</script>
+
 <link rel="stylesheet" id="redux-custom-fonts-css"
     href="{{asset('assets/uploads/redux/custom-fonts/fonts.css')}}?ver=1702916278" type="text/css" media="all">
 <script type="text/javascript" src="{{asset('assets/js/jquery/ui/core.min.js')}}?ver=1.13.2"
@@ -38,9 +41,10 @@
     var rtcl = { "plugin_url": ".\/\/wp-content\/plugins\/classified-listing", "decimal_point": ".", "i18n_required_rating_text": "Please select a rating", "i18n_decimal_error": "Please enter in decimal (.) format without thousand separators.", "i18n_mon_decimal_error": "Please enter in monetary decimal (.) format without thousand separators and currency symbols.", "is_rtl": "", "is_admin": "", "ajaxurl": ".\/\/wp-admin\/admin-ajax.php", "confirm_text": "Are you sure?", "re_send_confirm_text": "Are you sure you want to re-send verification link?", "__rtcl_wpnonce": "dded1b55e9", "rtcl_listing_base": ".\/\/all-ads\/", "rtcl_category": "", "rtcl_category_base": "listing-category", "category_text": "Category", "go_back": "Go back", "location_text": "Location", "rtcl_location": "", "rtcl_location_base": "listing-location", "user_login_alert_message": "Sorry, you need to login first.", "upload_limit_alert_message": "Sorry, you have only %d images pending.", "delete_label": "Delete Permanently", "proceed_to_payment_btn_label": "Proceed to payment", "finish_submission_btn_label": "Finish submission", "phone_number_placeholder": "XXX", "popup_search_widget_auto_form_submission": "1", "loading": "Loading ...", "has_map": "", "online_status_seconds": "300", "online_status_offline_text": "Offline Now", "online_status_online_text": "Online Now" };
     /* ]]> */
 </script>
-<script type="text/javascript" src="{{asset('assets/plugins/classified-listing/assets/js/rtcl-public.min.js')}}?ver=2.6.6"
+<script type="text/javascript" src="{{asset('assets/plugins/classified-listing/assets/js/rtcl-public.min.js')}}"
     id="rtcl-public-js"></script>
-<script type="text/javascript" src="{{asset('assets/plugins/contact-form-7/includes/swv/js/index.js')}}?ver=5.8.4"
+
+    <script type="text/javascript" src="{{asset('assets/plugins/contact-form-7/includes/swv/js/index.js')}}?ver=5.8.4"
     id="swv-js"></script>
 <script type="text/javascript" id="contact-form-7-js-extra">
     /* <![CDATA[ */
@@ -74,11 +78,11 @@
     id="elementor-webpack-runtime-js"></script>
 <script type="text/javascript" src="{{asset('assets/plugins/elementor/assets/js/frontend-modules.min.js')}}?ver=3.18.2"
     id="elementor-frontend-modules-js"></script>
-<script type="text/javascript" id="elementor-pro-frontend-js-before">
+{{-- <script type="text/javascript" id="elementor-pro-frontend-js-before">
     /* <![CDATA[ */
     var ElementorProFrontendConfig = { "ajaxurl": ".\/\/wp-admin\/admin-ajax.php", "nonce": "128ef7e40a", "urls": { "assets": ".\/\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": ".\/\/wp-json\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "en_US", "app_id": "" }, "lottie": { "defaultAnimationUrl": ".\/\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };
     /* ]]> */
-</script>
+</script> --}}
 <script type="text/javascript" src="{{asset('assets/plugins/elementor-pro/assets/js/frontend.min.js')}}?ver=3.18.1"
     id="elementor-pro-frontend-js"></script>
 <script type="text/javascript" src="{{asset('assets/plugins/elementor/assets/lib/waypoints/waypoints.min.js')}}?ver=4.0.2"
@@ -90,6 +94,10 @@
 </script>
 <script type="text/javascript" src="{{asset('assets/plugins/elementor/assets/js/frontend.min.js')}}?ver=3.18.2"
     id="elementor-frontend-js"></script>
+
+<script type="text/javascript"
+    src="{{asset('assets/plugins/elementor/assets/lib/waypoints/waypoints.min.js')}}?ver=4.0.2"
+    id="elementor-waypoints-js"></script>
 <script type="text/javascript"
     src="{{asset('assets/plugins/elementor-pro/assets/js/elements-handlers.min.js')}}?ver=3.18.1"
     id="pro-elements-handlers-js"></script>
@@ -97,3 +105,26 @@
 "@context": "https://schema.org",
 "@type": "LocalBusiness"
 }</script>
+
+<script type="text/javascript" src="{{asset('assets/js/hoverpoint.js')}}" id="hoverintent-js-js"></script>
+<script type="text/javascript" src="{{asset('assets/js/admin-panel.js')}}" id="admin-bar-js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+$('.delete-confirm').on('click', function (e) {
+    e.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Are you sure?',
+        text: 'This record and it`s details will be permanantly deleted!',
+        icon: 'warning',
+        buttons: ["Cancel", "Yes!"],
+    }).then(function(value) {
+        if (value) {
+            toastr.info('Process', 'Operation On Process');
+            window.location.href = url;
+        }
+    });
+});
+
+</script>

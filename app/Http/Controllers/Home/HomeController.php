@@ -24,6 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(10)->latest()->get();
+        $dataOld = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(10)->get();
         $dataRent = $this->model->with('adsImage')->with('user')->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get(); 
         $dataSale = $this->model->with('adsImage')->with('user')->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get(); 
         $dataInstead = $this->model->with('adsImage')->with('user')->notDraft()->where('type','instead')->where('is_expire',0)->take(5)->latest()->get();
@@ -31,23 +32,22 @@ class HomeController extends Controller
         $areas =$this->area->all();
         $categroy = $this->category->all();
         $advertise = Advertise::all();
-        return view('welcome',['data'=>$data,'areas'=>$areas,'dataInstead'=>$dataInstead,'dataSale'=>$dataSale,'dataRent'=>$dataRent,'categories'=>$categroy,'advertises'=>$advertise]);
+        return view('welcome',['data'=>$data,'areas'=>$areas,'dataOld'=>$dataOld,'dataInstead'=>$dataInstead,'dataSale'=>$dataSale,'dataRent'=>$dataRent,'categories'=>$categroy,'advertises'=>$advertise]);
     }
 
     public function show($id)
     {
-        $advertisment = Advertisment::with('adsImage')->with('user')->with('Area')->with('Category')->findOrFail($id);
-        return view(
-            'categories.show',
-            ['advertisment'=>$advertisment]);
+        $data = Advertisment::with('adsImage')->with('user')->with('Area')->with('Category')->findOrFail($id);
+        $relatedData =  Advertisment::where('type',$data->type)->get();
+        return view('advertisment.show',['data'=>$data,'relatedData'=>$relatedData]);
     }
     public function home(Request $request)
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->filter($request->all())->latest()->paginate(9);
+        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->filter($request->all())->latest()->paginate(6);
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
-        return view('home.index',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
+        return view('advertisment.index',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
     }
 
     public function create()
@@ -57,8 +57,14 @@ class HomeController extends Controller
     // return $areas;
         return view('advertisment.create',['areas'=>$areas,'categories'=>$categories]);
     }
-    // public function create()
-    // {
-    //     reut
-    // }p
+    
+    public function filterCategory(Request $request)
+    {
+        $categories = Category::where('type',$request->category)->get();
+        $text = "";
+        foreach ($categories as $cat) {
+            $text .= "<option value='$cat->id'>$cat->name_en</option>";
+        }
+        return $text;
+    }
 }

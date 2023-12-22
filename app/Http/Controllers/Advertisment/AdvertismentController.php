@@ -19,8 +19,12 @@ class AdvertismentController extends Controller
         $this->model = $model;
     }
 
-   
 
+    public function advertisments(Request $request)
+    {
+        $data = $this->model->filter($request->all())->latest()->paginate(10);
+        return view('advertisment.index',['data'=>$data]);
+    }
     public function getCategory(Request $request){
         $categories = Category::filter($request->all())->get();
         $text = "";

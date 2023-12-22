@@ -1,5 +1,5 @@
 <header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
-    <p class="main-title bhf-hidden" itemprop="headline"><a href="./index.html" title="Al Furaij Real Estate"
+    <p class="main-title bhf-hidden" itemprop="headline"><a href="{{route('home')}}" title="Al Furaij Real Estate"
             rel="home">Al Furaij Real Estate</a></p>
     <div data-elementor-type="wp-post" data-elementor-id="2639" class="elementor elementor-2639"
         data-elementor-post-type="elementor-hf">
@@ -114,7 +114,7 @@
                             data-id="351c0e4" data-element_type="widget"
                             data-widget_type="theme-site-logo.default">
                             <div class="elementor-widget-container">
-                                <a href="./index.html">
+                                <a href="{{route('home')}}">
                                     <img fetchpriority="high" width="950" height="525"
                                         src="{{asset('uploads/logo/logo.png')}}"
                                         class="attachment-full size-full wp-image-2656" alt=""
@@ -137,7 +137,7 @@
                                     <ul id="menu-1-55fd9fa" class="elementor-nav-menu">
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-2905">
-                                            <a href="./index.html"
+                                            <a href="{{route('home')}}"
                                                 class="elementor-item elementor-item-active">Home</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2912">
@@ -177,7 +177,7 @@
                                     <ul id="menu-2-55fd9fa" class="elementor-nav-menu">
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-2905">
-                                            <a href="./index.html" class="elementor-item elementor-item-active"
+                                            <a href="{{route('home')}}" class="elementor-item elementor-item-active"
                                                 tabindex="-1">Home</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2912">
@@ -228,22 +228,42 @@
                         <div class="elementor-element elementor-element-e849d76 elementor-view-framed elementor-shape-square elementor-position-left elementor-vertical-align-middle elementor-widget__width-auto elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
                             data-id="e849d76" data-element_type="widget" data-widget_type="icon-box.default">
                             <div class="elementor-widget-container">
-                                <div class="elementor-icon-box-wrapper">
-                                    <div class="elementor-icon-box-icon">
-                                        <a href="./my-account/index.html"
+                                <div class="elementor-icon-box-wrapper  d-flex ">
+                                    @if (auth()->check())
+                                    <div class="elementor-icon-box-icon ">
+                                        <a href="{{route('profile.main')}}"
                                             class="elementor-icon elementor-animation-" tabindex="-1">
                                             <i aria-hidden="true" class="far fa-user-circle"></i> </a>
                                     </div>
-                                    <div class="elementor-icon-box-content">
-                                        <h3 class="elementor-icon-box-title">
-                                            <a href="./my-account/index.html">
-                                            </a>
-                                        </h3>
+                                    
+                                    <div class="elementor-icon-box-icon">
+                                        <a href="{{route('ads.add')}}"
+                                            class="elementor-icon elementor-animation-" tabindex="-1">
+                                            <i aria-hidden="true" class="fas fa-plus"></i> </a>
+                          
+                                        </a>
                                     </div>
+
+                                    
+                                    <div class="elementor-icon-box-icon">
+                                        <a href="{{route('logout')}}"
+                                            class="elementor-icon elementor-animation-" tabindex="-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                                        </a>
+                                    </div>
+
+                                    @else
+                                    <div class="elementor-icon-box-icon">
+                                        <a href="{{route('login.view')}}"
+                                                class="elementor-icon elementor-animation-" tabindex="-1">
+                                                <i aria-hidden="true" class="far fa-user-circle"></i> </a>
+                                    </div>
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="elementor-element elementor-element-e55b84e elementor-view-framed elementor-shape-square elementor-position-left elementor-vertical-align-middle elementor-widget__width-auto elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
+                        {{-- <div class="elementor-element elementor-element-e55b84e elementor-view-framed elementor-shape-square elementor-position-left elementor-vertical-align-middle elementor-widget__width-auto elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
                             data-id="e55b84e" data-element_type="widget" data-widget_type="icon-box.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-icon-box-wrapper">
@@ -260,7 +280,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

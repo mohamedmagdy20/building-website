@@ -4115,6 +4115,7 @@ a#classima-toggle-sidebar:hover {
 #content .listing-grid-each-7 .rtin-item .rtin-bottom .action-btn a.rtcl-favourites .rtcl-icon,
 #content .listing-grid-each-7 .rtin-item .rtin-bottom .action-btn a.rtcl-require-login .rtcl-icon {
     color: #888;
+    cursor: pointer;
 }
 
 #content .listing-grid-each-7 .rtin-item .rtin-bottom .action-btn a:hover,

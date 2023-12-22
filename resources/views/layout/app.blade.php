@@ -20,16 +20,13 @@
  
     @yield('css')
 </head>
-<body class="home page-template page-template-templates page-template-blank page-template-templatesblank-php page page-id-1897 wp-custom-logo rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 no-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-1897">
+<body class="@yield('body_class')">
     <div id="page" class="hfeed site">
         @include('layout.nav')
-        
-        
         @yield('content')
-
-
         @include('layout.footer')
     </div>
+	<a href="#" class="scrollToTop"><i class="fa fa-angle-double-up"></i></a>
     
     @include('layout.scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>

@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('body_class','archive page-template-default page page-id-8 wp-custom-logo rtcl-account rtcl-page rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 banner-enabled has-sidebar left-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-8')
 @section('content')
 <div id="primary" class="content-area">
     <div data-elementor-type="wp-page" data-elementor-id="1897" class="elementor elementor-1897" data-elementor-post-type="page">
@@ -191,8 +192,9 @@
 
 														<div
 															class="rtcl-widget-search-sortable rtcl-widget-search-sortable-inline rtcl-widget-search-sortable-style-dependency rtcl-elementor-widget-search-sortable">
-															<form action="https://codedhosting.com/alfuraij/all-ads/"
-																class=" rtcl-widget-search-form">
+															<form action="{{route('home.main')}}"
+															method="GET"
+																class=" ">
 																<div
 																	class="rtcl-widget-search-sortable-wrapper rtcl-flex ">
 																	<div
@@ -201,57 +203,61 @@
 																		<div class="rtcl-search-type">
 																			<select class="form-control"
 																				id="rtcl-search-type-3054447082"
-																				name="filters[ad_type]">
+																				name="type">
 																				<option value="">Select type</option>
-																				<option value="for_sale">For Sale
+																				<option value="sale">For Sale
 																				</option>
-																				<option value="for_rent">For Rent
+																				<option value="rent">For Rent
 																				</option>
-																				<option value="for_exchange">For
+																				<option value="instead">For
 																					Exchange</option>
 																			</select>
 																		</div>
 																	</div>
 																	<div
 																		class="form-group ws-item ws-location rtcl-flex rtcl-flex-column elementor-repeater-item-58b3d81">
-																		<div class="rtcl-terms">
-																			<input type="hidden"
-																				class="rtcl-term-hidden rtcl-term-rtcl_location"
-																				data-slug="" value="0">
-                                                                                <input
-																				type="hidden" name="rtcl_location"
-																				class="rtcl-term-hidden-value rtcl-term-rtcl_location"
-																				value="">
-                                                                                <select class="form-control"
-																				data-taxonomy="rtcl_location"
-																				data-parent="0">
-																				<option value="">Select a location
-																				</option>
-                                                                                @foreach ($areas as $area )
+																		<div class="rtcl-search-area">
+																			<select class="form-control"
+																				id="area"
+																				name="area_id">
+																				<option value="">Select Area</option>
+																				@foreach ($areas as $area )
                                                                                     
 																			    <option data-slug="{{$area->name_en}}" value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                                                 @endforeach
 																			</select>
 																		</div>
+																		
 																	</div>
 																	<div
 																		class="form-group rtcl-flex rtcl-flex-column ws-item ws-category ws-category-dependency elementor-repeater-item-9775b9f">
-																		<div class="rtcl-terms">
-																			<input type="hidden"
-																				class="rtcl-term-hidden rtcl-term-rtcl_category"
-																				data-slug="" value="0"><input
-																				type="hidden" name="rtcl_category"
-																				class="rtcl-term-hidden-value rtcl-term-rtcl_category"
-																				value=""><select
-																				class="form-control rtcl-category-search"
-																				data-taxonomy="rtcl_category"
-																				data-parent="0">
-																				<option value="-1">Select a category</option>
-                                                                                @foreach ($categories as $category )
-                                                                                    <option data-slug="{{$category->name_en}}"
-                                                                                    value="{{$category->id}}">{{ app()->getLocale() === 'en' ? $category->name_en : $category->name_ar }}</option>
-                                                                                @endforeach
+																		<div class="rtcl-search-category">
+																			<select
+																				class="form-control"
+																				id="category"
+																				name="category"
+																				onchange="getCategory()"
+																				>
+																				<option value="-1">Select a category
+																				</option>
+																				<option value="residential">Residential</option>
+																				<option value="commercial_units">Commercial Units</option>
+																				<option value="commercial">Commercial</option>
+																				<option value="investment">Investment</option>
+																				<option value="industrial">Industrial</option>
+																				<option value="chalet">Chalet</option>
+																				<option value="farm">Farm</option>
+																				<option value="break">Break</option>
+																				<option value="lands">Lands</option>
+																				
 																			</select>
+
+																			<div class="rtcl-child-terms rtcl-child-terms-248">
+																				<select class="form-control rtcl-category-search d-none" id="category_id" name="category_id" >
+																					
+																				</select>
+																			</div>
+
 																		</div>
 																	</div>
 																	<div
@@ -339,7 +345,7 @@
 
 
 															<div class="listing-thumb">
-																<a href="#"
+																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async"
 																		src="
@@ -355,7 +361,7 @@
 																		@auth
 																			<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
 																				<div class="rtcl-fav rtcl-el-button">
-																					<a href="./void(0)/index.html"
+																					<a onclick="addFavourite({{$item->id}})"
 																						class="rtcl-require-login "><span
 																							class="rtcl-icon rtcl-icon-heart-empty"></span><span
 																							class="favourite-label">Add to
@@ -402,7 +408,7 @@
 																	<li class="location">
 																		<i class="rtcl-icon rtcl-icon-location"
 																			aria-hidden="true"></i><a
-																			href="./listing-location/hawally/al-salam/index.html">{{app()->getLocale() === 'en' ? $item->area->name_en : $item->area->name_ar }}</a><span
+																			href="{{route('home.main')}}?area_id={{$item->area_id}}">{{app()->getLocale() === 'en' ? $item->area->name_en : $item->area->name_ar }}</a><span
 																			class="rtcl-delimiter">,</span>
 																	</li>
 																	<li class="view">
@@ -447,14 +453,14 @@
 													<div class="swiper-wrapper">
 
 													
-                                                        @foreach ($data as $item )
+                                                        @foreach ($dataOld as $item )
                                                         
                                                         <div
 															class="rtcl-widget-listing-item listing-item swiper-slide-customize listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
 
 															<div class="listing-thumb">
-																<a href="#"
+																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async"
 																		src="
@@ -470,8 +476,8 @@
 																		@auth
 																			<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
 																				<div class="rtcl-fav rtcl-el-button">
-																					<a href="./void(0)/index.html"
-																						class="rtcl-require-login "><span
+																					<a onclick="addFavourite({{$item->id}})"
+																						class="rtcl-require-login"><span
 																							class="rtcl-icon rtcl-icon-heart-empty"></span><span
 																							class="favourite-label">Add to
 																							Favourites</span></a>
@@ -656,132 +662,6 @@
 											<div class="rtcl-listings-wrapper">
 												<div class="rtcl-listings rtcl-list-view rtcl-style-1-view  ">
 
-													@foreach ($dataRent as $item )
-													<div
-														class="rtcl-widget-listing-item listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
-
-
-
-														<div class="listing-thumb">
-															<div class="listing-thumb-inner">
-																<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
-																	title="{{$item->title}}"><img loading="lazy"
-																		decoding="async" width="385" height="280"
-																		src="
-																		@if(count($item->adsImage) == 0)
-                                										    https://admin.alfuraij.com/assets/images/default.jpg
-                                										@else
-                                										    https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
-                                										@endif
-																		"
-																		class="rtcl-thumbnail" alt="{{$item->title}}"
-																		title=""></a>
-															</div>
-														</div>
-														<div class="rtin-content-area">
-															<div class="item-content">
-																<div class="rtcl-listing-badge-wrap"></div>
-																<div class="category"><a
-																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name}}</a></div>
-																<h3 class="listing-title rtcl-listing-title">
-																	<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
-																		title="{{$item->title}}">{{$item->title}}</a>
-																</h3>
-																<div class="rtcl-listable">
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Land Area</span>
-																		<span class="listable-value">{{$item->space}}</span>
-																	</div>
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Features</span>
-																		<span class="listable-value">{{$item->advantage}}</span>
-																	</div>
-																</div>
-																<ul class="rtcl-listing-meta-data">
-																	<li class="rtin-type">
-																		<i class="rtcl-icon-tags"
-																			aria-hidden="true"></i>For {{$item->type}}
-																	</li>
-																	<li class="date">
-																		<i class="rtcl-icon rtcl-icon-clock"
-																			aria-hidden="true"></i>{{\Carbon\Carbon::parse($item->updated_at)->diffForHumans()}}
-																	</li>
-																	<li class="location">
-																		<i class="rtcl-icon rtcl-icon-location"
-																			aria-hidden="true"></i><a
-																			href="./listing-location/hawally/al-salam/index.html">{{$item->area->name}}</a><span
-																			class="rtcl-delimiter"></span>
-																	</li>
-																	<li class="view">
-																		<i class="rtcl-icon rtcl-icon-eye"
-																			aria-hidden="true"></i>{{$item->getViews()}} views
-																	</li>
-																</ul>
-																<div class="item-price">
-																	<div class="rtcl-price price-type-regular"><span
-																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
-																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
-																	</div>
-																</div>
-															</div>
-															<div class="rtin-right ">
-																<a class="rtin-details-button"
-																	href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html">Details</a>
-																
-																@auth
-																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
-																	<div class="rtcl-fav rtcl-text-el-button">
-																		<a href="./void(0)/index.html"
-																			class="rtcl-require-login "><span
-																				class="rtcl-icon rtcl-icon-heart-empty"></span><span
-																				class="favourite-label">Add to
-																				Favourites</span></a>
-																	</div>
-																</div>
-																@endauth
-																	
-															</div>
-														</div>
-													</div>
-	
-													@endforeach
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-		</section>
-
-
-		{{-- Five Rent Advertisments--}}
-		<section class="elementor-section elementor-top-section elementor-element elementor-element-b8d4c7f elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
-					data-id="b8d4c7f" data-element_type="section"
-					data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="elementor-container elementor-column-gap-default">
-						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-006f796"
-							data-id="006f796" data-element_type="column">
-							<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-b098121 elementor-widget elementor-widget-rt-title"
-									data-id="b098121" data-element_type="widget" data-widget_type="rt-title.default">
-									<div class="elementor-widget-container">
-										<div class="rt-el-title rtin-style-1">
-											<h2 class="rtin-title">Newest Rent Ads</h2>
-										</div>
-									</div>
-								</div>
-								<div class="elementor-element elementor-element-ae86063 elementor-widget elementor-widget-rtcl-listing-items"
-									data-id="ae86063" data-element_type="widget"
-									data-widget_type="rtcl-listing-items.default">
-									<div class="elementor-widget-container">
-
-										<div class="rtcl rtcl-listings-sc-wrapper rtcl-elementor-widget ">
-											<div class="rtcl-listings-wrapper">
-												<div class="rtcl-listings rtcl-list-view rtcl-style-1-view  ">
-
 													@foreach ($dataSale as $item )
 													<div
 														class="rtcl-widget-listing-item listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
@@ -852,12 +732,138 @@
 															</div>
 															<div class="rtin-right ">
 																<a class="rtin-details-button"
-																	href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html">Details</a>
+																	href="{{route('advertisment.show',$item->id)}}">Details</a>
 																
 																@auth
 																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
 																	<div class="rtcl-fav rtcl-text-el-button">
-																		<a href="./void(0)/index.html"
+																		<a onclick="addFavourite({{$item->id}})"
+																			class="rtcl-require-login "><span
+																				class="rtcl-icon rtcl-icon-heart-empty"></span><span
+																				class="favourite-label">Add to
+																				Favourites</span></a>
+																	</div>
+																</div>
+																@endauth
+																	
+															</div>
+														</div>
+													</div>
+	
+													@endforeach
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		</section>
+
+
+		{{-- Five Rent Advertisments--}}
+		<section class="elementor-section elementor-top-section elementor-element elementor-element-b8d4c7f elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
+					data-id="b8d4c7f" data-element_type="section"
+					data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="elementor-container elementor-column-gap-default">
+						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-006f796"
+							data-id="006f796" data-element_type="column">
+							<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b098121 elementor-widget elementor-widget-rt-title"
+									data-id="b098121" data-element_type="widget" data-widget_type="rt-title.default">
+									<div class="elementor-widget-container">
+										<div class="rt-el-title rtin-style-1">
+											<h2 class="rtin-title">Newest Rent Ads</h2>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-element elementor-element-ae86063 elementor-widget elementor-widget-rtcl-listing-items"
+									data-id="ae86063" data-element_type="widget"
+									data-widget_type="rtcl-listing-items.default">
+									<div class="elementor-widget-container">
+
+										<div class="rtcl rtcl-listings-sc-wrapper rtcl-elementor-widget ">
+											<div class="rtcl-listings-wrapper">
+												<div class="rtcl-listings rtcl-list-view rtcl-style-1-view  ">
+
+													@foreach ($dataRent as $item )
+													<div
+														class="rtcl-widget-listing-item listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
+
+
+
+														<div class="listing-thumb">
+															<div class="listing-thumb-inner">
+																<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+																	title="{{$item->title}}"><img loading="lazy"
+																		decoding="async" width="385" height="280"
+																		src="
+																		@if(count($item->adsImage) == 0)
+                                										    https://admin.alfuraij.com/assets/images/default.jpg
+                                										@else
+                                										    https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
+                                										@endif
+																		"
+																		class="rtcl-thumbnail" alt="{{$item->title}}"
+																		title=""></a>
+															</div>
+														</div>
+														<div class="rtin-content-area">
+															<div class="item-content">
+																<div class="rtcl-listing-badge-wrap"></div>
+																<div class="category"><a
+																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name}}</a></div>
+																<h3 class="listing-title rtcl-listing-title">
+																	<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+																		title="{{$item->title}}">{{$item->title}}</a>
+																</h3>
+																<div class="rtcl-listable">
+																	<div class="rtcl-listable-item">
+																		<span class="listable-label">Land Area</span>
+																		<span class="listable-value">{{$item->space}}</span>
+																	</div>
+																	<div class="rtcl-listable-item">
+																		<span class="listable-label">Features</span>
+																		<span class="listable-value">{{$item->advantage}}</span>
+																	</div>
+																</div>
+																<ul class="rtcl-listing-meta-data">
+																	<li class="rtin-type">
+																		<i class="rtcl-icon-tags"
+																			aria-hidden="true"></i>For {{$item->type}}
+																	</li>
+																	<li class="date">
+																		<i class="rtcl-icon rtcl-icon-clock"
+																			aria-hidden="true"></i>{{\Carbon\Carbon::parse($item->updated_at)->diffForHumans()}}
+																	</li>
+																	<li class="location">
+																		<i class="rtcl-icon rtcl-icon-location"
+																			aria-hidden="true"></i><a
+																			href="./listing-location/hawally/al-salam/index.html">{{$item->area->name}}</a><span
+																			class="rtcl-delimiter"></span>
+																	</li>
+																	<li class="view">
+																		<i class="rtcl-icon rtcl-icon-eye"
+																			aria-hidden="true"></i>{{$item->getViews()}} views
+																	</li>
+																</ul>
+																<div class="item-price">
+																	<div class="rtcl-price price-type-regular"><span
+																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
+																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
+																	</div>
+																</div>
+															</div>
+															<div class="rtin-right ">
+																<a class="rtin-details-button"
+																	href="{{route('advertisment.show',$item->id)}}">Details</a>
+																
+																@auth
+																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
+																	<div class="rtcl-fav rtcl-text-el-button">
+																		<a onclick="addFavourite({{$item->id}})"
 																			class="rtcl-require-login "><span
 																				class="rtcl-icon rtcl-icon-heart-empty"></span><span
 																				class="favourite-label">Add to
@@ -979,12 +985,12 @@
 												</div>
 												<div class="rtin-right ">
 													<a class="rtin-details-button"
-														href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html">Details</a>
+														href="{{route('advertisment.show',$item->id)}}">Details</a>
 													
 													@auth
 													<div class="rtcl-meta-buttons-withtext meta-button-count-1">
 														<div class="rtcl-fav rtcl-text-el-button">
-															<a href="./void(0)/index.html"
+															<a onclick="addFavourite({{$item->id}})"
 																class="rtcl-require-login "><span
 																	class="rtcl-icon rtcl-icon-heart-empty"></span><span
 																	class="favourite-label">Add to
@@ -1015,7 +1021,7 @@
 									@foreach ($categories as $item )
 									<div class="swiper-slide">
 										<a class="rtin-item"
-											href="./listing-category/residential/index.html">
+											href="{{route('home.main')}}?category_id={{$item->id}}">
 											<div class="rtin-title">{{app()->getLocale() === 'en' ? $item->name_en : $item->name_ar}}</div>
 											<div class="rtin-count">({{$item->advertisment->count()}})</div>
 										</a>
@@ -1041,4 +1047,43 @@
 	
 			</div>
 </div>
+@endsection
+
+@section('script')
+
+<script>
+	function addFavourite(id)
+	{
+	    $.ajax({
+	        type: 'GET',
+	        url: "{{route('ads.fav.create')}}",
+	        data: {id:id},
+	        dataType: 'JSON',
+	        success: function (results) {
+	            toastr.success('Advertisment Added To Favourite', 'success');
+	        },
+	        error:function(result){
+	            console.log(result);
+	            toastr.error('Error Accure', 'Error');  
+
+	        }
+	    });
+	}
+
+	function getCategory() {
+        let category = $("#category").find(":selected").val();
+		console.log(category);
+        $.ajax({
+            type: 'GET',
+            url: `{{route('get.category.type')}}?category=${category}`,
+            success: function(data) {
+                $("#category_id").removeClass('d-none');
+                $("#category_id").html(data);
+            },
+            error: function(error) {
+                console.log('error');
+            }
+        });
+    }
+</script>
 @endsection

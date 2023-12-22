@@ -8,8 +8,11 @@
 <link rel="stylesheet" id="rtcl-public-css"
 		href="{{asset('assets/plugins/classified-listing/assets/css/rtcl-public.min.css')}}?ver=2.6.6" type="text/css"
 		media="all">
+	
 <link rel="stylesheet" href="{{asset('assets/css/dist/block-library/rtclincline.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/dist/block-library/elminator.css')}}">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="text/javascript" src="{{asset('assets/js/jquery/jquery.min.js')}}" id="jquery-core-js"></script>
+
 
 <style>
 	.elementor-2639 .elementor-element.elementor-element-5c45da8:not(.elementor-motion-effects-element-type-background),
@@ -157,7 +160,6 @@
 		href="{{asset('assets/plugins/elementor/assets/lib/font-awesome/css/brands.min.css')}}?ver=5.15.3" type="text/css"
 		media="all">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<script type="text/javascript" src="{{asset('assets/js/jquery/jquery.min.js')}}?ver=3.7.1" id="jquery-core-js"></script>
 	<script type="text/javascript" src="{{asset('assets/js/dist/vendor/moment.min.js')}}?ver=2.29.4" id="moment-js"></script>
 	<script type="text/javascript" id="moment-js-after">
 		/* <![CDATA[ */
@@ -172,7 +174,9 @@
 	<script type="text/javascript"
 		src="{{asset('assets/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js')}}?ver=3.18.2"
 		id="font-awesome-4-shim-js"></script>
-	<script type="text/javascript" src="{{asset('assets/js/imagesloaded.min.js')}}?ver=5.0.0" id="imagesloaded-js"></script>
+	<script type="text/javascript" src="{{asset('assets/js/imagesloaded.min.js')}}" id="imagesloaded-js"></script>
+
+
 	<script type="text/javascript"
 		src="{{asset('assets/plugins/classified-listing/assets/vendor/swiper/swiper-bundle.min.js')}}?ver=7.4.1"
 		id="swiper-js"></script>

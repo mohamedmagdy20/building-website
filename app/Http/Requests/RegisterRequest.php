@@ -23,7 +23,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             //
-            'image'=>'file',
+            // 'image'=>'file', //
             'name'=>'required|string',
             'email'=>'email|unique:users,email',
             'phone'=>'required|unique:users,phone',

@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'instegram_link',
+        'licence',
         'access_token',
         'image',
         'type',

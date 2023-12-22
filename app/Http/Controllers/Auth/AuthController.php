@@ -17,44 +17,42 @@ class AuthController extends Controller
     use  FilesTrait;
     public function loginView()
     {
-        return view('auth.login');  
+        return view('auth.auth');  
     }    
     
     public function login(AuthRequest $request)
     {
         $data =  $request->validated();
-
         if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
         {
             $user = User::where('phone',$data['phone'])->first();
-           
-            if($user->is_verified == false)
-            {
-                //  return redirect()->back()->with('error',"Account Is Not Verifed");
-                return response()->json([
-                    'status'=>412,
-                    'message'=>'Account Is Not Verifed',
-                    'data'=>null
-                ]);
-            }else{
-                $user->update([
-                    'notification_token'=>$data['token']
-                ]);
-                return response()->json([
-                    'status'=>200,
-                    'message'=>'Welcome',
-                    'data'=>$user
-                ]);
-            }
-            // return redirect()->route('home')->with('success',"@lang('lang.welcome')");
+            // if($user->is_verified == false)
+            // {
+            //     //  return redirect()->back()->with('error',"Account Is Not Verifed");
+            //     return response()->json([
+            //         'status'=>412,
+            //         'message'=>'Account Is Not Verifed',
+            //         'data'=>null
+            //     ]);
+            // }else{
+            //     $user->update([
+            //         'notification_token'=>$data['token']
+            //     ]);
+            //     return response()->json([
+            //         'status'=>200,
+            //         'message'=>'Welcome',
+            //         'data'=>$user
+            //     ]);
+            // }
+            return redirect()->route('home')->with('success',"@lang('lang.welcome')");
            
         }else{
-            // return redirect()->back()->with('error','Invaild Phone or Password');
-            return response()->json([
-                'status'=>400,
-                'message'=>'Invaild Phone or Password',
-                'data'=>null
-            ]);
+            return redirect()->back()->with('error','Invaild Phone or Password');
+            // return response()->json([
+            //     'status'=>400,
+            //     'message'=>'Invaild Phone or Password',
+            //     'data'=>null
+            // ]);
         }
     }
 
@@ -73,7 +71,7 @@ class AuthController extends Controller
         }
         $data['password'] = Hash::make($data['password']);
         if(User::create($data)){
-            return redirect()->route('login')->with('success','Registerd');
+            return redirect()->route('login')->with('success','Registerd Please Make Login');
         }else{
             return redirect()->route('login')->with('error','Error Accure');
         }
