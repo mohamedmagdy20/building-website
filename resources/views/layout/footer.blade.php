@@ -1,4 +1,4 @@
-<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" role="contentinfo">
+<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" role="contentinfo" >
     <div class="footer-width-fixer">
         <div data-elementor-type="wp-post" data-elementor-id="2873" class="elementor elementor-2873"
             data-elementor-post-type="elementor-hf">

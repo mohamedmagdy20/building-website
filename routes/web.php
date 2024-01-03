@@ -27,6 +27,9 @@ Route::get('/home', [HomeController::class,'home'])->name('home.main');
 Route::get('/evaluation', [ValuationController::class,'index'])->name('evaluation');
 Route::post('/evaluation', [ValuationController::class,'checkPrice'])->name('check-price');
 Route::get('filter/categroy',[HomeController::class,'filterCategory'])->name('get.category.type');
+Route::get('contact',[HomeController::class,'contact'])->name('contact');
+Route::get('about',[HomeController::class,'about'])->name('about');
+Route::get('ai',[HomeController::class,'ai'])->name('ai');
 
 Route::group(['middleware'=>'guest'],function(){
     Route::get('login',[AuthController::class,'loginView'])->name('login.view');

@@ -127,6 +127,10 @@
 			background-color: rgba(0, 0, 0, 0.5)
 		}
 	</style>
+<link rel="icon" href="{{asset('uploads/logo/logo.png')}}" sizes="32x32" />
+<link rel="icon" href="{{asset('uploads/logo/logo.png')}}" sizes="192x192" />
+<link rel="apple-touch-icon" href="{{asset('uploads/logo/logo.png')}}" />
+<meta name="msapplication-TileImage" content="{{asset('uploads/logo/logo.png')}}" />
 <link rel="stylesheet" id="classima-listing-css"
 	href="{{asset('assets/themes/classima/assets/css/listing.css')}}?ver=2.4.3" type="text/css" media="all">
 <link rel="stylesheet" id="classima-elementor-css"

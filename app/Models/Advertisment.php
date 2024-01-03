@@ -208,6 +208,10 @@ class Advertisment extends Model
             }
         }
 
+        if(isset($params['min-price']) && isset($params['max-price']))
+        {
+            $query->whereBetween('price',[$params['min-price'] , $params['max-price'] ]);
+        }
       
         return $query;
     }

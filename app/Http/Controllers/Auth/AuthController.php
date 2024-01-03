@@ -44,7 +44,7 @@ class AuthController extends Controller
             //         'data'=>$user
             //     ]);
             // }
-            return redirect()->route('home')->with('success',"@lang('lang.welcome')");
+            return redirect()->route('home')->with('success',"Welcome Back");
            
         }else{
             return redirect()->back()->with('error','Invaild Phone or Password');

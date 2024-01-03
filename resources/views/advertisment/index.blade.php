@@ -14,7 +14,7 @@
 					<div class="rtcl-widget-filter-wrapper style2">
 						<div id="rtcl-widget-filter-6" class="widget rtcl rtcl-widget-filter-class">
 							<div class="panel-block">
-								<form class="rtcl-filter-form" action="#">
+								<form class="rtcl-filter-form" action="{{route('home.main')}}">
 									<div class="ui-accordion">
 										<div class="rtcl-ad-type-filter ui-accordion-item is-open">
 											<a class="ui-accordion-title">
@@ -24,23 +24,21 @@
 											<div class="ui-accordion-content">
 												<ul class='ui-link-tree is-collapsed'>
 													<li class='ui-link-tree-item ad-type-for_sale'><input
-															id='filters-ad-type-values-for_sale' name='filters[ad_type]'
-															value='for_sale' type='radio'
+															id='filters-ad-type-values-for_sale' name='type'
+															value='sale' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
 															class='filter-submit-trigger'>For Sale</a></li>
 													<li class='ui-link-tree-item ad-type-for_rent'><input
-															id='filters-ad-type-values-for_rent' name='filters[ad_type]'
-															value='for_rent' type='radio'
+															id='filters-ad-type-values-for_rent' name='type'
+															value='rent' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
 															class='filter-submit-trigger'>For Rent</a></li>
 													<li class='ui-link-tree-item ad-type-for_exchange'><input
 															id='filters-ad-type-values-for_exchange'
-															name='filters[ad_type]' value='for_exchange' type='radio'
+															name='type' value='instead' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
 															class='filter-submit-trigger'>For Exchange</a></li>
-													<li class="is-opener"><span class="rtcl-more"><i
-																class="rtcl-icon rtcl-icon-plus-circled"></i><span
-																class="text">Show More</span></span></li>
+													
 												</ul>
 											</div>
 										</div>
@@ -50,7 +48,65 @@
 												<span class="ui-accordion-icon rtcl-icon rtcl-icon-anchor"></span>
 											</a>
 											<div class="ui-accordion-content rtcl-ajax-load"
-												data-settings="{&quot;taxonomy&quot;:&quot;rtcl_category&quot;,&quot;parent&quot;:0,&quot;instance&quot;:{&quot;title&quot;:&quot;&quot;,&quot;search_by_category&quot;:1,&quot;show_icon_image_for_category&quot;:1,&quot;search_by_location&quot;:1,&quot;search_by_ad_type&quot;:1,&quot;search_by_custom_fields&quot;:1,&quot;search_by_price&quot;:1,&quot;hide_empty&quot;:0,&quot;show_count&quot;:1,&quot;ajax_load&quot;:1,&quot;taxonomy_reset_link&quot;:1,&quot;radius_search&quot;:0,&quot;search_by_rating&quot;:1,&quot;filter_style&quot;:&quot;style2&quot;,&quot;current_taxonomy&quot;:{&quot;rtcl_location&quot;:&quot;&quot;,&quot;rtcl_category&quot;:&quot;&quot;,&quot;rtcl_tag&quot;:&quot;&quot;}}}">
+												>
+												<ul class='ui-link-tree is-collapsed overflow-hidden'>
+													{{-- @foreach ($categories as $item ) --}}
+													<li class='ui-link-tree-item ad-type-for_residential'><input
+														id='filters-ad-type-values-for_residential' name='category_ads_type'
+														value='residential' type='radio'
+														class='ui-checkbox filter-submit-trigger'>@lang('lang.residential')</li>
+
+													<li class='ui-link-tree-item ad-type-for_commercial'><input
+															id='filters-ad-type-values-for_commercial' name='category_ads_type'
+															value='commercial' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.commercial')</li>
+
+													<li class='ui-link-tree-item ad-type-for_commercial_unit'><input
+															id='filters-ad-type-values-for_commercial_unit' name='category_ads_type'
+															value='commercial_units' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.commercial_units')</li>
+
+													<li class='ui-link-tree-item ad-type-investment'><input
+															id='filters-ad-type-values-investment' name='category_ads_type'
+															value='investment' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.investment')</li>
+
+													<li class='ui-link-tree-item ad-type-industrial'><input
+															id='filters-ad-type-values-industrial' name='category_ads_type'
+															value='industrial' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.industrial')</li>
+
+												
+													<li class='ui-link-tree-item ad-type-chalet'><input
+															id='filters-ad-type-values-chalet' name='category_ads_type'
+															value='chalet' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.chalet')</li>
+													
+													<li class='ui-link-tree-item ad-type-farm'><input
+															id='filters-ad-type-values-farm' name='category_ads_type'
+															value='farm' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.farm')</li>
+													
+															
+													
+													<li class='ui-link-tree-item ad-type-break'><input
+															id='filters-ad-type-values-break' name='category_ads_type'
+															value='break' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.break')</li>
+													
+															
+													<li class='ui-link-tree-item ad-type-lands'><input
+															id='filters-ad-type-values-lands' name='category_ads_type'
+															value='lands' type='radio'
+															class='ui-checkbox filter-submit-trigger'>@lang('lang.lands')</li>
+													
+													<li class="is-opener"><span class="rtcl-more"><i
+																class="rtcl-icon rtcl-icon-plus-circled"></i><span
+																class="text">Show More</span></span></li>
+													
+															{{-- @endforeach --}}
+												</ul>
+												
 											</div>
 										</div>
 										<div class="rtcl-location-filter ui-accordion-item is-open">
@@ -72,11 +128,11 @@
 													<div class="price-container">
 														<div class="row">
 															<div class="col-md-6 col-6">
-																<input type="number" name="filters[price][min]"
+																<input type="number" name="min-price"
 																	class="form-control" placeholder="min" value="">
 															</div>
 															<div class="col-md-6 col-6">
-																<input type="number" name="filters[price][max]"
+																<input type="number" name="max-price"
 																	class="form-control" placeholder="max" value="">
 															</div>
 														</div>
@@ -89,12 +145,9 @@
 										<button class="btn btn-primary rtcl-filter-btn">
 											Apply filters </button>
 										<a class="btn btn-primary rtcl-filter-clear-btn"
-											href="https://codedhosting.com/alfuraij/all-ads/">
+											href="{{route('home.main')}}">
 											Clear filters </a>
 									</div>
-									<input type="hidden" name="rtcl_category" value="">
-									<input type="hidden" name="rtcl_tag" value="">
-									<input type="hidden" name="rtcl_location" value="">
 								</form>
 							</div>
 						</div>
@@ -147,7 +200,7 @@
                                     <div class="rtin-item">
                                         <div class="rtin-thumb">
                                             <a class="rtin-thumb-inner rtcl-media"
-                                                href="./../../../listing/green-house/index.html"><img
+                                                href="{{route('advertisment.show',$item->id)}}"><img
                                                     loading="lazy" width="400" height="280"
                                                     src="
                                                     @if(count($item->adsImage) == 0)
@@ -180,11 +233,11 @@
                                             <div class="rtcl-listing-badge-wrap"></div>
 
                                             <h3 class="rtin-title listing-title" title="{{$item->title}}"><a
-                                                    href="./../../../listing/green-house/index.html">{{$item->title}}</a></h3>
+                                                    href="{{route('advertisment.show',$item->id)}}">{{$item->title}}</a></h3>
 
                                             <div class="rtin-cat-action">
                                                 <div class="rtin-cat-wrap">
-                                                    <a class="rtin-cat" href="./index.html">{{$item->category->name_ar}}</a>
+                                                    <a class="rtin-cat" href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name_ar}}</a>
                                                 </div>
                                             </div>
 
@@ -225,7 +278,7 @@
                                                 </li>
                                                 <li>
                                                     <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i><a
-                                                        href="./../../../listing-location/ahmadi/ahmadi-ahmadi/index.html">{{$item->area->name_ar}}</a><span
+                                                        href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name_ar}}</a><span
                                                         class="rtcl-delimiter">,</span>
                                                 </li>
                                                 <li>

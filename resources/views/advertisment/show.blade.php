@@ -78,8 +78,9 @@
 														</svg>
 													</div>
 													<div class="swiper-wrapper">
+                                                        
+                                                        @if (count($data->adsImage) > 0)
 
-                                                      
                                                         @foreach ($data->adsImage as $item )
                                                         <div
 															class=" swiper-slide-customize text-center listing-item rtcl-listing-item  status-publish  rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
@@ -90,8 +91,20 @@
                                                             title="">	
 															
 														</div>
-                                                        @endforeach
+                                                        @endforeach      
+                                                        @else
+                                                        <div
+															class=" swiper-slide-customize text-center listing-item rtcl-listing-item  status-publish  rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
+                                                            <img loading="lazy"
+                                                            decoding="async"
+                                                            src="https://admin.alfuraij.com/assets/images/default.jpg"
+                                                            class="image-viewer rtcl-thumbnail" width="400px" height="800px" alt="default"
+                                                            title="">	
+															
+														</div>
+                                                        @endif
                                                       
+                                                    
 
 													</div>
 												</div> <!-- End wiper-wrapper -->
@@ -463,7 +476,7 @@
 
                                 <div class="rtin-web rtin-box-item clearfix">
                                     <i class="fa fa-fw fa-globe" aria-hidden="true"></i>
-                                    <a class="rtin-box-item-text" href="http://www.example.com/" rel="nofollow"
+                                    <a class="rtin-box-item-text" href="{{$data->user->instegram_link}}" rel="nofollow"
                                         target="_blank">
                                         Visit Website </a>
                                 </div>
@@ -475,10 +488,10 @@
                                 </div>
                                 <div class="rtin-phone">
                                     <div class="rtcl-contact-reveal-wrapper reveal-phone"
-                                        data-options="{&quot;safe_phone&quot;:&quot;6735568XXX&quot;,&quot;phone_hidden&quot;:&quot;743&quot;,&quot;safe_whatsapp_number&quot;:&quot;6735568XXX&quot;,&quot;whatsapp_hidden&quot;:&quot;743&quot;}">
+                                        data-options="{&quot;safe_phone&quot;:&quot;{{$data->user->phone}}&quot;,&quot;phone_hidden&quot;:&quot;743&quot;,&quot;safe_whatsapp_number&quot;:&quot;{{$data->user->phone}}&quot;,&quot;whatsapp_hidden&quot;:&quot;743&quot;}">
                                         <div class="rtcl-contact-reveal-inner">
                                             <div class="numbers">
-                                                6735568XXX </div>
+                                                {{$data->user->phone}} </div>
                                             <small class="text-muted">Click to reveal phone number</small>
                                         </div>
                                     </div>

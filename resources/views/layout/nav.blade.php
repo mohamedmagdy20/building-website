@@ -138,17 +138,17 @@
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-2905">
                                             <a href="{{route('home')}}"
-                                                class="elementor-item elementor-item-active">Home</a></li>
+                                                class="elementor-item {{Request::is('/*') ? 'elementor-item-active' : ''}} ">Home</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2912">
-                                            <a href="#" class="elementor-item elementor-item-anchor">About
+                                            <a href="{{route('about')}}" class="elementor-item  {{Request::is('about*' ? 'elementor-item-active' : '')}}">About
                                                 Us</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
+                                            {{-- <ul class="sub-menu elementor-nav-menu--dropdown">
                                                 <li
                                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2913">
                                                     <a href="./tip/index.html"
                                                         class="elementor-sub-item">FAQs</a></li>
-                                            </ul>
+                                            </ul> --}}
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2906">
@@ -156,11 +156,11 @@
                                                 &#038; Conditions</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2908">
-                                            <a href="#" class="elementor-item elementor-item-anchor">Sign Up</a>
+                                            <a href="{{route('login.view')}}" class="elementor-item elementor-item-anchor {{Request::is('login*') ? 'elementor-item-active' : ''}}">Sign Up</a>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2907">
-                                            <a href="./contact/index.html" class="elementor-item">Contact Us</a>
+                                            <a href="{{route('contact')}}" class="elementor-item {{Request::is('contact*') ? 'elementor-item-active' : ''}} ">Contact Us</a>
                                         </li>
                                     </ul>
                                 </nav>

@@ -23,11 +23,11 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(10)->latest()->get();
-        $dataOld = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->take(10)->get();
-        $dataRent = $this->model->with('adsImage')->with('user')->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get(); 
-        $dataSale = $this->model->with('adsImage')->with('user')->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get(); 
-        $dataInstead = $this->model->with('adsImage')->with('user')->notDraft()->where('type','instead')->where('is_expire',0)->take(5)->latest()->get();
+        $data = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('is_expire',0)->take(10)->latest()->get();
+        $dataOld = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('is_expire',0)->take(10)->get();
+        $dataRent = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get(); 
+        $dataSale = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get(); 
+        $dataInstead = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','instead')->where('is_expire',0)->take(5)->latest()->get();
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
@@ -38,18 +38,35 @@ class HomeController extends Controller
     public function show($id)
     {
         $data = Advertisment::with('adsImage')->with('user')->with('Area')->with('Category')->findOrFail($id);
+        // return $data->adsImage;
         $relatedData =  Advertisment::where('type',$data->type)->get();
         return view('advertisment.show',['data'=>$data,'relatedData'=>$relatedData]);
     }
     public function home(Request $request)
     {
-        $data = $this->model->with('adsImage')->with('user')->notDraft()->where('is_expire',0)->filter($request->all())->latest()->paginate(6);
+        $data = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('is_expire',0)->filter($request->all())->latest()->paginate(6);
         // return $data;
         $areas =$this->area->all();
         $categroy = $this->category->all();
         return view('advertisment.index',['data'=>$data,'areas'=>$areas,'categories'=>$categroy]);
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
+    public function about()
+    {
+        return view('about');   
+    }
+
+    
+    public function ai()
+    {
+        return view('ai');   
+    }
     public function create()
     {
         $areas = Area::all();

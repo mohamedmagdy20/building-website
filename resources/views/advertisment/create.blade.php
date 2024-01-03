@@ -1,747 +1,1055 @@
 @extends('layout.app')
-@section('title',"Add Advertisments")
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/css/advertisment.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/multiImage.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/touch-spin.css')}}">
-@endsection
-@section('content')
-<section class="ftco-section bg-light">
-    <div class="container-xl">
-        <div class="row justify-content-center">
-            <div class="col-md-10" data-aos="fade-up" data-aos-duration="1000">
-                <div class="ftco-content spacing-ads" >
-                    <div class="row justify-content-center">
-                       <div class="col-md-12">
-                        <div class="wrapper" id="Create-Div">
-                          <div class="header">
-                            <ul>
-                              <li class="active form_1_progessbar">
-                                <div>
-                                  <p>1</p>
-                                </div>
-                              </li>
-                              <li class="form_2_progessbar">
-                                <div>
-                                  <p>2</p>
-                                </div>
-                              </li>
-                              <li class="form_3_progessbar">
-                                <div>
-                                  <p>3</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                          <form  id="ads_form" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form_wrap" dir="{{ app()->getLocale() === 'en' ? 'ltr' : 'rtl'}}">
-                              <input type="hidden" name="user_id" value="{{auth()->user()->id}}" id="user_id">
-                                <div class="form_1 data_info">
-                                  {{-- <h2>Signup Info</h2> --}}
-                                    <div class="form_container">
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="input_wrap">
-                                            <label for="title">@lang('lang.title')</label>
-                                            <input type="text" name="title" required class="form-control" placeholder="@lang('lang.title')" id="title">
-                                            @error('title')
-                                              <span class="text-danger">{{$message}}</span>
-                                            @enderror
-                                          </div>
-                                        </div>
+@section('body_class','page-template-default page page-id-6 logged-in admin-bar no-customize-support wp-custom-logo rtcl-form-page rtcl-page rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 banner-enabled no-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-6')
 
-                                        <div class="col-md-12 mb-3 mt-3">
-                                          <label for="">Advertisment Type</label>
-                                          <div class="radio_container rounded">
-                                            <input type="radio" name="type" id="sale" value="sale" checked>
-                                            <label for="sale">@lang('lang.sale')</label>
-                                            <input type="radio" name="type" id="rent" value="rent">
-                                            <label for="rent">@lang('lang.rent')</label>
-                                            <input type="radio" name="type" id="instead" value="instead">
-                                            <label for="instead">@lang('lang.instead')</label>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="area">@lang('lang.area')</label>
-                                          <select name="area_id" required class="select2" id="area_id">
-                                            <option value="">@lang('lang.area')</option>
-                                            @foreach ($areas as $area )
-                                              <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
-                                            @endforeach
+@section('content')
+<div id="primary" class="content-area classima-listing-archive rtcl h-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-12">
+        <div class="site-content-block">
+          <div class="main-content">
+            <div id="post-6" class="post-6 page type-page status-publish">
+
+              <div data-elementor-type="wp-page" data-elementor-id="6"
+                class="elementor elementor-6" data-elementor-post-type="page">
+                <section
+                  class="elementor-section elementor-top-section elementor-element elementor-element-66fc0f66 elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
+                  data-id="66fc0f66" data-element_type="section">
+                  <div class="elementor-container elementor-column-gap-default">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5e4d1b36"
+                      data-id="5e4d1b36" data-element_type="column">
+                      <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-32d7563a elementor-widget elementor-widget-shortcode"
+                          data-id="32d7563a" data-element_type="widget"
+                          data-widget_type="shortcode.default">
+                          <div class="elementor-widget-container">
+                            <div class="elementor-shortcode">
+                              <div class="rtcl">
+                                <form method="POST" id="ads_form" enctype="multipart/form-data">
+                                  @csrf
+                                  <div
+                                  class="rtcl-listing-info-selecting classima-form">
+                                  <div id="rtcl-ad-type-selection">
+                                    <div
+                                      class="classified-listing-form-title">
+                                      <i class="fa fa-tags"
+                                        aria-hidden="true"></i>
+                                      <h3>Select Type</h3>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-3 col-12">
+                                        <label class="control-label">Ad
+                                          Type<span> *</span></label>
+                                      </div>
+                                      <div class="col-sm-9 col-12">
+                                        <div class="form-group">
+                                          <select
+                                            class="rtcl-select2 form-control"
+                                            id="rtcl-ad-type"
+                                            name="type" required>
+                                            <option value="">
+                                              --Select Type--
+                                            </option>
+                                            <option
+                                              value='sale'>For
+                                              Sale</option>
+                                            <option
+                                              value='rent'>For
+                                              Rent</option>
+                                            <option
+                                              value='instead'>
+                                              For Exchange
+                                            </option>
                                           </select>
                                         </div>
+                                      </div>
+                                    </div>
+                                  </div>
 
-                                        <div class="col-md-12 mb-3">
-                                          <label for="cat-type">@lang('lang.real_estate_type')</label>
-                                            <select name="cat_type" required class="form-select" id="cat_type" onchange="applyCategory()">
-                                             <option value="" selected disabled>@lang('lang.choose_type')</option>
-                                              <option value="1">@lang('lang.residential')</option>
-                                              <option value="2">@lang('lang.commercial')</option>
-                                              <option value="3">@lang('lang.commercial_units')</option>
-                                              <option value="4">@lang('lang.investment')</option>
-                                              <option value="5">@lang('lang.industrial')</option>
-                                              <option value="6">@lang('lang.chalet')</option>
-                                              <option value="7">@lang('lang.farm')</option>
-                                              <option value="8">@lang('lang.break')</option>
-                                              <option value="9">@lang('lang.lands')</option>
+                                  <div id="rtcl-ad-category-selection"
+                                   >
+                                    <div
+                                      class="classified-listing-form-title">
+                                      <i class="fa fa-tags"
+                                        aria-hidden="true"></i>
+                                      <h3>Select Category</h3>
+                                    </div>
+                                    <div class="rtcl-post-category">
+
+                                      <div class="row" id="cat-row">
+                                        <div class="col-sm-3 col-12">
+                                          <label
+                                            class="control-label">Category<span>
+                                              *</span></label>
+                                        </div>
+                                        <div class="col-sm-9 col-12">
+                                          <div class="form-group">
+                                            <select
+                                              class="rtcl-select2 form-control"
+                                              id="rtcl-category"
+                                              name="category"
+                                              onchange="getCategory()"
+                                              required>
+                                              <option value="">
+                                                Select a Category
+                                              </option>
+                                              <option value='chalet'>
+                                                Chalets</option>
+                                              <option value='commercial'>
+                                                Commercial
+                                                Buildings
+                                              </option>
+                                              <option value='commercial_units'>
+                                                Commercial Units
+                                              </option>
+                                              <option value='farm'>
+                                                Farms</option>
+                                              <option value='industrial'>
+                                                Industrial
+                                              </option>
+                                              <option value='investment'>
+                                                Investment
+                                                Properties
+                                              </option>
+                                             
+                                              <option value='lands'>Lands</option>
+                                              <option value='residential'>
+                                                Residential
+                                              </option>
                                             </select>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+                                      <div class="row d-none"
+                                        id="sub-cat-row">
+                                        <div class="col-sm-3 col-12">
+                                          <label
+                                            class="control-label">Sub
+                                            Category<span>
+                                              *</span></label>
+                                        </div>
+                                        <div class="col-sm-9 col-12"
+                                          id="rtcl-sub-category-wrap">
+                                          <div class="form-group">
+                                            <select name="category_id" class="rtcl-select2 form-control" id="category_id" onchange="applyForm()">
+                                            
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-3 col-12">
+                                          <label
+                                            class="control-label">Select
+                                            Location<span>
+                                              *</span></label>
+                                        </div>
+                                        <div class="col-sm-9 col-12">
+                                          <div class="form-group">
+                                            <select id="rtcl-sub-sub-location" name="area_id"
+                                              class="rtcl-select2 rtcl-select form-control rtcl-map-field" required>
+                                              <option value="">
+                                                --Select
+                                                Location--
+                                              </option>
+                                              @foreach ($areas as $area )
+                                              <option value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}
+                                              </option>
+                                              @endforeach
+                                    
+                                            </select>
+                                          </div>
+                                        </div>
+                                       
+                                      </div>
+
+
+                                      <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
+                                      <div class="row">
+                                        <div class="col-md-9" id="form-content">
+
                                         </div>
 
-                                        <div class="col-md-12 mb-3">
-                                          <label for="category_id">@lang('lang.real_estate')</label>
-                                            <select name="category_id" required class="form-select" id="category_id" onclick="applyType()" >
-                                             <option value="" selected disabled>@lang('lang.choose_type')</option>
-                                            </select>
-                                        </div>
                                       </div>
-                                      
-                                      
-                                      
+
                                     </div>
+                                  </div>
                                 </div>
-                                <div class="form_2 data_info" style="display: none;">
-                                    <div class="form_container">
-                                      <div class="input_wrap">
-                                        <label for="images">@lang('lang.images') (@lang('lang.max_5'))</label>
-                                        <input type="file" name="images[]" required max="5" multiple class="form-control" id="images">
-                                      </div>
-                                      <div class="input-wrap">
-                                        <div class="img-thumbs img-thumbs-hidden" id="img-preview"></div>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="form_3 data_info" style="display: none;">
-                                    <div class="form_container" id="form_3_content">
-                                        <div id="default">
-                                         <h3 class="text-center text-danger">Please Choose Real Estate Type</h3>
-                                        </div>
-                                    </div>
-                                </div>
+                              </form>
                               
-                            </div>
-                            <input type="hidden" value="eaOZO0IlV6v1RCfh8GV4d858a0ZDqAnp4Gr5mUsFh77LAbNH5XVlD8hkYANFOf6i" name="access_token">
-                              <div class="btns_wrap">
-                                <div class="common_btns form_1_btns">
-                                  <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                                </div>
-                                <div class="common_btns form_2_btns" style="display: none;">
-                                  <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                                  <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                                </div>
-                                <div class="common_btns form_3_btns" style="display: none;">
-                                  <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                                  <button type="submit" class="btn_done">Done</button>
-                                </div>
                               </div>
                             </div>
-
-                        </form>
-                       </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                </section>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+   
     </div>
-</section>
+  </div>
+</div>
 @endsection
 @section('script')
-<script src="{{asset('assets/js/advertisment.js')}}"></script>
-<script src="{{asset('assets/js/multiImages.js')}}"></script>
-<script src="{{asset('assets/js/touch-spin.js')}}"></script>
 <script src="{{asset('assets/js/create.js')}}"></script>
 <script>
-    // let lands = document.getElementById('lands');
-    // let residential = document.getElementById('residential');
-    // let barks = document.getElementById('barks');
-    // let architecture = document.getElementById('architecture');
-    let form_content = document.getElementById('form_3_content');
-    let dd = document.getElementById('default');
-
-   function applyCategory()
-   {
-        let type = $("#cat_type").find(":selected").val()  
-        
+  	function getCategory() {
+        let category = $("#rtcl-category").find(":selected").val();
+        let subCat = $("#sub-cat-row");
         $.ajax({
             type: 'GET',
-            url: `{{route('get-categories')}}`,
-            data: {
-                type: type
-            },
+            url: `{{route('get.category.type')}}?category=${category}`,
             success: function(data) {
-              // console.log(data);
-
-                $("#category_id").html(data.text);
-                if(data.type == '5'  || data.type == '7' || data.type == '8' || data.type == '9')
-                {
-                  
-                  form_content.replaceChildren()
-                  form_content.innerHTML = `
-                  <div id="lands">
-                                        <div class="row">
-                                          <div class="col-md-12 mb-3">
-                                            <label for="space">@lang('lang.space')</label>
-                                            <input type="number" name="space" id="space" placeholder="@lang('lang.space_in_meter')" class="form-control">
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                            <label for="">@lang('lang.advantage')</label>
-                                            <div class="radio_container">
-                                            <div class="row">
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="south" value="@lang('lang.south')" checked>
-                                                   <label for="south">@lang('lang.south')</label>
-                                                 </div>
-                                                 <div class="col-md-3 mt-3">
-
-                                                   <input type="checkbox" name="advantages[]" id="eastern" value="@lang('lang.Eastern')">
-                                                   <label for="eastern">@lang('lang.Eastern')</label>
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="north" value="@lang('lang.North')">
-                                                   <label for="north">@lang('lang.North')</label>
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-
-                                                   <input type="checkbox" name="advantages[]" id="Street_and_back" value="@lang('lang.Street_and_back')">
-                                                   <label for="Street_and_back">@lang('lang.Street_and_back')</label>
-
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-
-                                                   <input type="checkbox" name="advantages[]" id="On_the_street" value="@lang('lang.On_the_street')">
-                                                   <label for="On_the_street">@lang('lang.On_the_street')</label>
-
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="Western" value="@lang('lang.Western')">
-                                                   <label for="Western">@lang('lang.Western')</label>
-                                                 </div>
-
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="Three_streets" value="@lang('lang.Three_streets')">
-                                                   <label for="Three_streets">@lang('lang.Three_streets')</label>
-                                                 </div>
-
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="Two_streets_on_the_corner" value="@lang('lang.Two_streets_on_the_corner')">
-                                                   <label for="Two_streets_on_the_corner">@lang('lang.Two_streets_on_the_corner')</label>
-                                                 </div>
-                                               
-                                               </div>
-                                             
-
-                                             </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.addition_links')</label>
-                                            <input type="url" name="links" id="links" class="form-control">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.num_ads')</label>
-                                            <input type="text" name="number" id="number" class="form-control">
-                                          </div>
-                                        <div class="col-md-4">
-                                          <label for="">@lang('lang.price')</label>
-                                          <input type="number" name="price" id="price" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="">@lang('lang.desc')</label>
-                                          <textarea name="description" id="description-res"  class="form-control" cols="30" rows="10"></textarea>
-                                        </div>
-                                        
-                                        </div>
-                                      </div>
-                  `
-                  dd.classList.add('d-none')
-
-
-                }else if(data.type == '1' || data.type == '6' ){
-                  form_content.replaceChildren()
-                  form_content.innerHTML = `
-                  <div id="residential">
-                                        <div class="row">
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.room_num')</label>
-                                              <input id="num_of_rooms" type="text" value="" name="num_of_rooms" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.bath_num')</label>
-                                              <input id="num_of_bath" type="text" value=""  name="num_of_bath" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>      
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.resciption_num')</label>
-                                              <input id="num_of_lounges" type="text" value="" name="num_of_lounges" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                            <label for="space">@lang('lang.space')</label>
-                                            <input type="number" name="space" id="space" placeholder="@lang('lang.space_in_meter')" class="form-control">
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                              <label for="">@lang('lang.advantage')</label>
-                                            <div class="radio_container">
-                                              <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="furnished" value="@lang('lang.furnished')" >
-                                                  <label for="furnished">@lang('lang.furnished')</label>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="private_pool" value="@lang('lang.private_pool')">
-                                                  <label for="private_pool">@lang('lang.private_pool')</label>
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="central_air-conditioning" value="@lang('lang.central_air-conditioning')">
-                                                  <label for="central_air-conditioning">@lang('lang.central_air-conditioning')</label>
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="luxury_finishing" value="@lang('lang.luxury_finishing')">
-                                                  <label for="luxury_finishing">@lang('lang.luxury_finishing')</label>
-                                                  
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="close_to_services" value="@lang('lang.close_to_services')">
-                                                  <label for="close_to_services">@lang('lang.close_to_services')</label>
-    
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="garden" value="@lang('lang.garden')">
-                                                  <label for="garden">@lang('lang.garden')</label>
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="balcony" value="@lang('lang.balcony')">
-                                                  <label for="balcony">@lang('lang.balcony')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="elevator" value="@lang('lang.elevator')">
-                                                  <label for="elevator">@lang('lang.elevator')</label>
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
- 
-                                                  <input type="checkbox" name="advantages[]" id="crypt" value="@lang('lang.crypt')">
-                                                  <label for="crypt">@lang('lang.crypt')</label>
-                                                  
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="head" value="@lang('lang.head')">
-                                                  <label for="head">@lang('lang.head')</label>
-                                                  
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="health_club" value="@lang('lang.health_club')">
-                                                  <label for="health_club">@lang('lang.health_club')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="american_cuisine" value="@lang('lang.american_cuisine')">
-                                                  <label for="american_cuisine">@lang('lang.american_cuisine')</label>    
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="car_parking" value="@lang('lang.car_parking')">
-                                                  <label for="car_parking">@lang('lang.car_parking')</label>
-                                                
-                                                </div>
-                                              </div>
-                                           
-                                              
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.addition_links')</label>
-                                            <input type="url" name="links" id="links" class="form-control">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.num_ads')</label>
-                                            <input type="text" name="number" id="number" class="form-control">
-                                          </div>
-                                        <div class="col-md-4">
-                                          <label for="">@lang('lang.price')</label>
-                                          <input type="number" name="price" id="price" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="">@lang('lang.desc')</label>
-                                          <textarea name="description" id="description-vv"  class="form-control" cols="30" rows="10"></textarea>
-                                        </div>
-                                        </div>
-                                     
-                                      </div>
-                  `
-                  dd.classList.add('d-none')
-
-
-                }else if(data.type == '2' || data.type == '3' )
-                {
-                  form_content.replaceChildren()
-                  form_content.innerHTML = `
-                  <div id="barks" >
-                                        <div class="row">
-                                          <div class="col-md-12 mb-3">
-                                            <label for="space">@lang('lang.space')</label>
-                                            <input type="number" name="space" id="space" placeholder="@lang('lang.space_in_meter')" class="form-control">
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                            <label for="">@lang('lang.advantage')</label>
-                                            <div class="radio_container">
-                                            <div class="row">
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="central_air-bark" value="@lang('lang.central_air')" >
-                                                   <label for="central_air-bark">@lang('lang.central_air-conditioning')</label>
-                                                 </div>
-                                                 <div class="col-md-3 mt-3">
-
-                                                   <input type="checkbox" name="advantages[]" id="car_parking-bark" value="@lang('lang.car_parking')">
-                                                   <label for="car_parking-bark">@lang('lang.car_parking')</label>
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="elevator" value="@lang('lang.elevator')">
-                                                   <label for="elevator">@lang('lang.elevator')</label>
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-
-                                                   <input type="checkbox" name="advantages[]" id="Mezzanine" value="@lang('lang.Mezzanine')">
-                                                   <label for="Mezzanine">@lang('lang.Mezzanine')</label>
-
-                                                 </div>
-                                               
-                                                 <div class="col-md-3 mt-3">
-                                                   <input type="checkbox" name="advantages[]" id="Attic" value="@lang('lang.Attic')">
-                                                   <label for="Attic">@lang('lang.Attic')</label>
-                                                 </div>
-                                               
-    
-                                               </div>
-                                             
-
-                                             </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.addition_links')</label>
-                                            <input type="url" name="links" id="links" class="form-control">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.num_ads')</label>
-                                            <input type="text" name="number" id="number" class="form-control">
-                                          </div>
-                                        <div class="col-md-4">
-                                          <label for="">@lang('lang.price')</label>
-                                          <input type="number" name="price" id="price" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="">@lang('lang.desc')</label>
-                                          <textarea name="description" id="description-bark"  class="form-control" cols="30" rows="10"></textarea>
-                                        </div>
-                                        
-                                        </div>
-                                      </div>
-                  `
-                  dd.classList.add('d-none')
-                }
-
-              $("input[class='touchspin']").TouchSpin();
-               
+                $("#sub-cat-row").removeClass('d-none');
+                $("#category_id").html(data);
             },
             error: function(error) {
                 console.log('error');
             }
         });
     }
+</script>
 
-    function applyType(){
-          let Cattype = $('#category_id').find(":selected").val()
+<script>
+  let content = document.getElementById('form-content')
+        
+  function applyForm()
+  {
+    let category = $("#rtcl-category").find(":selected").val() 
+    console.log(category);
+        if(category == 'industrial' || category == 'farm' || category == 'break' || category == 'lands')
+        {
+            content.replaceChildren();
+            content.innerHTML = `
+<div class="rtcl-post-details rtcl-post-section rtcl-post-section-info">
+	<div class="classified-listing-form-title">
+		<i class="fa fa-folder-open" aria-hidden="true"></i>
+		<h3>Product Information</h3>
+	</div>
+	<div class="row classima-form-title-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Title<span>
+					*</span></label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<input type="text" data-max-length="3" maxlength="30" class="form-control" value="" name="title"
+					id="rtcl-title" name="title" required />
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>30</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="rtcl-pricing-wrap">
+		<div id="rtcl-pricing-items" class="rtcl-pricing-price">
+			<div id="rtcl-price-items" class="rtcl-pricing-item">
+				<div class="rtcl-price-item" id="rtcl-price-wrap">
+					<div class="price-wrap">
+						<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label">Price
+										[<span class="rtcl-currency-symbol">&#x62f;.&#x643;</span>]</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" value="" name="price" id="rtcl-price"
+										required>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          if(Cattype == '27')
-                {
-                  form_content.replaceChildren()
-                  form_content.innerHTML = `
-                  <div id="residential" >
-                                        <div class="row">
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.room_num')</label>
-                                              <input id="num_of_rooms" type="text" value="" name="num_of_rooms" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.bath_num')</label>
-                                              <input id="num_of_bath" type="text" value=""  name="num_of_bath" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>      
-                                          <div class="col-md-4 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.resciption_num')</label>
-                                              <input id="num_of_lounges" type="text" value="" name="num_of_lounges" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="0" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                            <label for="space">@lang('lang.space')</label>
-                                            <input type="number" name="space" id="space" placeholder="@lang('lang.space_in_meter')" class="form-control">
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                              <label for="">@lang('lang.advantage')</label>
-                                            <div class="radio_container">
-                                              <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="furnished" value="@lang('lang.furnished')" >
-                                                  <label for="furnished">@lang('lang.furnished')</label>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
+				<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label"> Link Number
+										</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="number" class="form-control" value="" name="number" id="rtcl-price"
+										required>
+								</div>
+							</div>
+				</div>
+				<div class="row" id="rtcl-price-unit-wrap">
+					<div class="col-12 col-sm-3">
+						<label class="control-label">Price
+							Unit</label>
+					</div>
+					<div class="col-12 col-sm-9">
+						<div class="form-group">
+							<select class="form-control rtcl-select2" id="rtcl-price-unit" name="_rtcl_price_unit">
+								<option value="">
+									No
+									unit
+								</option>
+								<option value="total">
+									Total
+									Price
+									(total
+									price)</label>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="private_pool" value="@lang('lang.private_pool')">
-                                                  <label for="private_pool">@lang('lang.private_pool')</label>
-                                                </div>
+	<div id="rtcl-custom-fields-list" data-post_id="0">
+		<div class="row rtcl-cf-wrap" data-id="_field_2820" data-type="number">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_number_2820" class="control-label rtcl-cf-label">Land
+					Area<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<input type="number" class="rtcl-number form-control rtcl-cf-field" id="rtcl_number_2820"
+						name="space" placeholder="" value="" step="any" min="0" required />
+					<div class='help-block with-errors'>
+					</div>
+					<small class='help-block'>Land
+						Area</small>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2821" data-type="radio">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_radio_2821" class="control-label rtcl-cf-label">Features<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<div class="rtcl-check-list">
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-1"
+								type="radio" name="advantages[]" value="One Street" checked="checked"
+								required><label class="form-check-label" for="rtcl_radio_2821option-title-1">One
+								Street</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-2"
+								type="radio" name="advantages[]" value="Two
+								Street" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-2">Two
+								Street</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-3"
+								type="radio" name="advantages[]" value="Two
+								Street" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-3">Two
+								Street
+								Corner</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-4"
+								type="radio" name="advantages[]" value="option-title-4" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-4">Three
+								Street</label>
+						</div>
+					</div>
+					<div class='help-block with-errors'>
+					</div>
+					<small class='help-block'>Features</small>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2822" data-type="checkbox">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_checkbox_2822" class="control-label rtcl-cf-label">feat</label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<div class="rtcl-check-list">
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-1"
+								type="checkbox" name="advantages[]" value="Near
+								Services" data-foo='yes'><label
+								class="form-check-label" for="rtcl_checkbox_2822option-title-1">Near
+								Services</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-2"
+								type="checkbox" name="advantages[]" value="Near
+								School" data-foo='yes'><label
+								class="form-check-label" for="rtcl_checkbox_2822option-title-2">Near
+								School</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-3"
+								type="checkbox" name="advantages[]" value="Near
+								Exit" data-foo='yes'><label
+								class="form-check-label" for="rtcl_checkbox_2822option-title-3">Near
+								Exit</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-4"
+								type="checkbox" name="advantages[]" value="option-title-4" data-foo='yes'><label
+								class="form-check-label" for="rtcl_checkbox_2822option-title-4">Near
+								Mosque</label>
+						</div>
+					</div>
+					<div class='help-block with-errors'>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="central_air-conditioning" value="@lang('lang.central_air-conditioning')">
-                                                  <label for="central_air-conditioning">@lang('lang.central_air-conditioning')</label>
-                                                </div>
+	<div class="row classima-form-des-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Description</label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<div id="wp-description-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
 
-                                                <div class="col-md-3 mt-3">
+					<div id="wp-description-editor-tools" class="wp-editor-tools hide-if-no-js">
+						<div class="wp-editor-tabs">
+							<button type="button" id="description-tmce" class="wp-switch-editor switch-tmce"
+								data-wp-editor-id="description">Visual</button>
+							<button type="button" id="description-html" class="wp-switch-editor switch-html"
+								data-wp-editor-id="description">Text</button>
+						</div>
+					</div>
+					<div id="wp-description-editor-container" class="wp-editor-container">
+						<div id="qt_description_toolbar" class="quicktags-toolbar hide-if-no-js">
+						</div>
+						<textarea class="wp-editor-area" style="height: 200px" autocomplete="off" cols="40"
+							name="description" id="description"></textarea>
+					</div>
+				</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="luxury_finishing" value="@lang('lang.luxury_finishing')">
-                                                  <label for="luxury_finishing">@lang('lang.luxury_finishing')</label>
-                                                  
-                                                </div>
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>50</span>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                <div class="col-md-3 mt-3">
 
-                                                  <input type="checkbox" name="advantages[]" id="close_to_services" value="@lang('lang.close_to_services')">
-                                                  <label for="close_to_services">@lang('lang.close_to_services')</label>
-    
-                                                </div>
+</div>
 
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="garden" value="@lang('lang.garden')">
-                                                  <label for="garden">@lang('lang.garden')</label>
-                                                </div>
 
-                                                <div class="col-md-3 mt-3">
+<div class="rtcl-post-gallery rtcl-post-section">
+	<div class="classified-listing-form-title">
+		<i class="fa fa-image" aria-hidden="true"></i>
+		<h3>Images</h3>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="balcony" value="@lang('lang.balcony')">
-                                                  <label for="balcony">@lang('lang.balcony')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="elevator" value="@lang('lang.elevator')">
-                                                  <label for="elevator">@lang('lang.elevator')</label>
-                                                </div>
+	<div class="form-group">
+		<div id="rtcl-gallery-upload-ui-wrapper" class="rtcl-browser-frontend">
+			<input type="file" name="images[]" class="form-control" multiple id="">
 
-                                                <div class="col-md-3 mt-3">
- 
-                                                  <input type="checkbox" name="advantages[]" id="crypt" value="@lang('lang.crypt')">
-                                                  <label for="crypt">@lang('lang.crypt')</label>
-                                                  
-                                                </div>
+			<div class="rtcl-gallery-uploads">
+			</div>
+			<div class="description alert alert-danger">
+				<p>Recommended image
+					size to
+					(870x493)px</p>
+				<p>Image maximum
+					size 3 MB.</p>
+				<p>Allowed image
+					type (png, jpg,
+					jpeg).</p>
+				<p>You can upload up
+					to 5 images.</p>
+			</div>
 
-                                                <div class="col-md-3 mt-3">
+		</div>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="head" value="@lang('lang.head')">
-                                                  <label for="head">@lang('lang.head')</label>
-                                                  
-                                                </div>
+</div>
+<div class="rtcl-post-contact-details rtcl-post-section">
+	<div class="classified-listing-form-title">
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<h3>Contact Details</h3>
+	</div>
 
-                                                <div class="col-md-3 mt-3">
+	
 
-                                                  <input type="checkbox" name="advantages[]" id="health_club" value="@lang('lang.health_club')">
-                                                  <label for="health_club">@lang('lang.health_club')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="american_cuisine" value="@lang('lang.american_cuisine')">
-                                                  <label for="american_cuisine">@lang('lang.american_cuisine')</label>    
-                                                </div>
+	<div class="row  rtcl-hide" id="sub-sub-location-row">
+		<div class="col-12 col-sm-3">
+			<label class="control-label">Block<span>
+					*</span></label>
+		</div>
+			</div>
 
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="car_parking" value="@lang('lang.car_parking')">
-                                                  <label for="car_parking">@lang('lang.car_parking')</label>
-                                                
-                                                </div>
-                                              </div>
-                                           
-                                              
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.addition_links')</label>
-                                            <input type="url" name="links" id="links" class="form-control">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.num_ads')</label>
-                                            <input type="text" name="number" id="number" class="form-control">
-                                          </div>
-                                        <div class="col-md-4">
-                                          <label for="">@lang('lang.price')</label>
-                                          <input type="number" name="price" id="price" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="">@lang('lang.desc')</label>
-                                          <textarea name="description" id="description-vv"  class="form-control" cols="30" rows="10"></textarea>
-                                        </div>
-                                        </div>
-                                     
-                                      </div>
-                  `
-                  dd.classList.add('d-none')
-                }else if(Cattype == '28')
-                {
-                  form_content.replaceChildren()
-                  form_content.innerHTML = `
-                  <div id="architecture">
-                                        <div class="row">
-                                          <div class="col-md-6 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.floor_num')</label>
-                                              <input id="num_of_rooms" type="text" value="" name="num_of_rooms" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-6 mb-3">
-                                            <div class="mb-3">
-                                              <label class="form-label">@lang('lang.num_of_apartments')</label>
-                                              <input id="num_of_bath" type="text" value="" name="num_of_apartments" class="touchspin" data-bts-min="0" data-bts-max="100" data-bts-init-val="" data-bts-step="1" data-bts-decimal="0" data-bts-step-interval="100" data-bts-force-step-divisibility="round" data-bts-step-interval-delay="500" data-bts-prefix="" data-bts-postfix="" data-bts-prefix-extra-class="" data-bts-postfix-extra-class="" data-bts-booster="true" data-bts-boostat="10" data-bts-max-boosted-step="false" data-bts-mousewheel="true" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                            <label for="space">@lang('lang.space')</label>
-                                            <input type="number" name="space" id="space" placeholder="@lang('lang.space_in_meter')" class="form-control">
-                                          </div>
-                                          <div class="col-md-12 mb-3">
-                                              <label for="">@lang('lang.advantage')</label>
-                                            <div class="radio_container">
-                                              <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="furnished-arch" value="@lang('lang.furnished')" >
-                                                  <label for="furnished-arch">@lang('lang.furnished')</label>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
+</div>
+<div class="rtcl-listing-terms-conditions">
+	<div class="row">
+		<div class="col-sm-3 col-12">
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="rtcl_agree" id="rtcl-terms-conditions"
+						required>
+					<label class="form-check-label" for="rtcl-terms-conditions">
+						I have read
+						and agree to
+						the website
+						<a href="https://codedhosting.com/alfuraij/my-account/" class="rtcl-terms-and-conditions-link"
+							target="_blank">terms
+							and
+							conditions</a>.
+					</label>
+					<div class="with-errors help-block" data-error="This field is required">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  		<button type="submit" class="btn btn-primary rtcl-submit-btn">
+			Submit		</button>
+</div>
+            `;
+        }else if(category == 'residential' || category == 'chalet' )
+        {
+          content.replaceChildren();
+          content.innerHTML = `
+          <div class="rtcl-post-details rtcl-post-section rtcl-post-section-info">
+	<div class="classified-listing-form-title">
+		<i class="fa fa-folder-open" aria-hidden="true"></i>
+		<h3>Product Information</h3>
+	</div>
+	<div class="row classima-form-title-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Title<span>
+					*</span></label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<input type="text" data-max-length="3" maxlength="30" class="form-control" value="" id="rtcl-title"
+					name="title" required />
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>30</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="rtcl-pricing-wrap">
+		<div class="row" id="rtcl-form-pricing-type-wrap">
+			<div class="col-sm-3 col-12">
+				<label class="control-label">Pricing</label>
+			</div>
+			
+		</div>
+		<div id="rtcl-pricing-items" class="rtcl-pricing-price">
+			<div id="rtcl-price-items" class="rtcl-pricing-item">
+				<div class="rtcl-price-item" id="rtcl-price-wrap">
+					<div class="price-wrap">
+						<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label">Price
+										[<span class="rtcl-currency-symbol">&#x62f;.&#x643;</span>]</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" value="" name="price" id="rtcl-price"
+										required>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row" id="rtcl-price-unit-wrap">
+					<div class="col-12 col-sm-3">
+						<label class="control-label">Price
+							Unit</label>
+					</div>
+					<div class="col-12 col-sm-9">
+						<div class="form-group">
+							<select class="form-control rtcl-select2" id="rtcl-price-unit" name="_rtcl_price_unit">
+								<option value="">
+									No
+									unit
+								</option>
+								<option value="total">
+									Total
+									Price
+									(total
+									price)</label>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="private_pool-arch" value="@lang('lang.private_pool')">
-                                                  <label for="private_pool-arch">@lang('lang.private_pool')</label>
-                                                </div>
+	<div id="rtcl-custom-fields-list" data-post_id="0">
+		<div class="row rtcl-cf-wrap" data-id="_field_2820" data-type="number">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_number_2820" class="control-label rtcl-cf-label">Land
+					Area<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<input type="number" class="rtcl-number form-control rtcl-cf-field" id="rtcl_number_2820"
+						name="space" placeholder="" value="" step="any" min="0" required />
+					<div class='help-block with-errors'>
+					</div>
+					<small class='help-block'>Land
+						Area</small>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2821" data-type="radio">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_radio_2821" class="control-label rtcl-cf-label">Features<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<div class="rtcl-check-list">
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-1"
+								type="radio" name="advantages[]" value=">One
+								Street" checked="checked"
+								required><label class="form-check-label" for="rtcl_radio_2821option-title-1">One
+								Street</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-2"
+								type="radio" name="advantages[]" value="Two Street" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-2">Two
+								Street</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-3"
+								type="radio" name="advantages[]" value="Two Street Corner" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-3">Two
+								Street
+								Corner</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_radio_2821option-title-4"
+								type="radio" name="advantages[]" value="Three Street" required><label
+								class="form-check-label" for="rtcl_radio_2821option-title-4">Three
+								Street</label>
+						</div>
+					</div>
+					<div class='help-block with-errors'>
+					</div>
+					<small class='help-block'>Features</small>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2822" data-type="checkbox">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_checkbox_2822" class="control-label rtcl-cf-label">feat</label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<div class="rtcl-check-list">
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-1"
+								type="checkbox" name="advantages[]" value="Near Services"
+								data-foo='yes'><label class="form-check-label"
+								for="rtcl_checkbox_2822option-title-1">Near
+								Services</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-2"
+								type="checkbox" name="advantages[]" value="Near School"
+								data-foo='yes'><label class="form-check-label"
+								for="rtcl_checkbox_2822option-title-2">Near
+								School</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-3"
+								type="checkbox" name="advantages[]" value="Near Exit"
+								data-foo='yes'><label class="form-check-label"
+								for="rtcl_checkbox_2822option-title-3">Near
+								Exit</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2822option-title-4"
+								type="checkbox" name="advantages[]" value="Near Mosque"
+								data-foo='yes'><label class="form-check-label"
+								for="rtcl_checkbox_2822option-title-4">Near
+								Mosque</label>
+						</div>
+					</div>
+					<div class='help-block with-errors'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2824" data-type="number">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_number_2824" class="control-label rtcl-cf-label">Room
+					#<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<input type="number" class="rtcl-number form-control rtcl-cf-field" id="rtcl_number_2824"
+						name="num_of_rooms" placeholder="" value="" step="any" min="0" required />
+					<div class='help-block with-errors'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2825" data-type="number">
+			<div class="col-12 col-sm-3">
+				<label for="num_of_bath" class="control-label rtcl-cf-label">Bathrooms
+					#<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<input type="number" class="rtcl-number form-control rtcl-cf-field" id="num_of_bath"
+						name="num_of_bath" placeholder="" value="" step="any" min="0" required />
+					<div class='help-block with-errors'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row rtcl-cf-wrap" data-id="_field_2826" data-type="checkbox">
+			<div class="col-12 col-sm-3">
+				<label for="rtcl_checkbox_2826" class="control-label rtcl-cf-label">Features<span>
+						*</span></label>
+			</div>
+			<div class="col-12 rtcl-cf-field-wrap col-sm-9">
+				<div class="form-group">
+					<div class="rtcl-check-list">
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-1"
+								type="checkbox" name="advantages[]" value=">Maids Room" data-foo='yes'
+								required><label class="form-check-label" for="rtcl_checkbox_2826option-title-1">Maids
+								Room</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-2"
+								type="checkbox" name="advantages[]" value="Gym" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-2">Gym</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-3"
+								type="checkbox" name="advantages[]" value="Pool" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-3">Pool</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-4"
+								type="checkbox" name="advantages[]" value="Balcony" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-4">Balcony</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-5"
+								type="checkbox" name="advantages[]" value="Parking" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-5">Parking</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-6"
+								type="checkbox" name="advantages[]" value="Elevator" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-6">Elevator</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input rtcl-cf-field" id="rtcl_checkbox_2826option-title-7"
+								type="checkbox" name="advantages[]" value="Store" data-foo='yes'
+								required><label class="form-check-label"
+								for="rtcl_checkbox_2826option-title-7">Store</label>
+						</div>
+					</div>
+					<div class='help-block with-errors'>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="central_air-conditioning-arch" value="@lang('lang.central_air-conditioning')">
-                                                  <label for="central_air-conditioning-arch">@lang('lang.central_air-conditioning')</label>
-                                                </div>
+	<div class="row classima-form-des-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Description</label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<div id="wp-description-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
+					<link rel='stylesheet' id='editor-buttons-css'
+						href='https://codedhosting.com/alfuraij/wp-includes/css/editor.min.css?ver=6.4.2'
+						type='text/css' media='all' />
+					<div id="wp-description-editor-tools" class="wp-editor-tools hide-if-no-js">
+						<div class="wp-editor-tabs">
+							<button type="button" id="description-tmce" class="wp-switch-editor switch-tmce"
+								data-wp-editor-id="description">Visual</button>
+							<button type="button" id="description-html" class="wp-switch-editor switch-html"
+								data-wp-editor-id="description">Text</button>
+						</div>
+					</div>
+					<div id="wp-description-editor-container" class="wp-editor-container">
+						<div id="qt_description_toolbar" class="quicktags-toolbar hide-if-no-js">
+						</div>
+						<textarea class="wp-editor-area" style="height: 200px" autocomplete="off" cols="40"
+							name="description" id="description"></textarea>
+					</div>
+				</div>
 
-                                                <div class="col-md-3 mt-3">
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>50</span>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="luxury_finishing-arch" value="@lang('lang.luxury_finishing')">
-                                                  <label for="luxury_finishing-arch">@lang('lang.luxury_finishing')</label>
-                                                  
-                                                </div>
+	<div class="rtcl-post-gallery rtcl-post-section">
+		<div class="classified-listing-form-title">
+			<i class="fa fa-image" aria-hidden="true"></i>
+			<h3>Images</h3>
+		</div>
+	
+		<div class="form-group">
+			<div id="rtcl-gallery-upload-ui-wrapper" class="rtcl-browser-frontend">
+				<input type="file" name="images[]" class="form-control" multiple id="">
+	
+				<div class="rtcl-gallery-uploads">
+				</div>
+				<div class="description alert alert-danger">
+					<p>Recommended image
+						size to
+						(870x493)px</p>
+					<p>Image maximum
+						size 3 MB.</p>
+					<p>Allowed image
+						type (png, jpg,
+						jpeg).</p>
+					<p>You can upload up
+						to 5 images.</p>
+				</div>
+	
+			</div>
+		</div>
+	
+	</div>
+  		<button type="submit" class="btn btn-primary rtcl-submit-btn">
+			Submit		</button>
+</div>
+          
+          `
+        }else if(category == 'commercial_units' || category == 'commercial')
+        {
+          content.replaceChildren();
+          content.innerHTML = ` 
+          <div class="rtcl-post-details rtcl-post-section rtcl-post-section-info">
+	<div class="classified-listing-form-title">
+		<i class="fa fa-folder-open" aria-hidden="true"></i>
+		<h3>Product Information</h3>
+	</div>
+	<div class="row classima-form-title-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Title<span>
+					*</span></label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<input type="text" data-max-length="3" maxlength="30" class="form-control" value="" id="rtcl-title"
+					name="title" required />
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>30</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="rtcl-pricing-wrap">
+		<div class="row" id="rtcl-form-pricing-type-wrap">
+			<div class="col-sm-3 col-12">
+				<label class="control-label">Pricing</label>
+			</div>
+			
+		</div>
+		<div id="rtcl-pricing-items" class="rtcl-pricing-price">
+			<div id="rtcl-price-items" class="rtcl-pricing-item">
+				<div class="rtcl-price-item" id="rtcl-price-wrap">
+					<div class="price-wrap">
+						<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label">Price
+										[<span class="rtcl-currency-symbol">&#x62f;.&#x643;</span>]</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" value="" name="price" id="rtcl-price"
+										required>
+								</div>
+							</div>
+						</div>
 
-                                                <div class="col-md-3 mt-3">
 
-                                                  <input type="checkbox" name="advantages[]" id="close_to_services-arch" value="@lang('lang.close_to_services')">
-                                                  <label for="close_to_services-arch">@lang('lang.close_to_services')</label>
-    
-                                                </div>
+						<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label"> Link Number
+										</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="number" class="form-control" value="" name="number" id="rtcl-price"
+										required>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+				<div class="row" id="rtcl-price-unit-wrap">
+					<div class="col-12 col-sm-3">
+						<label class="control-label">Price
+							Unit</label>
+					</div>
+					<div class="col-12 col-sm-9">
+						<div class="form-group">
+							<select class="form-control rtcl-select2" id="rtcl-price-unit" name="_rtcl_price_unit">
+								<option value="">
+									No
+									unit
+								</option>
+								<option value="month">
+									Month
+									(per
+									month)</label>
+								<option value="total">
+									Total
+									Price
+									(total
+									price)</label>
+							</select>
+						</div>
+					</div>
+				</div>
 
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="garden-arch" value="@lang('lang.garden')">
-                                                  <label for="garden-arch">@lang('lang.garden')</label>
-                                                </div>
+				<div class="row">
+							<div class="col-md-3 col-12">
+								<label class="control-label">
+									<span class="price-label"> Link Number
+										</span>
+									<span>
+										*</span>
+								</label>
+							</div>
+							<div class="col-md-9 col-12">
+								<div class="form-group">
+									<input type="number" class="form-control" value="" name="number" id="rtcl-price"
+										required>
+								</div>
+							</div>
+						</div>
+			</div>
+		</div>
+	</div>
 
-                                                <div class="col-md-3 mt-3">
+	<div id="rtcl-custom-fields-list" data-post_id="0">
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="balcony-arch" value="@lang('lang.balcony')">
-                                                  <label for="balcony-arch">@lang('lang.balcony')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="elevator-arch" value="@lang('lang.elevator')">
-                                                  <label for="elevator-arch">@lang('lang.elevator')</label>
-                                                </div>
+	<div class="rtcl-post-gallery rtcl-post-section">
+		<div class="classified-listing-form-title">
+			<i class="fa fa-image" aria-hidden="true"></i>
+			<h3>Images</h3>
+		</div>
+	
+		<div class="form-group">
+			<div id="rtcl-gallery-upload-ui-wrapper" class="rtcl-browser-frontend">
+				<input type="file" name="images[]" class="form-control" multiple id="">
+	
+				<div class="rtcl-gallery-uploads">
+				</div>
+				<div class="description alert alert-danger">
+					<p>Recommended image
+						size to
+						(870x493)px</p>
+					<p>Image maximum
+						size 3 MB.</p>
+					<p>Allowed image
+						type (png, jpg,
+						jpeg).</p>
+					<p>You can upload up
+						to 5 images.</p>
+				</div>
+	
+			</div>
+		</div>
+	
+	</div>
 
-                                                <div class="col-md-3 mt-3">
- 
-                                                  <input type="checkbox" name="advantages[]" id="crypt-arch" value="@lang('lang.crypt')">
-                                                  <label for="crypt-arch">@lang('lang.crypt')</label>
-                                                  
-                                                </div>
+	<div class="row classima-form-des-row">
+		<div class="col-sm-3 col-12">
+			<label class="control-label">Description</label>
+		</div>
+		<div class="col-sm-9 col-12">
+			<div class="form-group">
+				<div id="wp-description-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
+					<link rel='stylesheet' id='editor-buttons-css'
+						href='https://codedhosting.com/alfuraij/wp-includes/css/editor.min.css?ver=6.4.2'
+						type='text/css' media='all' />
+					<div id="wp-description-editor-tools" class="wp-editor-tools hide-if-no-js">
+						<div class="wp-editor-tabs">
+							<button type="button" id="description-tmce" class="wp-switch-editor switch-tmce"
+								data-wp-editor-id="description">Visual</button>
+							<button type="button" id="description-html" class="wp-switch-editor switch-html"
+								data-wp-editor-id="description">Text</button>
+						</div>
+					</div>
+					<div id="wp-description-editor-container" class="wp-editor-container">
+						<div id="qt_description_toolbar" class="quicktags-toolbar hide-if-no-js">
+						</div>
+						<textarea class="wp-editor-area" style="height: 200px" autocomplete="off" cols="40"
+							name="description" id="description"></textarea>
+					</div>
+				</div>
 
-                                                <div class="col-md-3 mt-3">
+				<div class="rtcl-hints">
+					Character limit
+					<span class='target-limit'>50</span>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                  <input type="checkbox" name="advantages[]" id="head-arch" value="@lang('lang.head')">
-                                                  <label for="head-arch">@lang('lang.head')</label>
-                                                  
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-
-                                                  <input type="checkbox" name="advantages[]" id="health_club-arch" value="@lang('lang.health_club')">
-                                                  <label for="health_club-arch">@lang('lang.health_club')</label>
-                                                  
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="american_cuisine-arch" value="@lang('lang.american_cuisine')">
-                                                  <label for="american_cuisine-arch">@lang('lang.american_cuisine')</label>    
-                                                </div>
-
-                                                <div class="col-md-3 mt-3">
-                                                  <input type="checkbox" name="advantages[]" id="car_parking-arch" value="@lang('lang.car_parking')">
-                                                  <label for="car_parking-arch">@lang('lang.car_parking')</label>
-                                                
-                                                </div>
-                                              </div>
-                                           
-                                              
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.addition_links')</label>
-                                            <input type="url" name="links" id="links" class="form-control">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <label for="">@lang('lang.num_ads')</label>
-                                            <input type="text" name="number" id="number" class="form-control">
-                                          </div>
-                                        <div class="col-md-4">
-                                          <label for="">@lang('lang.price')</label>
-                                          <input type="number" name="price" id="price" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                          <label for="">@lang('lang.desc')</label>
-                                          <textarea name="description" id="description-arch"  class="form-control" cols="30" rows="10"></textarea>
-                                        </div>
-                                        </div>
-                                     
-                                      </div>
-                  `
-
-                  dd.classList.add('d-none')
-                }
-          $("input[class='touchspin']").TouchSpin();
-
+  		<button type="submit" class="btn btn-primary rtcl-submit-btn">
+			Submit		</button>
+</div>
+          `
+        }
     }
-
 </script>
 @endsection

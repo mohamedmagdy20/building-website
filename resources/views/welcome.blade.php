@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('body_class','archive page-template-default page page-id-8 wp-custom-logo rtcl-account rtcl-page rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 banner-enabled has-sidebar left-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-8')
+@section('body_class','home page-template page-template-templates page-template-blank page-template-templatesblank-php page page-id-1897 wp-custom-logo rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 no-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-1897')
 @section('content')
 <div id="primary" class="content-area">
     <div data-elementor-type="wp-page" data-elementor-id="1897" class="elementor elementor-1897" data-elementor-post-type="page">
@@ -86,7 +86,7 @@
 													data-widget_type="icon.default">
 													<div class="elementor-widget-container">
 														<div class="elementor-icon-wrapper">
-															<a class="elementor-icon" href="./ai/index.html">
+															<a class="elementor-icon" href="{{route('ai')}}">
 																<i aria-hidden="true" class="far fa-comments"></i> </a>
 														</div>
 													</div>
@@ -96,7 +96,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./ai/index.html">Real Estate</a></h2>
+																href="{{route('ai')}}">Real Estate</a></h2>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-248f721 elementor-widget elementor-widget-heading"
@@ -104,7 +104,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./ai/index.html">Ai</a></h2>
+																href="{{route('ai')}}">Ai</a></h2>
 													</div>
 												</div>
 											</div>
