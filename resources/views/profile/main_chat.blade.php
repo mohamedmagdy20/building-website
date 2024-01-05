@@ -205,15 +205,14 @@
                                                                     <div class="row g-0">
                                                                         <div class="col-12 col-lg-5 col-xl-3 border-right">
                                                         
-                                                                            <div class="px-4 d-none d-md-block">
+                                                                            {{-- <div class="px-4 d-none d-md-block">
                                                                                 <div class="d-flex align-items-center">
                                                                                     <div class="flex-grow-1">
                                                                                         <input type="text" class="form-control my-3" placeholder="Search...">
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
+                                                                            </div> --}}
                                                         
-                                                                           
                                                                             @foreach ($chats as $chat )
                                                                             @if($chat->user_to_id == auth()->user()->id)
                                                                             <a href="{{route('chats',$chat->id)}}" class="list-group-item list-group-item-action border-0">
@@ -250,172 +249,114 @@
                                                                             @endif
                                                                             
                                                                             @endforeach
-                                                                           
                                                         
                                                                             <hr class="d-block d-lg-none mt-1 mb-0">
                                                                         </div>
                                                                         <div class="col-12 col-lg-7 col-xl-9">
-                                                                            {{-- <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                                                                            @if ($mainChat->user_id == auth()->user()->id)
+                                                                            <div class="py-2 px-4 border-bottom d-none d-lg-block">
                                                                                 <div class="d-flex align-items-center py-1">
                                                                                     <div class="position-relative">
-                                                                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                                                                                        <img src="
+                                                                                        @if ($mainChat->user->image == null)
+                                                                                        https://admin.alfuraij.com/assets/images/default.jpg
+                                                                                        @else
+                                                                                        https://admin.alfuraij.com/uploads/users/{{$mainChat->user->image}}
+                                                                                        @endif
+                                                                                        " class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
                                                                                     </div>
                                                                                     <div class="flex-grow-1 pl-3">
-                                                                                        <strong>Sharon Lessman</strong>
-                                                                                        <div class="text-muted small"><em>Typing...</em></div>
+                                                                                        <strong>{{$mainChat->reciver->name}}</strong>
+                                                                                        {{-- <div class="text-muted small"><em>Typing...</em></div> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> --}}
+                                                                            </div>    
+                                                                            @else
+                                                                            <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                                                                                <div class="d-flex align-items-center py-1">
+                                                                                    <div class="position-relative">
+                                                                                        <img src="
+                                                                                        @if ($mainChat->user->image == null)
+                                                                                        https://admin.alfuraij.com/assets/images/default.jpg
+                                                                                        @else
+                                                                                        https://admin.alfuraij.com/uploads/users/{{$mainChat->user->image}}
+                                                                                        @endif
+                                                                                        " class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
+                                                                                    </div>
+                                                                                    <div class="flex-grow-1 pl-3">
+                                                                                        <strong>{{$mainChat->user->name}}</strong>
+                                                                                        {{-- <div class="text-muted small"><em>Typing...</em></div> --}}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>    
+
+                                                                            @endif
+                                                                            
                                                         
                                                                             <div class="position-relative">
-                                                                                {{-- <div class="chat-messages p-4">
-                                                        
-                                                                                    <div class="chat-message-right pb-4">
+                                                                                <div class="chat-messages p-4"  id="chat-content">
+                                                                                    @foreach ($messages as $message )
+                                                                                    @if ($message->sender_id == auth()->user()->id)
+                                                                                        <div class="chat-message-right pb-4">
+                                                                                            <div>
+                                                                                                <img src="
+                                                                                                @if ($message->sender->image == null)
+                                                                                                https://admin.alfuraij.com/assets/images/default.jpg
+                                                                                                @else
+                                                                                                https://admin.alfuraij.com/uploads/users/{{$message->sender->image}}
+                                                                                                @endif
+                                                                                                
+                                                                                                "
+                                                                                                 class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                                                                                                <div class="text-muted small text-nowrap mt-2">{{\Carbon\Carbon::parse($message->created_at)->format('g:i a')}}</div>
+                                                                                            </div>
+                                                                                            <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                                                                                                <div class="font-weight-bold mb-1">You</div>
+                                                                                                {{$message->message}}
+                                                                                            </div>
+                                                                                        </div>    
+                                                                                    @else
+                                                                                 
+                                                                                    <div class="chat-message-left pb-4">
                                                                                         <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:33 am</div>
+                                                                                            <img src="
+                                                                                            @if ($message->sender->image == null)
+                                                                                            https://admin.alfuraij.com/assets/images/default.jpg
+                                                                                            @else
+                                                                                            https://admin.alfuraij.com/uploads/users/{{$message->sender->image}}
+                                                                                            @endif
+                                                                                            
+                                                                                            "
+                                                                                             class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                                                                                            <div class="text-muted small text-nowrap mt-2">{{\Carbon\Carbon::parse($message->created_at)->format('g:i a')}}</div>
                                                                                         </div>
                                                                                         <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
                                                                                             <div class="font-weight-bold mb-1">You</div>
-                                                                                            Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.
+                                                                                            {{$message->message}}
                                                                                         </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:34 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-right mb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:35 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                                                                                            <div class="font-weight-bold mb-1">You</div>
-                                                                                            Cum ea graeci tractatos.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:36 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Sed pulvinar, massa vitae interdum pulvinar, risus lectus porttitor magna, vitae commodo lectus mauris et velit.
-                                                                                            Proin ultricies placerat imperdiet. Morbi varius quam ac venenatis tempus.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:37 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Cras pulvinar, sapien id vehicula aliquet, diam velit elementum orci.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-right mb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:38 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                                                                                            <div class="font-weight-bold mb-1">You</div>
-                                                                                            Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:39 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-right mb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:40 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                                                                                            <div class="font-weight-bold mb-1">You</div>
-                                                                                            Cum ea graeci tractatos.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-right mb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:41 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                                                                                            <div class="font-weight-bold mb-1">You</div>
-                                                                                            Morbi finibus, lorem id placerat ullamcorper, nunc enim ultrices massa, id dignissim metus urna eget purus.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:42 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Sed pulvinar, massa vitae interdum pulvinar, risus lectus porttitor magna, vitae commodo lectus mauris et velit.
-                                                                                            Proin ultricies placerat imperdiet. Morbi varius quam ac venenatis tempus.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-right mb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:43 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                                                                                            <div class="font-weight-bold mb-1">You</div>
-                                                                                            Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                    <div class="chat-message-left pb-4">
-                                                                                        <div>
-                                                                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                                                                            <div class="text-muted small text-nowrap mt-2">2:44 am</div>
-                                                                                        </div>
-                                                                                        <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                                                                                            <div class="font-weight-bold mb-1">Sharon Lessman</div>
-                                                                                            Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
-                                                                                        </div>
-                                                                                    </div>
-                                                        
-                                                                                </div> --}}
-                                                                               @lang('lang.select_conversetion')
-                                                                        
+                                                                                    </div>    
+                                                                
+                                                                                    @endif                                                        
+                                                                                    
+                                                                                    @endforeach
+                                                                                
+                                                                                    
+                                                                                </div>
+                                                                           
                                                                             
                                                                             </div>
-                                                        
-                                                                            {{-- <div class="flex-grow-0 py-3 px-4 border-top">
-                                                                                <div class="input-group">
-                                                                                    <input type="text" class="form-control" placeholder="Type your message">
-                                                                                    <button class="btn btn-primary">Send</button>
+                                                                            <form id="message-chat"  method="POST">
+                                                                                <div class="flex-grow-0 py-3 px-4 border-top">
+                                                                                    <div class="input-group">
+                                                                                        <input type="hidden" name="chat_id" value="{{$mainChat->id}}" id="chat-id">
+                                                                                        <input type="hidden" name="sender_id" value="{{auth()->user()->id}}" id="sender-id">
+                                                                                        <input type="text" id="message" name="message" class="form-control" placeholder="Type your message">
+                                                                                        <button id="send" class="btn btn-primary">Send</button>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div> --}}
+                                                                                @csrf
+                                                                            </form>
+                                                                            
                                                         
                                                                         </div>
                                                                     </div>
@@ -437,4 +378,115 @@
         </div>
     </div>
 </div>
+
+
+
+@endsection
+
+@section('script')
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+<script>
+    let chatId = $("#chat-id").val()
+    let senderId = $("#sender-id").val()
+
+     $(document).ready(function(){
+      $("#message-chat").submit(function(e){
+        e.preventDefault()
+        $("#send").html('<i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
+
+        let message = $("#message").val();
+        // prepare data 
+        // var form_data = new FormData()
+        // form_data.append('message',message)
+        // form_data.append('chat_id',chatId)
+        // form_data.append('sender_id',senderId)
+
+
+
+
+        $.ajax({
+                url:'{{route('send-message')}}',
+                header:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                type:'POST',
+                data:new FormData(this),
+                processData:false,
+                contentType:false,
+                success:function(data){
+                  console.log(data);
+                    // if(data.status === true){
+                    //   let senderMessage=''+`
+                    //       <div class="media w-50 reverse mb-3">
+                    //         <div class="media-body">
+                    //           <div class="bg-primary rounded py-2 px-3 mb-2">
+                    //             <p class="text-small mb-0 text-white">${data.data.message}</p>
+                    //           </div>
+                    //           <p class="small text-muted">${data.data.time}</p>
+                    //         </div>
+                    //       </div>               
+                    //     `;
+                        scrollToBottom()
+                        // $("#chat-content").append(senderMessage)  
+                        $("#message").val('')  
+                        $("#send").html('<i class="fa fa-paper-plane"></i>').prop('disabled', false);
+
+                    // }
+                        
+                        
+                      
+                },
+                error:function(data)
+                {
+                  console.log(data);                    
+                }
+
+            });
+      });
+  });
+
+  function scrollToBottom() {
+      var chatContainer = document.getElementById('chat-content');
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+    Pusher.logToConsole = true;
+    var pusher = new Pusher('320341d0c095a088f06b', {
+      cluster: 'ap1'
+    });
+    var channel = pusher.subscribe(`chat.${chatId}`);
+    channel.bind('chat.message', function(data) {
+        console.log(data);
+        console.log(senderId);
+        //  toastr.info('New Advertisment Added', 'info');
+        if(data.message.sender_id === senderId )
+        {
+            let senderMessage=''+`  
+        <div class="chat-message-right pb-4">
+            <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                <div class="font-weight-bold mb-1">You</div>
+                ${data.message.message}
+            </div>
+        </div> 
+          `;
+          $("#chat-content").append(senderMessage)
+        }else{
+            let senderMessage=''+`  
+        <div class="chat-message-left pb-4">
+            <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                <div class="font-weight-bold mb-1">You</div>
+                ${data.message.message}
+            </div>
+        </div> 
+          `;
+          $("#chat-content").append(senderMessage)
+        }
+        // console.log(senderMessage);
+        
+       
+    });
+
+
+   
+</script>
 @endsection

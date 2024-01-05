@@ -48,4 +48,23 @@ class AdvertismentController extends Controller
         return response()->json('Success');
     }
 
+
+
+    public function markAsSold($id)
+    {
+        $data = $this->model->findOrFail($id);
+        $data->update([
+            'is_sold'=>true
+        ]);
+        return redirect()->back()->with('success','Item Marked As Sold');
+    }
+
+    public function markAsUnSold($id)
+    {
+        $data = $this->model->findOrFail($id);
+        $data->update([
+            'is_sold'=>false
+        ]);
+        return redirect()->back()->with('success','Item Marked As Unsold');
+    }
 }

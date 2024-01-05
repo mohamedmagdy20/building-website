@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Utils\SMS;
 use App\Models\User;
 use App\Traits\FilesTrait;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,36 +25,23 @@ class AuthController extends Controller
     public function login(AuthRequest $request)
     {
         $data =  $request->validated();
-        if(Auth::attempt(['phone'=>$data['phone'],'password'=>$data['password']]))
+        $user = User::where('phone',$data['phone'])->first();
+        $data['otp'] = $this->generateOtp();
+        if($user)
         {
-            $user = User::where('phone',$data['phone'])->first();
-            // if($user->is_verified == false)
-            // {
-            //     //  return redirect()->back()->with('error',"Account Is Not Verifed");
-            //     return response()->json([
-            //         'status'=>412,
-            //         'message'=>'Account Is Not Verifed',
-            //         'data'=>null
-            //     ]);
-            // }else{
-            //     $user->update([
-            //         'notification_token'=>$data['token']
-            //     ]);
-            //     return response()->json([
-            //         'status'=>200,
-            //         'message'=>'Welcome',
-            //         'data'=>$user
-            //     ]);
-            // }
-            return redirect()->route('home')->with('success',"Welcome Back");
-           
+            if(Hash::check($data['password'],$user->password))
+            {
+                // $message =  'Your Otp is '.$data['otp'];
+                // $sms = SMS::sendSms($data['phone'],$message);
+                $user->update([
+                    'otp'=>$data['otp'], 
+                ]);
+                return redirect()->route('verify')->with(['success'=>'SMS Sent','phone'=>$user->phone]);
+            }else{
+                return redirect()->back()->with('error','Invaild Phone or Password');       
+            }
         }else{
-            return redirect()->back()->with('error','Invaild Phone or Password');
-            // return response()->json([
-            //     'status'=>400,
-            //     'message'=>'Invaild Phone or Password',
-            //     'data'=>null
-            // ]);
+            return redirect()->back()->with('error','Invaild Phone or Password');       
         }
     }
 
@@ -79,7 +68,7 @@ class AuthController extends Controller
 
     public function verify()
     {
-        return view('auth.verify');
+        return view('verify.verify');
     }
 
     public function checkOtp(Request $request)
@@ -87,14 +76,33 @@ class AuthController extends Controller
         $user = User::where('otp',$request->otp)->first();
         if($user)
         {
+            Auth::login($user,false);
             $user->update([
                 'is_verified'=>true,
                 'otp'=>null
             ]);
-            return redirect()->route('login')->with('success','Account Verifed');
+            return redirect()->route('home')->with('success','Welcome Back');
         }else{
             return redirect()->back()->with('error','Invaild OTP');
         }
+    }
+    public function resend($phone)
+    {
+        $data['otp'] = $this->generateOtp();
+        
+        try{
+            $message =  'Your Otp is '.$data['otp'];
+            $sms = SMS::sendSms($data['phone'],$message);
+            $user  = User::where('phone',$phone)->first();
+            $user->update([
+                'otp'=>$data['otp'],
+            ]);
+            return redirect()->route('verify.view',$user->phone)->with('success','SMS Sent');
+        }catch(Exception $e)
+        {
+            return $e;
+        }
+
     }
 
     public function updateFCM(Request $request)
@@ -115,4 +123,11 @@ class AuthController extends Controller
         $request->session()->invalidate();
         return redirect()->back()->with('success','Logout Succesfuly');
     }
+
+    private function generateOtp()
+    {
+        $otp = rand(10000,99999);
+        return $otp;
+    }
+
 }

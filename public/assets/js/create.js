@@ -109,7 +109,7 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
     const formData = new FormData(form);
 
-    fetch('http://admin.alfuraij.com/api/advertisment/web/store', {
+    fetch('https://admin.alfuraij.com/api/advertisment/web/store', {
         method: 'POST',
         body: formData
     })

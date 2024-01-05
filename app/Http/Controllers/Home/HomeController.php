@@ -32,6 +32,7 @@ class HomeController extends Controller
         $areas =$this->area->all();
         $categroy = $this->category->all();
         $advertise = Advertise::all();
+        // return app()->getLocale();
         return view('welcome',['data'=>$data,'areas'=>$areas,'dataOld'=>$dataOld,'dataInstead'=>$dataInstead,'dataSale'=>$dataSale,'dataRent'=>$dataRent,'categories'=>$categroy,'advertises'=>$advertise]);
     }
 
@@ -62,6 +63,11 @@ class HomeController extends Controller
         return view('about');   
     }
 
+    
+    public function tip()
+    {
+        return view('tip');   
+    }
     
     public function ai()
     {

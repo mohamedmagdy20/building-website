@@ -1,4 +1,4 @@
-<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader" dir="{{app()->getLocale() === 'ar' ? 'rtl' : 'ltr'}}">
     <p class="main-title bhf-hidden" itemprop="headline"><a href="{{route('home')}}" title="Al Furaij Real Estate"
             rel="home">Al Furaij Real Estate</a></p>
     <div data-elementor-type="wp-post" data-elementor-id="2639" class="elementor elementor-2639"
@@ -138,29 +138,27 @@
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-2905">
                                             <a href="{{route('home')}}"
-                                                class="elementor-item {{Request::is('/*') ? 'elementor-item-active' : ''}} ">Home</a></li>
+                                                class="elementor-item {{Request::is('/*') ? 'elementor-item-active' : ''}} ">@lang('lang.home')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2912">
-                                            <a href="{{route('about')}}" class="elementor-item  {{Request::is('about*' ? 'elementor-item-active' : '')}}">About
-                                                Us</a>
+                                            <a href="{{route('about')}}" class="elementor-item  {{Request::is('about*' ? 'elementor-item-active' : '')}}">@lang('lang.about_us')</a>
                                             {{-- <ul class="sub-menu elementor-nav-menu--dropdown">
                                                 <li
                                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2913">
-                                                    <a href="./tip/index.html"
+                                                    <a href="{{route('tips')}}"
                                                         class="elementor-sub-item">FAQs</a></li>
                                             </ul> --}}
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2906">
-                                            <a href="#" class="elementor-item elementor-item-anchor">Terms
-                                                &#038; Conditions</a></li>
+                                            <a href="#" class="elementor-item elementor-item-anchor">@lang('lang.terms_and_conditions')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2908">
-                                            <a href="{{route('login.view')}}" class="elementor-item elementor-item-anchor {{Request::is('login*') ? 'elementor-item-active' : ''}}">Sign Up</a>
+                                            <a href="{{route('login.view')}}" class="elementor-item elementor-item-anchor {{Request::is('login*') ? 'elementor-item-active' : ''}}">@lang('lang.sign_up')</a>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2907">
-                                            <a href="{{route('contact')}}" class="elementor-item {{Request::is('contact*') ? 'elementor-item-active' : ''}} ">Contact Us</a>
+                                            <a href="{{route('contact')}}" class="elementor-item {{Request::is('contact*') ? 'elementor-item-active' : ''}} ">@lang('lang.contact')</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -178,50 +176,75 @@
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-2905">
                                             <a href="{{route('home')}}" class="elementor-item elementor-item-active"
-                                                tabindex="-1">Home</a></li>
+                                                tabindex="-1">@lang('lang.home')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2912">
                                             <a href="#" class="elementor-item elementor-item-anchor"
-                                                tabindex="-1">About Us</a>
+                                                tabindex="-1">@lang('lang.about_us')</a>
                                             <ul class="sub-menu elementor-nav-menu--dropdown">
                                                 <li
                                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2913">
-                                                    <a href="./tip/index.html" class="elementor-sub-item"
-                                                        tabindex="-1">FAQs</a></li>
+                                                    <a href="{{route('tips')}}" class="elementor-sub-item"
+                                                        tabindex="-1">@lang('lang.faq')</a></li>
                                             </ul>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2906">
                                             <a href="#" class="elementor-item elementor-item-anchor"
-                                                tabindex="-1">Terms &#038; Conditions</a></li>
+                                                tabindex="-1">@lang('lang.terms_and_conditions')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2908">
                                             <a href="#" class="elementor-item elementor-item-anchor"
-                                                tabindex="-1">Sign Up</a></li>
+                                                tabindex="-1">@lang('lang.sign_up')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2907">
                                             <a href="./contact/index.html" class="elementor-item"
-                                                tabindex="-1">Contact Us</a></li>
+                                                tabindex="-1">@lang('lang.sign_up')</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @if (app()->getLocale() === 'en')
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e7642f7"
                     data-id="e7642f7" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">
                         <div class="elementor-element elementor-element-789ea5c elementor-widget elementor-widget-image"
                             data-id="789ea5c" data-element_type="widget" data-widget_type="image.default">
                             <div class="elementor-widget-container">
-                                <img width="512" height="512" src="{{asset('assets/uploads/images/kuwait.png')}}"
+                                <a href="{{route('change-lang','ar')}}">
+                                    <img width="512" height="512" src="{{asset('assets/uploads/images/kuwait.png')}}"
                                     class="attachment-large size-large wp-image-3038" alt=""
                                     srcset="{{asset('assets/uploads/images/kuwait.png')}} 512w, {{asset('assets/uploads/images/kuwait-300x300.png')}} 300w, {{asset('assets/uploads/images/kuwait-150x150.png')}} 150w, {{asset('assets/uploads/images/kuwait-140x140.png')}} 140w, {{asset('assets/uploads/images/kuwait-493x493.png')}} 493w"
                                     sizes="(max-width: 512px) 100vw, 512px" title="">
+                                </a>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>     
+                @else
+                <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e7642f7"
+                    data-id="e7642f7" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-789ea5c elementor-widget elementor-widget-image"
+                            data-id="789ea5c" data-element_type="widget" data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <a href="{{route('change-lang','en')}}">
+                                    <img width="512" height="512" src="{{asset('assets/usa.png')}}"
+                                    class="attachment-large size-large wp-image-3038" alt=""
+                                    srcset="{{asset('assets/usa.png')}} 512w, {{asset('assets/usa.png')}} 300w, {{asset('assets/usa.png')}} 150w, {{asset('assets/usa.png')}} 140w, {{asset('assets/usa.png')}} 493w"
+                                    sizes="(max-width: 512px) 100vw, 512px" title="">
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                @endif
+               
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-27e4c43"
                     data-id="27e4c43" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">

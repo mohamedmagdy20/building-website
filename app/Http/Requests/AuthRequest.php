@@ -23,7 +23,7 @@ class AuthRequest extends FormRequest
     {
         return [
             //
-            'phone'=>'required',
+            'phone'=>['required','starts_with:+965'],
             'password'=>'required',
             // 'token'=>'required'
         ];

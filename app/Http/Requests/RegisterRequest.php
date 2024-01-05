@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
             // 'image'=>'file', //
             'name'=>'required|string',
             'email'=>'email|unique:users,email',
-            'phone'=>'required|unique:users,phone',
+            'phone'=>['required','starts_with:+965','unique:users,phone'],
             'password'=>'required|confirmed'
         ];
     }

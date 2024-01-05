@@ -27,17 +27,17 @@
 															id='filters-ad-type-values-for_sale' name='type'
 															value='sale' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
-															class='filter-submit-trigger'>For Sale</a></li>
+															class='filter-submit-trigger'>@lang('lang.sale')</a></li>
 													<li class='ui-link-tree-item ad-type-for_rent'><input
 															id='filters-ad-type-values-for_rent' name='type'
 															value='rent' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
-															class='filter-submit-trigger'>For Rent</a></li>
+															class='filter-submit-trigger'>@lang('lang.rent')</a></li>
 													<li class='ui-link-tree-item ad-type-for_exchange'><input
 															id='filters-ad-type-values-for_exchange'
 															name='type' value='instead' type='radio'
 															class='ui-checkbox filter-submit-trigger'><a href='#'
-															class='filter-submit-trigger'>For Exchange</a></li>
+															class='filter-submit-trigger'>@lang('lang.instead')</a></li>
 													
 												</ul>
 											</div>
@@ -53,51 +53,51 @@
 													{{-- @foreach ($categories as $item ) --}}
 													<li class='ui-link-tree-item ad-type-for_residential'><input
 														id='filters-ad-type-values-for_residential' name='category_ads_type'
-														value='residential' type='radio'
+														value='1' type='radio'
 														class='ui-checkbox filter-submit-trigger'>@lang('lang.residential')</li>
 
 													<li class='ui-link-tree-item ad-type-for_commercial'><input
 															id='filters-ad-type-values-for_commercial' name='category_ads_type'
-															value='commercial' type='radio'
+															value='3' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.commercial')</li>
 
 													<li class='ui-link-tree-item ad-type-for_commercial_unit'><input
 															id='filters-ad-type-values-for_commercial_unit' name='category_ads_type'
-															value='commercial_units' type='radio'
+															value='2' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.commercial_units')</li>
 
 													<li class='ui-link-tree-item ad-type-investment'><input
 															id='filters-ad-type-values-investment' name='category_ads_type'
-															value='investment' type='radio'
+															value='4' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.investment')</li>
 
 													<li class='ui-link-tree-item ad-type-industrial'><input
 															id='filters-ad-type-values-industrial' name='category_ads_type'
-															value='industrial' type='radio'
+															value='5' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.industrial')</li>
 
 												
 													<li class='ui-link-tree-item ad-type-chalet'><input
 															id='filters-ad-type-values-chalet' name='category_ads_type'
-															value='chalet' type='radio'
+															value='6' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.chalet')</li>
 													
 													<li class='ui-link-tree-item ad-type-farm'><input
 															id='filters-ad-type-values-farm' name='category_ads_type'
-															value='farm' type='radio'
+															value='7' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.farm')</li>
 													
 															
 													
 													<li class='ui-link-tree-item ad-type-break'><input
 															id='filters-ad-type-values-break' name='category_ads_type'
-															value='break' type='radio'
+															value='8' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.break')</li>
 													
 															
 													<li class='ui-link-tree-item ad-type-lands'><input
 															id='filters-ad-type-values-lands' name='category_ads_type'
-															value='lands' type='radio'
+															value='9' type='radio'
 															class='ui-checkbox filter-submit-trigger'>@lang('lang.lands')</li>
 													
 													<li class="is-opener"><span class="rtcl-more"><i
@@ -111,7 +111,7 @@
 										</div>
 										<div class="rtcl-location-filter ui-accordion-item is-open">
 											<a class="ui-accordion-title">
-												<span>Location</span>
+												<span>@lang('lang.location')</span>
 												<span class="ui-accordion-icon rtcl-icon rtcl-icon-anchor"></span>
 											</a>
 											<div class="ui-accordion-content rtcl-ajax-load"
@@ -120,7 +120,7 @@
 										</div>
 										<div class="rtcl-price-filter ui-accordion-item is-open">
 											<a class="ui-accordion-title">
-												<span>Price Range</span>
+												<span>@lang('lang.price_range')</span>
 												<span class="ui-accordion-icon rtcl-icon rtcl-icon-anchor"></span>
 											</a>
 											<div class="ui-accordion-content">
@@ -143,10 +143,10 @@
 									</div>
 									<div class="ui-buttons has-expanded">
 										<button class="btn btn-primary rtcl-filter-btn">
-											Apply filters </button>
+											@lang('lang.apply_filter') </button>
 										<a class="btn btn-primary rtcl-filter-clear-btn"
 											href="{{route('home.main')}}">
-											Clear filters </a>
+											@lang('lang.clear_filter') </a>
 									</div>
 								</form>
 							</div>
@@ -223,7 +223,7 @@
                                                     <a href="javascript:void(0)"
                                                         class="rtcl-require-login "><span
                                                             class="rtcl-icon rtcl-icon-heart-empty"></span><span
-                                                            class="favourite-label">Add to Favourites</span></a>
+                                                            class="favourite-label">@lang('lang.add_to_fav')</span></a>
                                                 </div>
                                             </div>
 
@@ -257,7 +257,8 @@
                                                 @endif
                                                
                                                 @if ($item->advantages != null) 
-                                                <div class="rtcl-listable-item">
+                                              
+												<div class="rtcl-listable-item">
                                                     <span class="listable-label">Features</span>
                                                     <span class="listable-value">{{$item->advantages}}</span>
                                                 </div>
@@ -285,13 +286,15 @@
                                                     <i class="fa fa-fw fa-eye" aria-hidden="true"></i>{{$item->getViews()}} Views
                                                 </li>
                                             </ul>
-
-                                            <div class="rtin-price">
-                                                <div class="rtcl-price price-type-fixed"><span
-                                                        class="rtcl-price-amount amount"{{$item->price}}&nbsp;<span
-                                                            class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
-                                                </div>
-                                            </div>
+											@if ($item->price != null)
+											<div class="item-price">
+												<div class="rtcl-price price-type-regular"><span
+														class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
+															class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
+												</div>
+											</div>
+											@endif
+                                            
 
                                         </div>
                                     </div>
@@ -312,13 +315,13 @@
                             <a href="{{ $data->previousPageUrl() }}">
                                 <span>
                                     <i class="fa fa-angle-double-left"
-                            aria-hidden="true"></i>Previous</span>
+                            aria-hidden="true"></i>@lang('lang.previous')</span>
                             </a>
                             </li>    
                         @else
 
 						<li class="pagi-previous disabled"><span><i class="fa fa-angle-double-left"
-                            aria-hidden="true"></i>Previous</span></li>
+                            aria-hidden="true"></i>@lang('lang.previous')</span></li>
                         @endif
 
                         @foreach ($data->getUrlRange(1, $data->lastPage()) as $page => $url)
@@ -328,12 +331,12 @@
                         @endforeach
 						@if ($data->hasMorePages())
                         <li class="pagi-next"><a
-                            href="{{ $data->nextPageUrl() }}">Next<i
+                            href="{{ $data->nextPageUrl() }}">@lang('lang.next')<i
                                 class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
                         
                         @else
                         <li class="pagi-next disabled"><span><i class="fa fa-angle-double-right"
-                            aria-hidden="true"></i>Next</span></li>
+                            aria-hidden="true"></i>@lang('lang.next')</span></li>
                         @endif
 						
 					</ul>

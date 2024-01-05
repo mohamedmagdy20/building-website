@@ -21,7 +21,7 @@
                                         <div class="elementor-shortcode">
                                             <div class="rtcl">
                                                 <div class="rtcl-MyAccount-mobile-navbar">
-                                                    <h4>Account Menu</h4>
+                                                    {{-- <h4>Account Menu</h4> --}}
                                                     <div class="rtcl-myaccount-logo">
                                                         <a href="https://codedhosting.com/alfuraij/">
                                                             <a class="light-logo"
@@ -38,7 +38,7 @@
                                                     <div class="rtcl-MyAccount-open-menu"><span></span></div>
 
                                                     <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>My Account</h3>
+                                                        <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
                                                             <a class="light-logo"
                                                                 href="https://codedhosting.com/alfuraij/">
@@ -52,39 +52,37 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('profile.main')}}">Dashboard</a>
+                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account is-active">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
                                                                 <a
-                                                                    href="https://codedhosting.com/alfuraij/my-account/logout/?_wpnonce=564cd7ebf8">Logout</a>
+                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
                                                             </li>
                                                         </ul>
                                                     </nav>
@@ -93,7 +91,7 @@
                                                 <div class="rtcl-MyAccount-wrap">
 
                                                     <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>My Account</h3>
+                                                        <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
                                                             <a class="light-logo"
                                                                 href="https://codedhosting.com/alfuraij/">
@@ -107,39 +105,37 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('profile.main')}}">Dashboard</a>
+                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account is-active">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
                                                                 <a
-                                                                    href="https://codedhosting.com/alfuraij/my-account/logout/?_wpnonce=564cd7ebf8">Logout</a>
+                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
                                                             </li>
                                                         </ul>
                                                     </nav>
@@ -151,8 +147,7 @@
                                                             class="rtcl-EditAccountForm rtcl-MyAccount-content-inner"
                                                             id="rtcl-user-account" method="post">
 
-                                                            <h3 class="rtcl-myaccount-content-title">Account
-                                                                Details</h3>
+                                                            <h3 class="rtcl-myaccount-content-title">@lang('lang.account_details')</h3>
 
 
                                                             <div class="rtcl-form-group-wrap">
@@ -160,10 +155,10 @@
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-first-name"
                                                                         class="rtcl-field-label">
-                                                                         Name </label>
+                                                                         @lang('lang.full_name') </label>
                                                                     <div class="rtcl-field-col">
                                                                         <input type="text" name="name"
-                                                                            id="rtcl-first-name" value="{{auth()->user()->name}}"
+                                                                            id="rtcl-first-name" required value="{{auth()->user()->name}}"
                                                                             class="rtcl-form-control" />
                                                                     </div>
                                                                 </div>
@@ -175,13 +170,14 @@
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-email"
                                                                         class="rtcl-field-label">
-                                                                        E-mail <span
+                                                                        @lang('lang.email') <span
                                                                             class="require-star">*</span>
                                                                     </label>
                                                                     <div class="rtcl-field-col">
                                                                         <input type="email" name="email"
                                                                             id="rtcl-email"
                                                                             class="rtcl-form-control"
+                                                                            required
                                                                             value="{{auth()->user()->email}}"
                                                                             required="required" />
                                                                     </div>
@@ -189,23 +185,25 @@
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-last-name"
                                                                         class="rtcl-field-label">
-                                                                        Whatsapp number </label>
+                                                                       @lang('lang.phone') </label>
                                                                     <div class="rtcl-field-col">
-                                                                        <input type="text"
+                                                                        <input type="tel"
+                                                                            required
                                                                             name="phone"
                                                                             id="rtcl-whatsapp-phone" value="{{auth()->user()->phone}}"
                                                                             class="rtcl-form-control" />
-                                                                        <p class="description small">WhatsApp
+                                                                        {{-- <p class="description small">WhatsApp
                                                                             number with your country code.
-                                                                            e.g.+1xxxxxxxxxx</p>
+                                                                            e.g.+1xxxxxxxxxx</p> --}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-phone"
                                                                         class="rtcl-field-label">
-                                                                        Phone </label>
+                                                                        @lang('lang.phone') </label>
                                                                     <div class="rtcl-field-col">
                                                                         <input type='text' name='phone'
+                                                                        required
                                                                             id='rtcl-phone' value='{{auth()->user()->phone}}'
                                                                             class='rtcl-form-control' />
                                                                     </div>
@@ -221,14 +219,14 @@
                                                                             id="rtcl-change-password" value="1">
                                                                         <label class="form-check-label"
                                                                             for="rtcl-change-password">
-                                                                            Change Password </label>
+                                                                           @lang('lang.change_password') </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="rtcl-form-group rtcl-password-fields"
                                                                     style="display: none;">
                                                                     <label for="password"
                                                                         class="rtcl-field-label">
-                                                                        New Password <span
+                                                                        @lang('lang.password') <span
                                                                             class="require-star">*</span>
                                                                     </label>
                                                                     <div class="rtcl-field-col">
@@ -243,7 +241,7 @@
                                                                     style="display: none">
                                                                     <label for="password_confirm"
                                                                         class="rtcl-field-label">
-                                                                        Confirm Password <span
+                                                                        @lang('lang.password_confirmation') <span
                                                                             class="require-star">*</span>
                                                                     </label>
                                                                     <div class="rtcl-field-col">
@@ -261,12 +259,12 @@
                                                             <div class="rtcl-form-group rtcl-social-wrap-row">
                                                                 <label for="rtcl-social"
                                                                     class="rtcl-field-label">
-                                                                    Social Profile </label>
+                                                                    @lang('lang.useful_link') </label>
                                                                 <div class="rtcl-field-col">
                                                                     <input type="url"
                                                                         name="instegram_link"
                                                                         id="rtcl-account-social-instegram"
-                                                                        value="{{auth()->user()->instegram_link}}" placeholder="Instegram"
+                                                                        value="{{auth()->user()->instegram_link}}" placeholder=""
                                                                         class="rtcl-form-control" />
                                                                         
                                                                 </div>
@@ -276,7 +274,7 @@
                                                                 class="rtcl-form-group rtcl-profile-picture-row">
                                                                 <label for="rtcl-profile-picture"
                                                                     class="rtcl-field-label">
-                                                                    Profile Picture <span
+                                                                    @lang('lang.images') <span
                                                                         class="require-star">*</span>
                                                                 </label>
                                                                 <div class="rtcl-field-col">
@@ -289,14 +287,20 @@
                                                                         onchange="readURL(this)"
                                                                         class="rtcl-form-control" />  
                                                                     </div>
-                                                                    <img alt='' src='https://secure.gravatar.com/avatar/b218d5f995cb5fd4652f6954eff6af3a?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b218d5f995cb5fd4652f6954eff6af3a?s=192&#038;d=mm&#038;r=g 2x' id="blah" class='avatar avatar-96 photo' height='96' width='96' />	
+                                                                    <img alt='' src='
+                                                                    @if (auth()->user()->image == null)
+                                                                        https://secure.gravatar.com/avatar/b218d5f995cb5fd4652f6954eff6af3a?s=96&#038;d=mm&#038;r=g
+                                                                    @else
+                                                                    https://admin.alfuraij.com/uploads/users/{{auth()->user()->image}}
+                                                                    @endif'  id="blah" class='avatar avatar-96 photo' height='96' width='96' />	
                                                                 </div>
                                                             </div>
 
                                                             <div class="rtcl-form-group">
                                                                 <div class="rtcl-field-col">
-                                                                    <input type="submit" name="submit"
-                                                                        class="btn" value="Update Account" />
+                                                                    {{-- <input type="submit" name="submit"
+                                                                        class="btn" value="" /> --}}
+                                                                        <button type="submit" class="btn submit-button" >Update Account</button>
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" id="rtcl_user_account_nonce"
@@ -343,11 +347,11 @@
     $(document).ready(function(){
 
      $("#rtcl-user-account").submit(function(e){
-        //  $(".submit-button").html('<i class="fa fa-spinner fa-spin"></i> Adding...').prop('disabled', true);
+         $(".submit-button").html('<i class="fa fa-spinner fa-spin"></i> Proccess...').prop('disabled', true);
 
          e.preventDefault();
          $.ajax({
-             url:'http://admin.alfuraij.com/api/profile/update-web',
+             url:'https://admin.alfuraij.com/api/profile/update',
              header:{
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
              },
@@ -356,9 +360,10 @@
              processData:false,
              contentType:false,
              success:function(data){
-                 console.log(data);
+                //  console.log(data);
+                 toastr.success(data.message);
                 //  if(data.status === true){
-                //      $(".submit-button").html('Save').prop('disabled', true);
+                     $(".submit-button").html('Update Profile').prop('disabled', false);
                   
                 //      notyf.open({
                 //          type: 'success',
@@ -380,18 +385,20 @@
              error:function(data)
              {
                 console.log(data); 
-                //  if(data.status == 422){
-                //      // printErrorMsg(data.responseJSON.errors)
-                //      msg = data.responseJSON.errors
-                //      $.each(msg,function(key,value){
-                //          $(`.${key}_err`).text(value)
-                //          notyf.open({
-                //                  type: 'error',
-                //                  message: value
+                toastr.error(data.message);
+                $(".submit-button").html('Update Profile').prop('disabled', false);
+                 if(data.status == 422){
+                     // printErrorMsg(data.responseJSON.errors)
+                     msg = data.responseJSON.errors
+                     $.each(msg,function(key,value){
+                         $(`.${key}_err`).text(value)
+                         notyf.open({
+                                 type: 'error',
+                                 message: value
                          
-                //              });
-                //      })
-                //  }
+                             });
+                     })
+                 }
 
                  
              }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdsFavorite;
 use App\Models\Advertisment;
+use App\Models\Chat;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -35,7 +36,9 @@ class ProfileController extends Controller
 
     public function chat()
     {
-        return view('profile.chat');
+        $id = auth()->user()->id;
+        $chats = Chat::where('user_id',$id)->orWhere('user_to_id',$id)->with('user')->with('message')->get();
+        return view('profile.chat',['chats'=>$chats]);
     }
 
     public function payment()
@@ -53,7 +56,7 @@ class ProfileController extends Controller
     {
         $data = Advertisment::findOrFail($id);
         $data->delete();
-        return redirect()->route('profile.listing')->with('success','Advertisment Deleted');
+        return redirect()->back()->with('success','Item Removed From Favourite');
     }
 
     public function deleteFav($id)

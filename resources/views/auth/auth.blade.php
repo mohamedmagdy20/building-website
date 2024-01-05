@@ -1,5 +1,37 @@
 @extends('layout.app')
 @section('body_class','page-template-default page page-id-8 wp-custom-logo rtcl-account rtcl-page rtcl-no-js ehf-header ehf-footer ehf-template-classima ehf-stylesheet-classima header-style-2 footer-style-1 banner-enabled has-sidebar left-sidebar elementor-default elementor-kit-2161 elementor-page elementor-page-8')
+@section('css')
+@section('css')
+<style>
+    .phone-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.country-flag {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.country-code {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.phone-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+}
+
+</style>
+@endsection
 @section('content')
 
 <div id="primary" class="content-area classima-myaccount">
@@ -26,26 +58,26 @@
 
 
                                                     <div class="rtcl-login-form-wrap">
-                                                        <h2>Login</h2>
+                                                        <h2>@lang('lang.login')</h2>
                                                         <form id="rtcl-login-form" action="{{route('login')}}" class="form-horizontal"
                                                             method="post">
                                                             @csrf
-                                                            <div class="rtcl-form-group">
-                                                                <label for="rtcl-user-login"
-                                                                    class="rtcl-field-label">
-                                                                    Phone <strong
-                                                                        class="rtcl-required">*</strong>
-                                                                </label>
-                                                                <input type="tel" required name="phone"
-                                                                    autocomplete="phone" value=""
-                                                                    id="rtcl-user-login"
-                                                                    class="rtcl-form-control" >
+                                                            <label for="">@lang('lang.phone') <span style="color: red">*</span></label>
+
+                                                            <div class="phone-input-container mb-3">
+
+                                                                <img src="{{asset('assets/kuwait.png')}}" alt="Kuwait Flag" class="country-flag">
+                                                                {{-- <span class="country-code">+965</span> --}}
+                                                                <input type="tel" id="phone" name="phone"  class="phone-input" />
                                                             </div>
+                                                            @error('phone')
+                                                            <span style="color: red">{{$message}}</span>
+                                                        @enderror
 
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-user-pass"
                                                                     class="rtcl-field-label">
-                                                                    Password <strong
+                                                                    @lang('lang.password') <strong
                                                                         class="rtcl-required">*</strong>
                                                                 </label>
                                                                 <input type="password" name="password"
@@ -65,24 +97,23 @@
 
                                                                 <button type="submit" name="rtcl-login"
                                                                     class="btn" value="login">
-                                                                    Login </button>
+                                                                    @lang('lang.login') </button>
                                                                 <div class="form-check">
                                                                     <input type="checkbox" name="rememberme"
                                                                         id="rtcl-rememberme"  value="forever">
                                                                     <label class="form-check-label"
                                                                         for="rtcl-rememberme">
-                                                                        Remember Me </label>
+                                                                        @lang('lang.remember_me') </label>
                                                                 </div>
 
                                                                 @if (Session::has('error'))
-                                                                    <span  style="color: red">Invaild Email and Password</span>
+                                                                    <span  style="color: red">@lang('lang.login_error')</span>
                                                                 @endif
                                                             </div>
                                                             <div
                                                                 class="rtcl-form-group rtcl-form-group-no-margin-bottom">
                                                                 <p class="rtcl-forgot-password">
-                                                                    <a href="./lost-password/index.html">Forgot
-                                                                        your password?</a>
+                                                                    <a href="{{route('forget-password.view')}}">@lang('lang.forget_password')?</a>
                                                                 </p>
                                                             </div>
                                                             {{-- <input type="hidden" id="rtcl-login-nonce"
@@ -96,12 +127,12 @@
                                                     </div>
                                                     <div class="rtcl-registration-form-wrap">
 
-                                                        <h2>Register</h2>
+                                                        <h2>@lang('lang.register')</h2>
 
                                                         <form id="rtcl-register-form" action="{{route('register')}}" class="form-horizontal"
                                                             method="post">
                                                             @csrf
-                                                            <div class="rtcl-form-group phone-row">
+                                                            {{-- <div class="rtcl-form-group phone-row">
                                                                 <label for="rtcl-reg-phone"
                                                                     class="rtcl-field-label phone-label">
                                                                     Phone Number </label>
@@ -112,20 +143,31 @@
                                                                 @error('phone')
                                                                     <span style="color: red">{{$message}}</span>
                                                                 @enderror
+                                                            </div> --}}
+                                                            <label for="">@lang('lang.phone') <span style="color: red">*</span></label>
+
+                                                            <div class="phone-input-container mb-3">
+
+                                                                <img src="{{asset('assets/kuwait.png')}}" alt="Kuwait Flag" class="country-flag">
+                                                                {{-- <span class="country-code">+965</span> --}}
+                                                                <input type="tel" id="register-phone" name="phone"  class="phone-input" />
                                                             </div>
+                                                            @error('phone')
+                                                                <span style="color: red">{{$message}}</span>
+                                                            @enderror
 
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-reg-username"
                                                                     class="rtcl-field-label">
-                                                                    Name <strong
+                                                                    @lang('lang.full_name') <strong
                                                                         class="rtcl-required">*</strong>
                                                                 </label>
                                                                 <input type="text" name="name" value="{{old('name')}}"
                                                                     autocomplete="name"
                                                                     id="rtcl-reg-username"
                                                                     class="rtcl-form-control" required>
-                                                                <span class="help-block">Username cannot be
-                                                                    changed.</span>
+                                                                {{-- <span class="help-block">Username cannot be
+                                                                    changed.</span> --}}
 
                                                                     
                                                                 @error('name')
@@ -136,7 +178,7 @@
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-reg-email"
                                                                     class="rtcl-field-label">
-                                                                    Email address <strong
+                                                                    @lang('lang.email') <strong
                                                                         class="rtcl-required">*</strong>
                                                                 </label>
                                                                 <input type="email" name="email" value="{{old('email')}}"
@@ -152,7 +194,7 @@
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-reg-password"
                                                                     class="rtcl-field-label">
-                                                                    Password <strong
+                                                                    @lang('lang.password') <strong
                                                                         class="rtcl-required">*</strong>
                                                                 </label>
                                                                 <input type="password" name="password"
@@ -170,7 +212,7 @@
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-reg-confirm-password"
                                                                     class="rtcl-field-label">
-                                                                    Confirm Password <strong
+                                                                    @lang('lang.password_confirmation') <strong
                                                                         class="rtcl-required">*</strong>
                                                                 </label>
                                                                 <div class="confirm-password-wrap">
@@ -194,15 +236,10 @@
                                                                         required>
                                                                     <label class="form-check-label"
                                                                         for="rtcl-privacy-policy">
-                                                                        <p>Your personal data will be used to
-                                                                            support your experience throughout
-                                                                            this website, to manage access to
-                                                                            your account, and for other purposes
-                                                                            described in our <a
-                                                                                href="./../faq/index.html"
+                                                                        <p>@lang('lang.personal_data') <a
+                                                                                href="#"
                                                                                 class="rtcl-privacy-policy-link"
-                                                                                target="_blank">privacy
-                                                                                policy</a>.</p>
+                                                                                target="_blank">@lang('lang.privacy_policy')</a>.</p>
                                                                     </label>
                                                                     <div class="with-errors help-block"
                                                                         data-error="This field is required">
@@ -219,11 +256,10 @@
                                                                             id="rtcl-terms-conditions" required>
                                                                         <label class="form-check-label"
                                                                             for="rtcl-terms-conditions">
-                                                                            I have read and agree to the website
-                                                                            <a href="./index.html"
+                                                                            @lang('lang.Ihave_read_and_agree_to_the_website')
+                                                                            <a href="#"
                                                                                 class="rtcl-terms-and-conditions-link"
-                                                                                target="_blank">terms and
-                                                                                conditions</a>. </label>
+                                                                                target="_blank">@lang('lang.terms_and_conditions')</a>. </label>
                                                                         <div class="with-errors help-block"
                                                                             data-error="This field is required">
                                                                         </div>
@@ -237,7 +273,7 @@
                                                                 <div id="rtcl-registration-g-recaptcha-message">
                                                                 </div>
                                                                 <input type="submit" name="rtcl-register"
-                                                                    class="btn" value="Register">
+                                                                    class="btn" value="@lang('lang.register')">
                                                             </div>
                                                             {{-- <input type="hidden" id="rtcl-register-nonce"
                                                                 name="rtcl-register-nonce"
@@ -264,4 +300,29 @@
 </div>
 
 
+@endsection
+@section('script')
+<script>
+    document.getElementById('phone').addEventListener('focus', function (e) {
+        if (e.target.value === '') {
+            e.target.value = '+965';
+        }
+    });
+    document.getElementById('phone').addEventListener('blur', function (e) {
+        if (e.target.value === '+965') {
+            e.target.value = '';
+        }
+    });
+
+    document.getElementById('register-phone').addEventListener('focus', function (e) {
+        if (e.target.value === '') {
+            e.target.value = '+965';
+        }
+    });
+    document.getElementById('register-phone').addEventListener('blur', function (e) {
+        if (e.target.value === '+965') {
+            e.target.value = '';
+        }
+    });
+</script>
 @endsection

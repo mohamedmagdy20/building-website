@@ -126,45 +126,45 @@
                         </div>
 
                         <div class="classima-custom-fields-wrap">
-                            <h3 class="rtin-specs-title">Overview</h3>
+                            <h3 class="rtin-specs-title">@lang('lang.overview')</h3>
                             <div class="classima-custom-fields clearfix">
                                 <ul>
                                     <li>
-                                        <span class="rtin-label">Category: </span>
+                                        <span class="rtin-label">@lang('lang.category') </span>
                                         <span class="rtin-title"><a
                                                 href="{{route('home.main')}}?category_id={{$data->category_id}}">{{app()->getLocale() === 'en' ? $data->category->name_en : $data->category->name_ar}}</a></span>
                                     </li>
                                     @if ($data->space != null)
                                     <li>
-                                        <span class="rtin-label">Land Area: </span>
+                                        <span class="rtin-label">@lang('lang.space') </span>
                                         <span class="rtin-title">{{$data->space}}</span>
                                     </li>    
                                     @endif
                                     
                                     @if ($data->advantages != null)
                                     <li>
-                                        <span class="rtin-label">Features: </span>
+                                        <span class="rtin-label">@lang('lang.features') </span>
                                         <span class="rtin-title">{{$data->advantages}}</span>
                                     </li>    
                                     @endif
                                     
                                     @if ($data->location != null)
                                     <li>
-                                        <span class="rtin-label">feat: </span>
+                                        <span class="rtin-label">: </span>
                                         <span class="rtin-title">{{$data->location}}</span>
                                     </li>     
                                     @endif
                                    
                                     @if ($data->num_of_rooms != null && $data->num_of_rooms != 0 )
                                     <li>
-                                        <span class="rtin-label">Room #: </span>
+                                        <span class="rtin-label">@lang('lang.room_num') #: </span>
                                         <span class="rtin-title">{{$data->num_of_rooms}}</span>
                                     </li>
                                     @endif
                                    
                                     @if ($data->num_of_bath != null && $data->num_of_bath != 0)
                                     <li>
-                                        <span class="rtin-label">Bathrooms #: </span>
+                                        <span class="rtin-label">@lang('lang.bath_num') #: </span>
                                         <span class="rtin-title">{{$data->num_of_bath}}</span>
                                     </li>
                                     @endif
@@ -172,14 +172,14 @@
                                    
                                     @if ($data->num_of_apartments != null && $data->num_of_apartments != 0)
                                     <li>
-                                        <span class="rtin-label">Apartments #: </span>
+                                        <span class="rtin-label">@lang('lang.num_of_apartments') #: </span>
                                         <span class="rtin-title">{{$data->num_of_apartments}}</span>
                                     </li>
                                     @endif
 
                                     @if ($data->num_of_floor != null && $data->num_of_floor != 0 )
                                     <li>
-                                        <span class="rtin-label">Floors #: </span>
+                                        <span class="rtin-label">@lang('lang.floor_num') #: </span>
                                         <span class="rtin-title">{{$data->num_of_floor}}</span>
                                     </li>
                                     @endif
@@ -191,7 +191,7 @@
                         <div class="rtin-content-area">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-                                    <h3 class="rtin-specs-title">Description</h3>
+                                    <h3 class="rtin-specs-title">@lang('lang.desc')</h3>
                                     <div class="rtin-content">
                                         <p>{{$data->description}}</p>
                                     </div>
@@ -200,7 +200,7 @@
                         </div>
 
 
-                        @if ($data->advantages != null)
+                        {{-- @if ($data->advantages != null)
                         <div class="rtin-specs">
                             <h3 class="rtin-specs-title">Features:</h3>
                             <ul class="rtin-spec-items clearfix rtin-list-col-2">
@@ -209,17 +209,23 @@
                                @endforeach
                             </ul>
                         </div>      
-                        @endif
+                        @endif --}}
                       
 
 
                         <ul class="list-inline list-group-flush rtcl-single-listing-action">
-                            <li class="list-inline-item" id="rtcl-favourites"><a href="javascript:void(0)"
-                                    class="rtcl-require-login "><span
-                                        class="rtcl-icon rtcl-icon-heart-empty"></span><span
-                                        class="favourite-label">Add to Favourites</span></a></li>
+                            @auth
+                            @if (! $data->isFavoriteByUser(auth()->user()->id))
+                            <li class="list-inline-item" id="rtcl-favourites"><a onclick="addFavourite({{$data->id}})"
+                                class="rtcl-require-login "><span
+                                    class="rtcl-icon rtcl-icon-heart-empty"></span><span
+                                    class="favourite-label">@lang('lang.add_to_fav')</span></a></li>     
+                            @endif
+                            @endauth
+                           
+                           
                             
-                            <li class="list-inline-item rtcl-sidebar-social">
+                            {{-- <li class="list-inline-item rtcl-sidebar-social">
                                 <span class="rtin-share-title"><i class="fa fa-share-alt"
                                         aria-hidden="true"></i>Share:</span>
                                 <a class="facebook"
@@ -243,7 +249,7 @@
                                     data-action="share/whatsapp/share" target="_blank" rel="nofollow"><i
                                         class="rtcl-icon rtcl-icon-whatsapp"></i></a>
 
-                            </li>
+                            </li> --}}
                         </ul>
 
 
@@ -284,7 +290,7 @@
                 <div class="classima-listing-single-mob classima-listing-single-sidebar sidebar-widget-area ">
                     <div class="content-block-gap"></div>
                     <div class="classified-seller-info widget">
-                        <h3 class="widgettitle">Seller Information</h3>
+                        <h3 class="widgettitle">@lang('lang.Seller Information')</h3>
                         <div class="rtin-box">
 
                             <div class="rtin-author">
@@ -299,42 +305,40 @@
                                 </div>
                             </div>
 
-                            <div class="rtin-web rtin-box-item clearfix">
+                            {{-- <div class="rtin-web rtin-box-item clearfix">
                                 <i class="fa fa-fw fa-globe" aria-hidden="true"></i>
                                 <a class="rtin-box-item-text" href="{{$data->user->instegram_link}}" rel="nofollow"
                                     target="_blank">
                                     Visit Website </a>
-                            </div>
+                            </div> --}}
 
 
 
-                            <div class="rtin-box-item rtcl-user-status offline">
+                            {{-- <div class="rtin-box-item rtcl-user-status offline">
                                 <span>Offline Now</span>
-                            </div>
+                            </div> --}}
                             <div class="rtin-phone">
                                 <div class="rtcl-contact-reveal-wrapper reveal-phone"
                                     data-options="{&quot;safe_phone&quot;:&quot;{{$data->user->phone}}&quot;,&quot;phone_hidden&quot;:&quot;743&quot;,&quot;safe_whatsapp_number&quot;:&quot;{{$data->user->phone}}&quot;,&quot;whatsapp_hidden&quot;:&quot;743&quot;}">
-                                    <div class="rtcl-contact-reveal-inner">
+                                    {{-- <div class="rtcl-contact-reveal-inner">
                                         <div class="numbers">
                                             {{$data->user->phone}} </div>
                                         <small class="text-muted">Click to reveal phone number</small>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
+                            @if (auth()->user()->id != $data->user_id)
                             <div class="media rtin-chat">
                                 <a class="rtcl-chat-link rtcl-no-contact-seller" data-listing_id="2068"
-                                    href="{{route('profile.chat')}}">
+                                    href="{{route('create.chat',$data->id)}}?user_to_id={{$data->user_id}}">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
-                                    Chat </a>
+                                    @lang('lang.chat') </a>
                             </div>
-
-                            <div class="media rtin-email">
-                                <a data-toggle="modal" data-target="#classima-mail-to-seller" href="mailto:{{$data->user->email}}">
-                                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                                    Email to Seller </a>
-                            </div>
-
+    
+                            @endif
+                            
+                           
 
                         </div>
                     </div>
@@ -349,7 +353,7 @@
                 <div class="content-block-gap"></div>
                 <div class="site-content-block classima-single-related owl-wrap">
                     <div class="main-title-block">
-                        <h3 class="main-title">Related Ads</h3>
+                        <h3 class="main-title">@lang('lang.special_ads')</h3>
                         <div class="owl-related-nav owl-custom-nav rtin-custom-nav-31eedb1">
                             <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
                             <div class="owl-next"><i class="fa fa-angle-right"></i></div>
@@ -427,12 +431,15 @@
                                                     </li>
                                                 </ul>
 
+                                                @if ($item->price != null)
                                                 <div class="rtin-price">
                                                     <div class="rtcl-price price-type-regular"><span
                                                             class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
                                                                 class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
                                                     </div>
-                                                </div>
+                                                </div>    
+                                                @endif
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -453,62 +460,65 @@
 
                         <div class="rtin-price">
                             <div class="rtcl-price price-type-fixed"><span
-                                    class="rtcl-price-amount amount">250,000&nbsp;<span
+                                    class="rtcl-price-amount amount">{{$data->price}}&nbsp;<span
                                         class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span></div>
                         </div>
 
                         <div class="classified-seller-info widget">
-                            <h3 class="widgettitle">Seller Information</h3>
+                            <h3 class="widgettitle">@lang('lang.Seller Information')</h3>
                             <div class="rtin-box">
 
                                 <div class="rtin-author">
-                                    <h4 class="rtin-name">admin</h4>
+                                    <h4 class="rtin-name">{{$data->user->name}}</h4>
                                 </div>
 
 
                                 <div class="rtin-location rtin-box-item clearfix">
                                     <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i>
                                     <div class="rtin-box-item-text">
-                                        <div>House#18, Road#07</div>
-                                        <div>Ahmadi, Ahmadi</div>
+                                        <div>{{app()->getLocale() === 'ar' ? $data->category->name_ar : $data->category->name_en }}</div>
+                                        <div>{{app()->getLocale() === 'ar' ? $data->area->name_ar : $data->area->name_en }}</div>
                                     </div>
                                 </div>
 
-                                <div class="rtin-web rtin-box-item clearfix">
+                                {{-- <div class="rtin-web rtin-box-item clearfix">
                                     <i class="fa fa-fw fa-globe" aria-hidden="true"></i>
                                     <a class="rtin-box-item-text" href="{{$data->user->instegram_link}}" rel="nofollow"
                                         target="_blank">
                                         Visit Website </a>
-                                </div>
+                                </div> --}}
 
 
 
-                                <div class="rtin-box-item rtcl-user-status offline">
+                                {{-- <div class="rtin-box-item rtcl-user-status offline">
                                     <span>Offline Now</span>
-                                </div>
+                                </div> --}}
                                 <div class="rtin-phone">
                                     <div class="rtcl-contact-reveal-wrapper reveal-phone"
                                         data-options="{&quot;safe_phone&quot;:&quot;{{$data->user->phone}}&quot;,&quot;phone_hidden&quot;:&quot;743&quot;,&quot;safe_whatsapp_number&quot;:&quot;{{$data->user->phone}}&quot;,&quot;whatsapp_hidden&quot;:&quot;743&quot;}">
-                                        <div class="rtcl-contact-reveal-inner">
+                                        {{-- <div class="rtcl-contact-reveal-inner">
                                             <div class="numbers">
                                                 {{$data->user->phone}} </div>
                                             <small class="text-muted">Click to reveal phone number</small>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
 
+                                @if (auth()->user()->id != $data->user_id)
                                 <div class="media rtin-chat">
                                     <a class="rtcl-chat-link rtcl-no-contact-seller" data-listing_id="2068"
-                                        href="{{route('profile.chat')}}">
+                                        href="{{route('create.chat')}}?user_to_id={{$data->user_id}}">
                                         <i class="fa fa-comments" aria-hidden="true"></i>
-                                        Chat </a>
+                                        @lang('lang.chat') </a>
                                 </div>
+        
+                                @endif
 
-                                <div class="media rtin-email">
+                                {{-- <div class="media rtin-email">
                                     <a data-toggle="modal" data-target="#classima-mail-to-seller" href="mailto:{{$data->user->email}}">
                                         <i class="fas fa-envelope" aria-hidden="true"></i>
                                         Email to Seller </a>
-                                </div>
+                                </div> --}}
 
 
                             </div>
@@ -546,7 +556,7 @@
                                             <div id="rtcl-contact-g-recaptcha"></div>
                                             <p id="rtcl-contact-message-display"></p>
 
-                                            <button type="submit" class="btn btn-primary">Submit </button>
+                                            <button type="submit" class="btn btn-primary">@lang('lang.save') </button>
                                         </form>
                                     </div>
                                 </div>
@@ -573,5 +583,23 @@
             // });
         });
     });
+
+    function addFavourite(id)
+	{
+	    $.ajax({
+	        type: 'GET',
+	        url: "{{route('ads.fav.create')}}",
+	        data: {id:id},
+	        dataType: 'JSON',
+	        success: function (results) {
+	            toastr.success('Advertisment Added To Favourite', 'success');
+	        },
+	        error:function(result){
+	            console.log(result);
+	            toastr.error('Error Accure', 'Error');  
+
+	        }
+	    });
+	}
 </script>
 @endsection

@@ -48,7 +48,7 @@
                                                     <div class="elementor-widget-container">
                                                         <h3
                                                             class="elementor-heading-title elementor-size-default">
-                                                            Address</h3>
+                                                            @lang('lang.address')</h3>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-b4e7886 elementor-widget elementor-widget-rt-contact"
@@ -135,7 +135,7 @@
                                                     <div class="elementor-widget-container">
                                                         <h3
                                                             class="elementor-heading-title elementor-size-default">
-                                                            Send Us A Message</h3>
+                                                            @lang('lang.send_message')</h3>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-afcb9f8 elementor-widget elementor-widget-shortcode"
@@ -179,7 +179,7 @@
                                                                                     class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                                                     aria-required="true"
                                                                                     aria-invalid="false"
-                                                                                    placeholder="Name*" value=""
+                                                                                    placeholder="@lang('lang.full_name')*" value=""
                                                                                     type="text"
                                                                                     name="your-name"></span>
                                                                         </p>
@@ -191,23 +191,23 @@
                                                                                     class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
                                                                                     aria-required="true"
                                                                                     aria-invalid="false"
-                                                                                    placeholder="Email*"
+                                                                                    placeholder="@lang('lang.email')*"
                                                                                     value="" type="email"
                                                                                     name="your-email"></span>
                                                                         </p>
                                                                     </div>
-                                                                    <div>
+                                                                    {{-- <div>
                                                                         <p><span class="wpcf7-form-control-wrap"
                                                                                 data-name="your-subject"><input
                                                                                     size="40"
                                                                                     class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                                                     aria-required="true"
                                                                                     aria-invalid="false"
-                                                                                    placeholder="Subject*"
+                                                                                    placeholder="Message*"
                                                                                     value="" type="text"
                                                                                     name="your-subject"></span>
                                                                         </p>
-                                                                    </div>
+                                                                    </div> --}}
                                                                     <div>
                                                                         <p><span class="wpcf7-form-control-wrap"
                                                                                 data-name="your-message"><textarea

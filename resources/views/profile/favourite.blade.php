@@ -21,7 +21,7 @@
                                         <div class="elementor-shortcode">
                                             <div class="rtcl">
                                                 <div class="rtcl-MyAccount-mobile-navbar">
-                                                    <h4>Account Menu</h4>
+                                                    {{-- <h4>Account Menu</h4> --}}
                                                     <div class="rtcl-myaccount-logo">
                                                         <a href="https://codedhosting.com/alfuraij/">
                                                             <a class="light-logo"
@@ -38,7 +38,7 @@
                                                     <div class="rtcl-MyAccount-open-menu"><span></span></div>
 
                                                     <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>My Account</h3>
+                                                        <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
                                                             <a class="light-logo"
                                                                 href="https://codedhosting.com/alfuraij/">
@@ -52,34 +52,32 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('home')}}">Dashboard</a>
+                                                                    href="{{route('home')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites is-active">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
@@ -107,39 +105,37 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('profile.main')}}">Dashboard</a>
+                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites is-active">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
                                                                 <a
-                                                                    href="{{route('logout')}}">Logout</a>
+                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
                                                             </li>
                                                         </ul>
                                                     </nav>
@@ -153,12 +149,12 @@
                                                                 <table class="rtcl-my-listing-table">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>Thumbnail</th>
-                                                                            <th class="title-cell">Title</th>
+                                                                            <th>@lang('lang.images')</th>
+                                                                            <th class="title-cell">@lang('lang.title')</th>
                                                                             <th
                                                                                 class="price-cell list-on-responsive">
-                                                                                Price</th>
-                                                                            <th
+                                                                                @lang('lang.price')</th>
+                                                                            {{-- <th
                                                                                 class="center-cell list-on-responsive">
                                                                                 Featured</th>
                                                                             <th
@@ -166,9 +162,9 @@
                                                                                 Top</th>
                                                                             <th
                                                                                 class="center-cell list-on-responsive">
-                                                                                Bump Up</th>
+                                                                                Bump Up</th> --}}
                                                                             <th class="list-on-responsive">
-                                                                                Action</th>
+                                                                                @lang('lang.action')</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -287,80 +283,7 @@
                                                                                            class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
                                                                                </div>
                                                                            </td>
-                                                                           <td class="center-cell list-on-responsive"
-                                                                               data-column="Featured:">
-                                                                               @if ($item->advertisments->ads_type == 'fixed')
-                                                                                   <svg class="tick-svg" width="11"
-                                                                                       height="12"
-                                                                                       viewBox="0 0 11 12"
-                                                                                       fill="none"
-                                                                                       xmlns="http://www.w3.org/2000/svg">
-                                                                                       <path
-                                                                                           d="M3.99693 11.5L0.5 6.28586L1.37423 4.98233L3.99693 8.89293L9.62577 0.5L10.5 1.80353L3.99693 11.5Z"
-                                                                                           fill="currentColor" />
-                                                                                   </svg>
-                                                                               @else
-                                                                                   <svg class="cross-svg"
-                                                                                       width="11" height="12"
-                                                                                       viewBox="0 0 11 12"
-                                                                                       fill="none"
-                                                                                       xmlns="http://www.w3.org/2000/svg">
-                                                                                       <path
-                                                                                           d="M10.2785 0.751988C10.2083 0.674642 10.125 0.613278 10.0332 0.57141C9.94147 0.529541 9.84311 0.50799 9.74377 0.50799C9.64443 0.50799 9.54607 0.529541 9.45431 0.57141C9.36255 0.613278 9.2792 0.674642 9.20903 0.751988L5.5 4.82358L1.79097 0.743645C1.72075 0.6664 1.63738 0.605126 1.54563 0.563321C1.45388 0.521516 1.35554 0.5 1.25623 0.5C1.15692 0.5 1.05859 0.521516 0.966835 0.563321C0.875085 0.605126 0.791718 0.6664 0.721495 0.743645C0.651273 0.82089 0.595569 0.912593 0.557565 1.01352C0.51956 1.11444 0.5 1.22262 0.5 1.33186C0.5 1.4411 0.51956 1.54927 0.557565 1.65019C0.595569 1.75112 0.651273 1.84282 0.721495 1.92007L4.43053 6L0.721495 10.0799C0.651273 10.1572 0.595569 10.2489 0.557565 10.3498C0.51956 10.4507 0.5 10.5589 0.5 10.6681C0.5 10.7774 0.51956 10.8856 0.557565 10.9865C0.595569 11.0874 0.651273 11.1791 0.721495 11.2564C0.791718 11.3336 0.875085 11.3949 0.966835 11.4367C1.05859 11.4785 1.15692 11.5 1.25623 11.5C1.35554 11.5 1.45388 11.4785 1.54563 11.4367C1.63738 11.3949 1.72075 11.3336 1.79097 11.2564L5.5 7.17642L9.20903 11.2564C9.27925 11.3336 9.36262 11.3949 9.45437 11.4367C9.54612 11.4785 9.64446 11.5 9.74377 11.5C9.84308 11.5 9.94141 11.4785 10.0332 11.4367C10.1249 11.3949 10.2083 11.3336 10.2785 11.2564C10.3487 11.1791 10.4044 11.0874 10.4424 10.9865C10.4804 10.8856 10.5 10.7774 10.5 10.6681C10.5 10.5589 10.4804 10.4507 10.4424 10.3498C10.4044 10.2489 10.3487 10.1572 10.2785 10.0799L6.56947 6L10.2785 1.92007C10.5667 1.60302 10.5667 1.06904 10.2785 0.751988Z"
-                                                                                           fill="currentColor" />
-                                                                                   </svg>
-                                                                               @endif
-                                                                              
-                                                                           </td>
-                                                                           <td class="center-cell list-on-responsive"
-                                                                               data-column="Top:">
-   
-                                                                               @if ($item->advertisments->ads_type == 'special')
-                                                                               <svg class="tick-svg" width="11"
-                                                                                   height="12"
-                                                                                   viewBox="0 0 11 12"
-                                                                                   fill="none"
-                                                                                   xmlns="http://www.w3.org/2000/svg">
-                                                                                   <path
-                                                                                       d="M3.99693 11.5L0.5 6.28586L1.37423 4.98233L3.99693 8.89293L9.62577 0.5L10.5 1.80353L3.99693 11.5Z"
-                                                                                       fill="currentColor" />
-                                                                               </svg>
-                                                                           @else
-                                                                               <svg class="cross-svg"
-                                                                                   width="11" height="12"
-                                                                                   viewBox="0 0 11 12"
-                                                                                   fill="none"
-                                                                                   xmlns="http://www.w3.org/2000/svg">
-                                                                                   <path
-                                                                                       d="M10.2785 0.751988C10.2083 0.674642 10.125 0.613278 10.0332 0.57141C9.94147 0.529541 9.84311 0.50799 9.74377 0.50799C9.64443 0.50799 9.54607 0.529541 9.45431 0.57141C9.36255 0.613278 9.2792 0.674642 9.20903 0.751988L5.5 4.82358L1.79097 0.743645C1.72075 0.6664 1.63738 0.605126 1.54563 0.563321C1.45388 0.521516 1.35554 0.5 1.25623 0.5C1.15692 0.5 1.05859 0.521516 0.966835 0.563321C0.875085 0.605126 0.791718 0.6664 0.721495 0.743645C0.651273 0.82089 0.595569 0.912593 0.557565 1.01352C0.51956 1.11444 0.5 1.22262 0.5 1.33186C0.5 1.4411 0.51956 1.54927 0.557565 1.65019C0.595569 1.75112 0.651273 1.84282 0.721495 1.92007L4.43053 6L0.721495 10.0799C0.651273 10.1572 0.595569 10.2489 0.557565 10.3498C0.51956 10.4507 0.5 10.5589 0.5 10.6681C0.5 10.7774 0.51956 10.8856 0.557565 10.9865C0.595569 11.0874 0.651273 11.1791 0.721495 11.2564C0.791718 11.3336 0.875085 11.3949 0.966835 11.4367C1.05859 11.4785 1.15692 11.5 1.25623 11.5C1.35554 11.5 1.45388 11.4785 1.54563 11.4367C1.63738 11.3949 1.72075 11.3336 1.79097 11.2564L5.5 7.17642L9.20903 11.2564C9.27925 11.3336 9.36262 11.3949 9.45437 11.4367C9.54612 11.4785 9.64446 11.5 9.74377 11.5C9.84308 11.5 9.94141 11.4785 10.0332 11.4367C10.1249 11.3949 10.2083 11.3336 10.2785 11.2564C10.3487 11.1791 10.4044 11.0874 10.4424 10.9865C10.4804 10.8856 10.5 10.7774 10.5 10.6681C10.5 10.5589 10.4804 10.4507 10.4424 10.3498C10.4044 10.2489 10.3487 10.1572 10.2785 10.0799L6.56947 6L10.2785 1.92007C10.5667 1.60302 10.5667 1.06904 10.2785 0.751988Z"
-                                                                                       fill="currentColor" />
-                                                                               </svg>
-                                                                           @endif
-                                                                           </td>
-                                                                           <td class="center-cell list-on-responsive"
-                                                                               data-column="Bump Up:">
-                                                                               @if ($item->advertisments->ads_type == 'normal')
-                                                                                   <svg class="tick-svg" width="11"
-                                                                                       height="12"
-                                                                                       viewBox="0 0 11 12"
-                                                                                       fill="none"
-                                                                                       xmlns="http://www.w3.org/2000/svg">
-                                                                                       <path
-                                                                                           d="M3.99693 11.5L0.5 6.28586L1.37423 4.98233L3.99693 8.89293L9.62577 0.5L10.5 1.80353L3.99693 11.5Z"
-                                                                                           fill="currentColor" />
-                                                                                   </svg>
-                                                                               @else
-                                                                                   <svg class="cross-svg"
-                                                                                       width="11" height="12"
-                                                                                       viewBox="0 0 11 12"
-                                                                                       fill="none"
-                                                                                       xmlns="http://www.w3.org/2000/svg">
-                                                                                       <path
-                                                                                           d="M10.2785 0.751988C10.2083 0.674642 10.125 0.613278 10.0332 0.57141C9.94147 0.529541 9.84311 0.50799 9.74377 0.50799C9.64443 0.50799 9.54607 0.529541 9.45431 0.57141C9.36255 0.613278 9.2792 0.674642 9.20903 0.751988L5.5 4.82358L1.79097 0.743645C1.72075 0.6664 1.63738 0.605126 1.54563 0.563321C1.45388 0.521516 1.35554 0.5 1.25623 0.5C1.15692 0.5 1.05859 0.521516 0.966835 0.563321C0.875085 0.605126 0.791718 0.6664 0.721495 0.743645C0.651273 0.82089 0.595569 0.912593 0.557565 1.01352C0.51956 1.11444 0.5 1.22262 0.5 1.33186C0.5 1.4411 0.51956 1.54927 0.557565 1.65019C0.595569 1.75112 0.651273 1.84282 0.721495 1.92007L4.43053 6L0.721495 10.0799C0.651273 10.1572 0.595569 10.2489 0.557565 10.3498C0.51956 10.4507 0.5 10.5589 0.5 10.6681C0.5 10.7774 0.51956 10.8856 0.557565 10.9865C0.595569 11.0874 0.651273 11.1791 0.721495 11.2564C0.791718 11.3336 0.875085 11.3949 0.966835 11.4367C1.05859 11.4785 1.15692 11.5 1.25623 11.5C1.35554 11.5 1.45388 11.4785 1.54563 11.4367C1.63738 11.3949 1.72075 11.3336 1.79097 11.2564L5.5 7.17642L9.20903 11.2564C9.27925 11.3336 9.36262 11.3949 9.45437 11.4367C9.54612 11.4785 9.64446 11.5 9.74377 11.5C9.84308 11.5 9.94141 11.4785 10.0332 11.4367C10.1249 11.3949 10.2083 11.3336 10.2785 11.2564C10.3487 11.1791 10.4044 11.0874 10.4424 10.9865C10.4804 10.8856 10.5 10.7774 10.5 10.6681C10.5 10.5589 10.4804 10.4507 10.4424 10.3498C10.4044 10.2489 10.3487 10.1572 10.2785 10.0799L6.56947 6L10.2785 1.92007C10.5667 1.60302 10.5667 1.06904 10.2785 0.751988Z"
-                                                                                           fill="currentColor" />
-                                                                                   </svg>
-                                                                               @endif
-                                                                           </td>
+                                                                         
                                                                            <td class="list-on-responsive"
                                                                                data-column="Action:">
                                                                                <div class="rtcl-actions">

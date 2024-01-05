@@ -33,7 +33,8 @@ class Advertisment extends Model
         'num_of_floor',
         'type',
         'abroved',
-        'ads_type'
+        'ads_type',
+        'is_sold'
     ];
 
     public function getViews()

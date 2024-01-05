@@ -28,32 +28,31 @@
                             <div class="elementor-element elementor-element-90c2e88 elementor-widget elementor-widget-heading"
                                 data-id="90c2e88" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Information</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-15fda17 elementor-widget elementor-widget-heading"
                                 data-id="15fda17" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">About Us</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.about_us')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-ebfe62a elementor-widget elementor-widget-heading"
                                 data-id="ebfe62a" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Terms &
-                                        Conditions</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.terms_and_conditions')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-ee60b60 elementor-widget elementor-widget-heading"
                                 data-id="ee60b60" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">FAQs</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.faq')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-f7607b8 elementor-widget elementor-widget-heading"
                                 data-id="f7607b8" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Privacy Policy
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.privacy_policy')
                                     </h2>
                                 </div>
                             </div>
@@ -65,29 +64,28 @@
                             <div class="elementor-element elementor-element-2461cd9 elementor-widget elementor-widget-heading"
                                 data-id="2461cd9" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">My Account</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.my_account')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-49fae28 elementor-widget elementor-widget-heading"
                                 data-id="49fae28" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Account
-                                        Information</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-97a24ff elementor-widget elementor-widget-heading"
                                 data-id="97a24ff" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">My Advertisments
+                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.all_ads')
                                     </h2>
                                 </div>
                             </div>
-                            <div class="elementor-element elementor-element-50ba8f1 elementor-widget elementor-widget-heading"
+                            {{-- <div class="elementor-element elementor-element-50ba8f1 elementor-widget elementor-widget-heading"
                                 data-id="50ba8f1" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
                                     <h2 class="elementor-heading-title elementor-size-default">My Payments</h2>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7710731"
@@ -162,14 +160,13 @@
                             <div class="elementor-element elementor-element-fd2d5fe elementor-widget elementor-widget-heading"
                                 data-id="fd2d5fe" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">All Rights
-                                        Reserved © 2023 Al Furaij Real Estate</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default"><script>document.write(new Date().getFullYear())</script> © Al Furaij Real Estate</h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-fee0b51 elementor-widget elementor-widget-heading"
                                 data-id="fee0b51" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">www.AlFuraij.com
+                                    <h2 class="elementor-heading-title elementor-size-default">AlFuraij.com
                                     </h2>
                                 </div>
                             </div>

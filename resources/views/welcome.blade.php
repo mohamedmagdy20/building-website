@@ -4,7 +4,7 @@
 <div id="primary" class="content-area">
     <div data-elementor-type="wp-page" data-elementor-id="1897" class="elementor elementor-1897" data-elementor-post-type="page">
        {{-- Banner  --}}
-        <section class="elementor-section elementor-top-section elementor-element elementor-element-5e783be elementor-section-full_width elementor-section-height-default elementor-section-height-default rt-parallax-bg-no" data-id="5e783be" data-element_type="section"
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-5e783be elementor-section-full_width elementor-section-height-default elementor-section-height-default rt-parallax-bg-no" dir="{{app()->getLocale() === 'ar' ? 'rtl' : 'ltr'}}" data-id="5e783be" data-element_type="section"
 					data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="elementor-background-overlay"></div>
 					<div class="elementor-container elementor-column-gap-default">
@@ -118,7 +118,7 @@
 													data-widget_type="icon.default">
 													<div class="elementor-widget-container">
 														<div class="elementor-icon-wrapper">
-															<a class="elementor-icon" href="./tips/index.html">
+															<a class="elementor-icon" href="{{route('tips')}}">
 																<i aria-hidden="true" class="fas fa-info"></i> </a>
 														</div>
 													</div>
@@ -128,7 +128,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./tips/index.html">Real Estate</a></h2>
+																href="{{route('tips')}}">Real Estate</a></h2>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-2c28a28 elementor-widget elementor-widget-heading"
@@ -136,7 +136,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./tips/index.html">Tips</a></h2>
+																href="{{route('tips')}}">Tips</a></h2>
 													</div>
 												</div>
 											</div>
@@ -204,13 +204,12 @@
 																			<select class="form-control"
 																				id="rtcl-search-type-3054447082"
 																				name="type">
-																				<option value="">Select type</option>
-																				<option value="sale">For Sale
+																				<option value="">@lang('lang.choose_type')</option>
+																				<option value="sale">@lang('lang.sale')
 																				</option>
-																				<option value="rent">For Rent
+																				<option value="rent">@lang('lang.rent')
 																				</option>
-																				<option value="instead">For
-																					Exchange</option>
+																				<option value="instead">@lang('lang.instead')</option>
 																			</select>
 																		</div>
 																	</div>
@@ -220,7 +219,7 @@
 																			<select class="form-control"
 																				id="area"
 																				name="area_id">
-																				<option value="">Select Area</option>
+																				<option value="">@lang('lang.choose_area')</option>
 																				@foreach ($areas as $area )
                                                                                     
 																			    <option data-slug="{{$area->name_en}}" value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
@@ -238,17 +237,17 @@
 																				name="category"
 																				onchange="getCategory()"
 																				>
-																				<option value="-1">Select a category
+																				<option value="-1">@lang('lang.choose_category')
 																				</option>
-																				<option value="residential">Residential</option>
-																				<option value="commercial_units">Commercial Units</option>
-																				<option value="commercial">Commercial</option>
-																				<option value="investment">Investment</option>
-																				<option value="industrial">Industrial</option>
-																				<option value="chalet">Chalet</option>
-																				<option value="farm">Farm</option>
-																				<option value="break">Break</option>
-																				<option value="lands">Lands</option>
+																				<option value="residential">@lang('lang.residential')</option>
+																				<option value="commercial_units">@lang('lang.commercial_units')</option>
+																				<option value="commercial">@lang('lang.commercial')</option>
+																				<option value="investment">@lang('lang.investment')</option>
+																				<option value="industrial">@lang('lang.industrial')</option>
+																				<option value="chalet">@lang('lang.chalet')</option>
+																				<option value="farm">@lang('lang.farm')</option>
+																				<option value="break">@lang('lang.break')</option>
+																				<option value="lands">@lang('lang.lands')</option>
 																				
 																			</select>
 
@@ -266,7 +265,7 @@
 																			<input type="text" name="q"
 																				data-type="listing"
 																				class="rtcl-autocomplete form-control"
-																				placeholder="Keywords" value="">
+																				placeholder="@lang('lang.key_word')" value="">
 																		</div>
 																	</div>
 																	<div
@@ -275,7 +274,7 @@
 																			<span class="icon-wrapper"><i
 																					aria-hidden="true"
 																					class="fas fa-search-location"></i></span>
-																			Search </button>
+																			@lang('lang.search') </button>
 																	</div>
 																</div>
 															</form>
@@ -313,8 +312,8 @@
 
 								<div class="elementor-element elementor-element-398b90d elementor-widget elementor-widget-heading"
 									data-id="398b90d" data-element_type="widget" data-widget_type="heading.default">
-									<div class="elementor-widget-container">
-										<h2 class="elementor-heading-title elementor-size-default">Special Ads</h2>
+									<div class="elementor-widget-container" >
+										<h2 class="elementor-heading-title elementor-size-default">@lang('lang.special_ads')</h2>
 									</div>
 								</div>
 
@@ -359,47 +358,62 @@
 																		title=""></a>
 
 																		@auth
-																			<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
-																				<div class="rtcl-fav rtcl-el-button">
-																					<a onclick="addFavourite({{$item->id}})"
-																						class="rtcl-require-login "><span
-																							class="rtcl-icon rtcl-icon-heart-empty"></span><span
-																							class="favourite-label">Add to
-																							Favourites</span></a>
-																				</div>
+																		@if (! $item->isFavoriteByUser($item->id))
+																		<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
+																			<div class="rtcl-fav rtcl-el-button">
+																				<a onclick="addFavourite({{$item->id}})"
+																					class="rtcl-require-login "><span
+																						class="rtcl-icon rtcl-icon-heart-empty"></span><span
+																						class="favourite-label">Add to
+																						Favourites</span></a>
 																			</div>
+																		</div>
+																		@endif
+																			
 																			
 																		@endauth
 																		
 															</div>
 															<div class="item-content">
 																<div class="category"><a
-																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name_en}}</a></div>
+																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
 																<h3 class="listing-title rtcl-listing-title">
-																	<a href="#"
+																	<a href="{{route('advertisment.show',$item->id)}}"
 																		title="{{$item->title}}">{{$item->title}}</a>
 																</h3>
 																<div class="rtcl-listable">
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Land Area</span>
+																	{{-- <div class="rtcl-listable-item">
+																		@if($item->space != null)
+																		<span class="listable-label">@lang('lang.space')</span>
 																		<span class="listable-value">{{$item->space}}</span>
+																		@endif
 																	</div>
+																	@if ($item->advantages != null)
 																	<br>
 																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Features</span>
+																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>
+																	</div>	
+																	@endif --}}
 																</div>
-																<div class="item-price listing-price">
+																@if ($item->price != null)
+																<div class="item-price">
 																	<div class="rtcl-price price-type-regular"><span
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>
+																</div>																	
+																@endif
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
 																		<i class="rtcl-icon-tags"
-																			aria-hidden="true"></i>For {{$item->type}}
+																			aria-hidden="true"></i>@if ($item->type == 'sale')
+																			@lang('lang.sale')
+																		@elseif ($item->type == 'rent')
+																		@lang('lang.rent')
+																		@else
+																			@lang('lang.instead')
+																		@endif 
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -413,7 +427,7 @@
 																	</li>
 																	<li class="view">
 																		<i class="rtcl-icon rtcl-icon-eye"
-																			aria-hidden="true"></i>{{$item->getViews()}} views
+																			aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
 																	</li>
 																</ul>
 															</div>
@@ -474,6 +488,7 @@
 																		title=""></a>
 
 																		@auth
+																			@if (! $item->isFavoriteByUser($item->id))
 																			<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
 																				<div class="rtcl-fav rtcl-el-button">
 																					<a onclick="addFavourite({{$item->id}})"
@@ -483,38 +498,52 @@
 																							Favourites</span></a>
 																				</div>
 																			</div>
-																			
+																			@endif
+																
 																		@endauth
 																		
 															</div>
 															<div class="item-content">
 																<div class="category"><a
-																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name_en}}</a></div>
+																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
 																<h3 class="listing-title rtcl-listing-title">
-																	<a href="#"
+																	<a href="{{route('advertisment.show',$item->id)}}"
 																		title="{{$item->title}}">{{$item->title}}</a>
 																</h3>
 																<div class="rtcl-listable">
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Land Area</span>
+																	{{-- <div class="rtcl-listable-item">
+																		@if($item->space != null)
+																		<span class="listable-label">@lang('lang.space')</span>
 																		<span class="listable-value">{{$item->space}}</span>
+																		@endif	
 																	</div>
+																	@if ($item->advantages != null)
 																	<br>
 																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Features</span>
+																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>
+																	</div>	
+																	@endif --}}
+																	
 																</div>
-																<div class="item-price listing-price">
+																@if ($item->price != null)
+																<div class="item-price">
 																	<div class="rtcl-price price-type-regular"><span
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>
+																</div>																	
+																@endif
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
 																		<i class="rtcl-icon-tags"
-																			aria-hidden="true"></i>For {{$item->type}}
+																			aria-hidden="true"></i>@if ($item->type == 'sale')
+																			@lang('lang.sale')
+																		@elseif ($item->type == 'rent')
+																		@lang('lang.rent')
+																		@else
+																			@lang('lang.instead')
+																		@endif 
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -523,12 +552,12 @@
 																	<li class="location">
 																		<i class="rtcl-icon rtcl-icon-location"
 																			aria-hidden="true"></i><a
-																			href="./listing-location/hawally/al-salam/index.html">{{$item->area->name_en}}</a><span
+																			href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name_en}}</a><span
 																			class="rtcl-delimiter">,</span>
 																	</li>
 																	<li class="view">
 																		<i class="rtcl-icon rtcl-icon-eye"
-																			aria-hidden="true"></i>{{$item->getViews()}} views
+																			aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
 																	</li>
 																</ul>
 															</div>
@@ -577,9 +606,8 @@
 										<div class="row">
 											<div class="col-lg-6 col-sm-12 col-12">
 												<div class="banner-content">
-													<h2 class="item-title">Our App Available Now</h2>
-													<p>Download Our App On iOS and Android and start Buying ,
-														Selling And Renting As Easy As a Few Clicks</p>
+													<h2 class="item-title">@lang('lang.our_app_ava')</h2>
+													<p>@lang('lang.our_app_ava_text')</p>
 													<div class="download-btn">
 														<a href="https://play.google.com/store/apps/details?id=com.classima.radiustheme"
 															target="_blank" rel="nofollow">
@@ -649,7 +677,7 @@
 									data-id="a4af9be" data-element_type="widget" data-widget_type="rt-title.default">
 									<div class="elementor-widget-container">
 										<div class="rt-el-title rtin-style-1">
-											<h2 class="rtin-title">Newest Sale Ads</h2>
+											<h2 class="rtin-title">@lang('lang.Newest_Sale_Ads')</h2>
 										</div>
 									</div>
 								</div>
@@ -669,8 +697,9 @@
 
 
 														<div class="listing-thumb">
+															
 															<div class="listing-thumb-inner">
-																<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async" width="385" height="280"
 																		src="
@@ -683,30 +712,43 @@
 																		class="rtcl-thumbnail" alt="{{$item->title}}"
 																		title=""></a>
 															</div>
+															{{-- <div class="listing-thumb-inner"><span class="rtcl-sold-out">Sold Out</span><a href="https://codedhosting.com/alfuraij/listing/apartment-for-buy/" title="للبيع شقة في المهبولة"><img loading="lazy" decoding="async" width="400" height="280" src="https://codedhosting.com/alfuraij/wp-content/uploads/classified-listing/2020/04/product_10-400x280.jpg" class="rtcl-thumbnail" alt="للبيع شقة في المهبولة" title=""></a> </div> --}}
 														</div>
 														<div class="rtin-content-area">
 															<div class="item-content">
 																<div class="rtcl-listing-badge-wrap"></div>
 																<div class="category"><a
-																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name}}</a></div>
+																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name}}</a></div>
 																<h3 class="listing-title rtcl-listing-title">
-																	<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+																	<a href="{{route('advertisment.show',$item->id)}}"
 																		title="{{$item->title}}">{{$item->title}}</a>
 																</h3>
 																<div class="rtcl-listable">
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Land Area</span>
+																	{{-- <div class="rtcl-listable-item">
+																		@if($item->space != null)
+																		<span class="listable-label">@lang('lang.space')</span>
 																		<span class="listable-value">{{$item->space}}</span>
+
+																		@endif
 																	</div>
+																	@if ($item->advantages != null)
+																	<br>
 																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Features</span>
-																		<span class="listable-value">{{$item->advantage}}</span>
-																	</div>
+																		<span class="listable-label">@lang('lang.features')</span>
+																		<span class="listable-value">{{$item->advantages}}</span>
+																	</div>	
+																	@endif --}}
 																</div>
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
 																		<i class="rtcl-icon-tags"
-																			aria-hidden="true"></i>For {{$item->type}}
+																			aria-hidden="true"></i>@if ($item->type == 'sale')
+																			@lang('lang.sale')
+																		@elseif ($item->type == 'rent')
+																		@lang('lang.rent')
+																		@else
+																			@lang('lang.instead')
+																		@endif 
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -715,26 +757,30 @@
 																	<li class="location">
 																		<i class="rtcl-icon rtcl-icon-location"
 																			aria-hidden="true"></i><a
-																			href="./listing-location/hawally/al-salam/index.html">{{$item->area->name}}</a><span
+																			href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name}}</a><span
 																			class="rtcl-delimiter"></span>
 																	</li>
 																	<li class="view">
 																		<i class="rtcl-icon rtcl-icon-eye"
-																			aria-hidden="true"></i>{{$item->getViews()}} views
+																			aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
 																	</li>
 																</ul>
+																@if ($item->price != null)
+
 																<div class="item-price">
 																	<div class="rtcl-price price-type-regular"><span
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>
+																</div>																	
+																@endif
 															</div>
 															<div class="rtin-right ">
 																<a class="rtin-details-button"
 																	href="{{route('advertisment.show',$item->id)}}">Details</a>
 																
 																@auth
+																@if (! $item->isFavoriteByUser($item->id))
 																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
 																	<div class="rtcl-fav rtcl-text-el-button">
 																		<a onclick="addFavourite({{$item->id}})"
@@ -743,7 +789,9 @@
 																				class="favourite-label">Add to
 																				Favourites</span></a>
 																	</div>
-																</div>
+																</div>		
+																@endif
+															
 																@endauth
 																	
 															</div>
@@ -775,7 +823,7 @@
 									data-id="b098121" data-element_type="widget" data-widget_type="rt-title.default">
 									<div class="elementor-widget-container">
 										<div class="rt-el-title rtin-style-1">
-											<h2 class="rtin-title">Newest Rent Ads</h2>
+											<h2 class="rtin-title">@lang('lang.Newest_Rent_Ads')</h2>
 										</div>
 									</div>
 								</div>
@@ -814,25 +862,36 @@
 															<div class="item-content">
 																<div class="rtcl-listing-badge-wrap"></div>
 																<div class="category"><a
-																		href="./listing-category/lands/residential-lands/index.html">{{$item->category->name}}</a></div>
+																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name}}</a></div>
 																<h3 class="listing-title rtcl-listing-title">
 																	<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
 																		title="{{$item->title}}">{{$item->title}}</a>
 																</h3>
 																<div class="rtcl-listable">
-																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Land Area</span>
+																	{{-- <div class="rtcl-listable-item">
+																		@if($item->space != null)
+																		<span class="listable-label">@lang('lang.space')</span>
 																		<span class="listable-value">{{$item->space}}</span>
+																		@endif
 																	</div>
+																	@if ($item->advantages != null)
+																	<br>
 																	<div class="rtcl-listable-item">
-																		<span class="listable-label">Features</span>
-																		<span class="listable-value">{{$item->advantage}}</span>
-																	</div>
+																		<span class="listable-label">@lang('lang.features')</span>
+																		<span class="listable-value">{{$item->advantages}}</span>
+																	</div>	
+																	@endif --}}
 																</div>
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
 																		<i class="rtcl-icon-tags"
-																			aria-hidden="true"></i>For {{$item->type}}
+																			aria-hidden="true"></i>@if ($item->type == 'sale')
+																			@lang('lang.sale')
+																		@elseif ($item->type == 'rent')
+																		@lang('lang.rent')
+																		@else
+																			@lang('lang.instead')
+																		@endif 
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -841,26 +900,30 @@
 																	<li class="location">
 																		<i class="rtcl-icon rtcl-icon-location"
 																			aria-hidden="true"></i><a
-																			href="./listing-location/hawally/al-salam/index.html">{{$item->area->name}}</a><span
+																			href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name}}</a><span
 																			class="rtcl-delimiter"></span>
 																	</li>
 																	<li class="view">
 																		<i class="rtcl-icon rtcl-icon-eye"
-																			aria-hidden="true"></i>{{$item->getViews()}} views
+																			aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
 																	</li>
 																</ul>
+																@if ($item->price != null)
+
 																<div class="item-price">
 																	<div class="rtcl-price price-type-regular"><span
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>
+																</div>																	
+																@endif
 															</div>
 															<div class="rtin-right ">
 																<a class="rtin-details-button"
 																	href="{{route('advertisment.show',$item->id)}}">Details</a>
 																
 																@auth
+																@if (! $item->isFavoriteByUser($item->id))
 																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
 																	<div class="rtcl-fav rtcl-text-el-button">
 																		<a onclick="addFavourite({{$item->id}})"
@@ -869,7 +932,9 @@
 																				class="favourite-label">Add to
 																				Favourites</span></a>
 																	</div>
-																</div>
+																</div>	
+																@endif
+																
 																@endauth
 																	
 															</div>
@@ -903,7 +968,7 @@
 						data-id="8960e3d" data-element_type="widget" data-widget_type="rt-title.default">
 						<div class="elementor-widget-container">
 							<div class="rt-el-title rtin-style-1">
-								<h2 class="rtin-title">Newest Exchange Ads</h2>
+								<h2 class="rtin-title">@lang('lang.Newest_Exchange_Ads')</h2>
 							</div>
 						</div>
 					</div>
@@ -923,7 +988,7 @@
 
 											<div class="listing-thumb">
 												<div class="listing-thumb-inner">
-													<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+													<a href="{{route('advertisment.show',$item->id)}}"
 														title="{{$item->title}}"><img loading="lazy"
 															decoding="async" width="385" height="280"
 															src="
@@ -941,25 +1006,36 @@
 												<div class="item-content">
 													<div class="rtcl-listing-badge-wrap"></div>
 													<div class="category"><a
-															href="./listing-category/lands/residential-lands/index.html">{{$item->category->name}}</a></div>
+															href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name}}</a></div>
 													<h3 class="listing-title rtcl-listing-title">
-														<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+														<a href="{{route('advertisment.show',$item->id)}}"
 															title="{{$item->title}}">{{$item->title}}</a>
 													</h3>
 													<div class="rtcl-listable">
-														<div class="rtcl-listable-item">
-															<span class="listable-label">Land Area</span>
+														{{-- <div class="rtcl-listable-item">
+															@if($item->space != null)
+															<span class="listable-label">@lang('lang.space')</span>
 															<span class="listable-value">{{$item->space}}</span>
+															@endif
 														</div>
-														<div class="rtcl-listable-item">
-															<span class="listable-label">Features</span>
-															<span class="listable-value">{{$item->advantage}}</span>
-														</div>
+														@if ($item->advantages != null)
+															<br>
+															<div class="rtcl-listable-item">
+																<span class="listable-label">@lang('lang.features')</span>
+																<span class="listable-value">{{$item->advantages}}</span>
+															</div>	
+														@endif --}}
 													</div>
 													<ul class="rtcl-listing-meta-data">
 														<li class="rtin-type">
 															<i class="rtcl-icon-tags"
-																aria-hidden="true"></i>For {{$item->type}}
+																aria-hidden="true"></i>@if ($item->type == 'sale')
+																	@lang('lang.sale')
+																@elseif ($item->type == 'rent')
+																@lang('lang.rent')
+																@else
+																	@lang('lang.instead')
+																@endif 
 														</li>
 														<li class="date">
 															<i class="rtcl-icon rtcl-icon-clock"
@@ -968,26 +1044,30 @@
 														<li class="location">
 															<i class="rtcl-icon rtcl-icon-location"
 																aria-hidden="true"></i><a
-																href="./listing-location/hawally/al-salam/index.html">{{$item->area->name}}</a><span
+																href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name}}</a><span
 																class="rtcl-delimiter"></span>
 														</li>
 														<li class="view">
 															<i class="rtcl-icon rtcl-icon-eye"
-																aria-hidden="true"></i>{{$item->getViews()}} views
+																aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
 														</li>
 													</ul>
-													<div class="item-price">
-														<div class="rtcl-price price-type-regular"><span
-																class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
-																	class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
-														</div>
-													</div>
+													@if ($item->price != null)
+														<div class="item-price">
+															<div class="rtcl-price price-type-regular"><span
+																	class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
+																		class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
+															</div>
+														</div>																	
+													@endif
+													
 												</div>
 												<div class="rtin-right ">
 													<a class="rtin-details-button"
 														href="{{route('advertisment.show',$item->id)}}">Details</a>
 													
 													@auth
+													@if (! $item->isFavoriteByUser($item->id))
 													<div class="rtcl-meta-buttons-withtext meta-button-count-1">
 														<div class="rtcl-fav rtcl-text-el-button">
 															<a onclick="addFavourite({{$item->id}})"
@@ -996,7 +1076,9 @@
 																	class="favourite-label">Add to
 																	Favourites</span></a>
 														</div>
-													</div>
+													</div>	
+													@endif
+													
 													@endauth
 														
 												</div>
@@ -1061,6 +1143,7 @@
 	        dataType: 'JSON',
 	        success: function (results) {
 	            toastr.success('Advertisment Added To Favourite', 'success');
+				location.reload();
 	        },
 	        error:function(result){
 	            console.log(result);

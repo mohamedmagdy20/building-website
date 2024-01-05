@@ -21,7 +21,7 @@
                                         <div class="elementor-shortcode">
                                             <div class="rtcl">
                                                 <div class="rtcl-MyAccount-mobile-navbar">
-                                                    <h4>Account Menu</h4>
+                                                    {{-- <h4></h4> --}}
                                                     <div class="rtcl-myaccount-logo">
                                                         <a href="https://codedhosting.com/alfuraij/">
                                                             <a class="light-logo"
@@ -38,7 +38,7 @@
                                                     <div class="rtcl-MyAccount-open-menu"><span></span></div>
 
                                                     <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>My Account</h3>
+                                                        <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
                                                             <a class="light-logo"
                                                                 href="https://codedhosting.com/alfuraij/">
@@ -52,39 +52,37 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('profile.main')}}">Dashboard</a>
+                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat  rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link  is-active rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
                                                                 <a
-                                                                    href="{{route('logout')}}">Logout</a>
+                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
                                                             </li>
                                                         </ul>
                                                     </nav>
@@ -93,7 +91,7 @@
                                                 <div class="rtcl-MyAccount-wrap">
 
                                                     <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>My Account</h3>
+                                                        <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
                                                             <a class="light-logo"
                                                                 href="https://codedhosting.com/alfuraij/">
@@ -107,39 +105,37 @@
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
                                                                 <a
-                                                                    href="{{route('profile.main')}}">Dashboard</a>
+                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
                                                                 <a
-                                                                    href="{{route('profile.listing')}}">My
-                                                                    Listings</a>
+                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites">
                                                                 <a
-                                                                    href="{{route('profile.favourite')}}">Favourites</a>
+                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat  rtcl-chat-unread-count">
                                                                 <a
-                                                                    href="{{route('profile.chat')}}">Chat</a>
+                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link is-active rtcl-MyAccount-navigation-link--payments">
                                                                 <a
-                                                                    href="{{route('profile.payment')}}">Payments</a>
+                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account">
                                                                 <a
-                                                                    href="{{route('profile.edit')}}">Account
-                                                                    Details</a>
+                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
                                                             </li>
                                                             <li
                                                                 class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
                                                                 <a
-                                                                    href="{{route('logout')}}">Logout</a>
+                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
                                                             </li>
                                                         </ul>
                                                     </nav>
