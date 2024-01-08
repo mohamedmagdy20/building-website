@@ -328,15 +328,13 @@
                                 </div>
                             </div>
 
-                            @if (auth()->user()->id != $data->user_id)
+
                             <div class="media rtin-chat">
                                 <a class="rtcl-chat-link rtcl-no-contact-seller" data-listing_id="2068"
                                     href="{{route('create.chat',$data->id)}}?user_to_id={{$data->user_id}}">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     @lang('lang.chat') </a>
-                            </div>
-    
-                            @endif
+                            </div>    
                             
                            
 
@@ -504,15 +502,12 @@
                                     </div>
                                 </div>
 
-                                @if (auth()->user()->id != $data->user_id)
                                 <div class="media rtin-chat">
                                     <a class="rtcl-chat-link rtcl-no-contact-seller" data-listing_id="2068"
-                                        href="{{route('create.chat')}}?user_to_id={{$data->user_id}}">
+                                        href="{{route('create.chat',$data->id)}}?user_to_id={{$data->user_id}}">
                                         <i class="fa fa-comments" aria-hidden="true"></i>
                                         @lang('lang.chat') </a>
-                                </div>
-        
-                                @endif
+                                </div>   
 
                                 {{-- <div class="media rtin-email">
                                     <a data-toggle="modal" data-target="#classima-mail-to-seller" href="mailto:{{$data->user->email}}">
