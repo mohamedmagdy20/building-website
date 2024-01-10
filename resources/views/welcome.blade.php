@@ -53,7 +53,7 @@
 													data-widget_type="icon.default">
 													<div class="elementor-widget-container">
 														<div class="elementor-icon-wrapper">
-															<a class="elementor-icon" href="./evaluation/index.html">
+															<a class="elementor-icon" href="{{route('evaluation')}}">
 																<i aria-hidden="true" class="fas fa-calculator"></i>
 															</a>
 														</div>
@@ -64,7 +64,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./evaluation/index.html">Instant</a></h2>
+																href="{{route('evaluation')}}">Instant</a></h2>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-6690004 elementor-widget elementor-widget-heading"
@@ -72,7 +72,7 @@
 													data-widget_type="heading.default">
 													<div class="elementor-widget-container">
 														<h2 class="elementor-heading-title elementor-size-default"><a
-																href="./evaluation/index.html">Valuation</a></h2>
+																href="{{route('evaluation')}}">Valuation</a></h2>
 													</div>
 												</div>
 											</div>
@@ -342,7 +342,40 @@
                                                         <div
 															class="rtcl-widget-listing-item listing-item swiper-slide-customize listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
-
+															@if ($item->is_sold == true)
+																				  <div class="listing-thumb">
+																					<span class="rtcl-sold-out">Sold Out</span>
+																					<a href="{{route('advertisment.show',$item->id)}}"
+																						title="{{$item->title}}"><img loading="lazy"
+																							decoding="async"
+																							src="
+																							@if(count($item->adsImage) == 0)
+																								https://admin.alfuraij.com/assets/images/default.jpg
+																							@else
+																								https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
+																							@endif
+																							"
+																							class="rtcl-thumbnail" alt="{{$item->title}}"
+																							title=""></a>
+					
+																							@auth
+																							@if (! $item->isFavoriteByUser($item->id))
+																							<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
+																								<div class="rtcl-fav rtcl-el-button">
+																									<a onclick="addFavourite({{$item->id}})"
+																										class="rtcl-require-login "><span
+																											class="rtcl-icon rtcl-icon-heart-empty"></span><span
+																											class="favourite-label">Add to
+																											Favourites</span></a>
+																								</div>
+																							</div>
+																							@endif
+																								
+																								
+																							@endauth
+																							
+																				</div>
+															@else
 															<div class="listing-thumb">
 																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
@@ -374,6 +407,8 @@
 																		@endauth
 																		
 															</div>
+															@endif
+															
 															<div class="item-content">
 																<div class="category"><a
 																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
@@ -473,7 +508,7 @@
 															class="rtcl-widget-listing-item listing-item swiper-slide-customize listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
 
-															<div class="listing-thumb">
+															{{-- <div class="listing-thumb">
 																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async"
@@ -502,7 +537,74 @@
 																
 																		@endauth
 																		
-															</div>
+															</div> --}}
+															@if ($item->is_sold == true)
+															<div class="listing-thumb">
+															  <span class="rtcl-sold-out">Sold Out</span>
+															  <a href="{{route('advertisment.show',$item->id)}}"
+																  title="{{$item->title}}"><img loading="lazy"
+																	  decoding="async"
+																	  src="
+																	  @if(count($item->adsImage) == 0)
+																		  https://admin.alfuraij.com/assets/images/default.jpg
+																	  @else
+																		  https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
+																	  @endif
+																	  "
+																	  class="rtcl-thumbnail" alt="{{$item->title}}"
+																	  title=""></a>
+
+																	  @auth
+																	  @if (! $item->isFavoriteByUser($item->id))
+																	  <div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
+																		  <div class="rtcl-fav rtcl-el-button">
+																			  <a onclick="addFavourite({{$item->id}})"
+																				  class="rtcl-require-login "><span
+																					  class="rtcl-icon rtcl-icon-heart-empty"></span><span
+																					  class="favourite-label">Add to
+																					  Favourites</span></a>
+																		  </div>
+																	  </div>
+																	  @endif
+																		  
+																		  
+																	  @endauth
+																	  
+														  </div>
+									  @else
+									  <div class="listing-thumb">
+										  <a href="{{route('advertisment.show',$item->id)}}"
+											  title="{{$item->title}}"><img loading="lazy"
+												  decoding="async"
+												  src="
+												  @if(count($item->adsImage) == 0)
+													  https://admin.alfuraij.com/assets/images/default.jpg
+												  @else
+													  https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
+												  @endif
+												  "
+												  class="rtcl-thumbnail" alt="{{$item->title}}"
+												  title=""></a>
+
+												  @auth
+												  @if (! $item->isFavoriteByUser($item->id))
+												  <div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
+													  <div class="rtcl-fav rtcl-el-button">
+														  <a onclick="addFavourite({{$item->id}})"
+															  class="rtcl-require-login "><span
+																  class="rtcl-icon rtcl-icon-heart-empty"></span><span
+																  class="favourite-label">Add to
+																  Favourites</span></a>
+													  </div>
+												  </div>
+												  @endif
+													  
+													  
+												  @endauth
+												  
+									  </div>
+									  @endif
+									  
 															<div class="item-content">
 																<div class="category"><a
 																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
@@ -699,6 +801,9 @@
 														<div class="listing-thumb">
 															
 															<div class="listing-thumb-inner">
+																@if ($item->is_sold == true)
+																<span class="rtcl-sold-out">Sold Out</span>
+																@endif
 																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async" width="385" height="280"
@@ -844,7 +949,10 @@
 
 														<div class="listing-thumb">
 															<div class="listing-thumb-inner">
-																<a href="./listing/%d9%84%d9%84%d8%a8%d9%8a%d8%b9-%d8%a7%d8%b1%d8%b6-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%84%d8%a7%d9%85/index.html"
+																@if ($item->is_sold == true)
+																<span class="rtcl-sold-out">Sold Out</span>
+																@endif
+																<a href="{{route('advertisment.show',$item->id)}}"
 																	title="{{$item->title}}"><img loading="lazy"
 																		decoding="async" width="385" height="280"
 																		src="
@@ -988,6 +1096,9 @@
 
 											<div class="listing-thumb">
 												<div class="listing-thumb-inner">
+													@if ($item->is_sold == true)
+																<span class="rtcl-sold-out">Sold Out</span>
+													@endif
 													<a href="{{route('advertisment.show',$item->id)}}"
 														title="{{$item->title}}"><img loading="lazy"
 															decoding="async" width="385" height="280"

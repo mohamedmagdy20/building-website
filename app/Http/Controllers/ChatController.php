@@ -37,26 +37,32 @@ class ChatController extends Controller
         ]);
         $data = $request->all();
         try{
-            // DB::beginTransaction();
-            // $isChatExist =  $this->chat->where('user_id',auth()->user()->id)->where('user_to_id',$data['user_to_id'])->first();
-                $isChatExist =  $this->model->where('user_id',auth()->user()->id)->where('user_to_id',$data['user_to_id'])->first();
-                $isChatExistToAnother = $this->model->where('user_id',$data['user_to_id'])->where('user_to_id',auth()->user()->id)->first();
-        
-            if(!$isChatExist && !$isChatExistToAnother)
+            if(auth()->user()->id != $request->user_to_id)
             {
-                $chat =  $this->model->create(array_merge($data,['user_id'=>auth()->user()->id]) );
-                return redirect()->route('chats',$chat->id)->with('success','Chat Created');
-            }else{
-                if($isChatExist)
-                {
-                    return redirect()->route('chats',$isChatExist->id);
-                }
+                // DB::beginTransaction();
+                   // $isChatExist =  $this->chat->where('user_id',auth()->user()->id)->where('user_to_id',$data['user_to_id'])->first();
+                    $isChatExist =  $this->model->where('user_id',auth()->user()->id)->where('user_to_id',$data['user_to_id'])->first();
+                    $isChatExistToAnother = $this->model->where('user_id',$data['user_to_id'])->where('user_to_id',auth()->user()->id)->first();
 
-                if($isChatExistToAnother)
+                if(!$isChatExist && !$isChatExistToAnother)
                 {
-                    return redirect()->route('chats',$isChatExistToAnother->id);
+                    $chat =  $this->model->create(array_merge($data,['user_id'=>auth()->user()->id]) );
+                    return redirect()->route('chats',$chat->id)->with('success','Chat Created');
+                }else{
+                    if($isChatExist)
+                    {
+                        return redirect()->route('chats',$isChatExist->id);
+                    }
+                
+                    if($isChatExistToAnother)
+                    {
+                        return redirect()->route('chats',$isChatExistToAnother->id);
+                    }
                 }
+            }else{
+                return redirect()->back()->with('error','Can Not Create Chat');
             }
+            
             // DB::commit();
             // Send Notification For Start Chat
             // event(new StartChatEvent(auth()->user()->id,$data['user_to_id']));

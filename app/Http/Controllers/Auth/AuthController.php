@@ -31,8 +31,8 @@ class AuthController extends Controller
         {
             if(Hash::check($data['password'],$user->password))
             {
-                // $message =  'Your Otp is '.$data['otp'];
-                // $sms = SMS::sendSms($data['phone'],$message);
+                $message =  'Your Otp is '.$data['otp'];
+                $sms = SMS::sendSms($data['phone'],$message);
                 $user->update([
                     'otp'=>$data['otp'], 
                 ]);

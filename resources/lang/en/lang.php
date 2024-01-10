@@ -34,6 +34,13 @@ return [
     'add_listing'=>'Add Listing',
     'remove_fav'=>'Remove From Favourite',
     'overview'=>'Overview',
+    'Real_estate_valuation'=>'Real estate valuation',
+    'know_valuation_text'=>'Know the value of your home within seconds',
+    'result_evaluation'=>'Real estate evaluation result',
+    'submit'=>'Submit',
+
+
+
     'category'=>'Category',
     'Seller Information'=>'Seller Information',
     'select_conversetion'=>'Select Conversation',

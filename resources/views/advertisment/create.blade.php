@@ -913,22 +913,7 @@
 						</div>
 
 
-						<div class="row">
-							<div class="col-md-3 col-12">
-								<label class="control-label">
-									<span class="price-label"> Link Number
-										</span>
-									<span>
-										*</span>
-								</label>
-							</div>
-							<div class="col-md-9 col-12">
-								<div class="form-group">
-									<input type="number" class="form-control" value="" name="number" id="rtcl-price"
-										required>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				
 				</div>

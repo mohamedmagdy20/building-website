@@ -63,6 +63,11 @@ return [
     'Seller Information'=>'معلومات البائع',
     'messages'=>'المحادثات',
     'select_conversetion'=>'اختر محادثة',
+    'Real_estate_valuation'=>'تقييم العقارات',
+    'know_valuation_text'=>'إعرف قيمة بيتك خلال ثواني',
+    'result_evaluation'=>'نتيجة التقيم العقاري',
+
+    'submit'=>'تسجيل',
 
     'account_details'=>'تفاصيل الحساب',
     'total_listing'=>'إجمالي القوائم',
