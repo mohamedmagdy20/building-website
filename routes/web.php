@@ -31,6 +31,7 @@ Route::post('/evaluation', [ValuationController::class,'checkPrice'])->name('che
 Route::get('filter/categroy',[HomeController::class,'filterCategory'])->name('get.category.type');
 Route::get('contact',[HomeController::class,'contact'])->name('contact');
 Route::get('about',[HomeController::class,'about'])->name('about');
+Route::get('terms',[HomeController::class,'terms'])->name('terms');
 Route::get('ai',[HomeController::class,'ai'])->name('ai');
 Route::get('tips',[HomeController::class,'tip'])->name('tips');
 
@@ -43,12 +44,12 @@ Route::group(['middleware'=>'guest'],function(){
     Route::get('verify',[AuthController::class,'verify'])->name('verify');
     Route::post('check-otp',[AuthController::class,'checkOtp'])->name('check-otp');
     Route::get('resend_otp',[ForgetPasswordController::class,'resend'])->name('resend_otp');
-    
+
     Route::post('update-fcm',[AuthController::class,'updateFCM'])->name('update-fcm');
 
-    
 
-    
+
+
     // Forget Password
     Route::get('forget-password',[ForgetPasswordController::class,'index'])->name('forget-password.view');
     Route::get('forget-password/verify/{phone}',[ForgetPasswordController::class,'verifyView'])->name('verify.view');
@@ -57,10 +58,10 @@ Route::group(['middleware'=>'guest'],function(){
     Route::post('send-otp',[ForgetPasswordController::class,'sendOtp'])->name('send-otp');
     Route::post('forget-password/verify',[ForgetPasswordController::class,'verify'])->name('forget-password.verify');
     Route::post('change-password',[ForgetPasswordController::class,'changePassword'])->name('change-password');
-    // 
+    //
 
 
-    
+
 });
 
 Route::get('/advertisment/{id}', [HomeController::class , 'show'])->name('advertisment.show');
@@ -93,7 +94,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('create-chat','createChat')->name('create.chat');
     });
 
-    
+
 
     Route::get('sold/{id}',[AdvertismentController::class,'markAsSold'])->name('sold');
     Route::get('unsold/{id}',[AdvertismentController::class,'markAsUnSold'])->name('unsold');

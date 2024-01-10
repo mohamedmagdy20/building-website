@@ -151,7 +151,7 @@
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2906">
-                                            <a href="#" class="elementor-item elementor-item-anchor">@lang('lang.terms_and_conditions')</a></li>
+                                            <a href="{{route('terms')}}" class="elementor-item elementor-item-anchor">@lang('lang.terms_and_conditions')</a></li>
                                         <li
                                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2908">
                                             <a href="{{route('login.view')}}" class="elementor-item elementor-item-anchor {{Request::is('login*') ? 'elementor-item-active' : ''}}">@lang('lang.sign_up')</a>
@@ -220,11 +220,11 @@
                                     srcset="{{asset('assets/uploads/images/kuwait.png')}} 512w, {{asset('assets/uploads/images/kuwait-300x300.png')}} 300w, {{asset('assets/uploads/images/kuwait-150x150.png')}} 150w, {{asset('assets/uploads/images/kuwait-140x140.png')}} 140w, {{asset('assets/uploads/images/kuwait-493x493.png')}} 493w"
                                     sizes="(max-width: 512px) 100vw, 512px" title="">
                                 </a>
-                                
+
                             </div>
                         </div>
                     </div>
-                </div>     
+                </div>
                 @else
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e7642f7"
                     data-id="e7642f7" data-element_type="column">
@@ -238,13 +238,13 @@
                                     srcset="{{asset('assets/usa.png')}} 512w, {{asset('assets/usa.png')}} 300w, {{asset('assets/usa.png')}} 150w, {{asset('assets/usa.png')}} 140w, {{asset('assets/usa.png')}} 493w"
                                     sizes="(max-width: 512px) 100vw, 512px" title="">
                                 </a>
-                                
+
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
                 @endif
-               
+
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-27e4c43"
                     data-id="27e4c43" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">
@@ -258,16 +258,16 @@
                                             class="elementor-icon elementor-animation-" tabindex="-1">
                                             <i aria-hidden="true" class="far fa-user-circle"></i> </a>
                                     </div>
-                                    
+
                                     <div class="elementor-icon-box-icon">
                                         <a href="{{route('ads.add')}}"
                                             class="elementor-icon elementor-animation-" tabindex="-1">
                                             <i aria-hidden="true" class="fas fa-plus"></i> </a>
-                          
+
                                         </a>
                                     </div>
 
-                                    
+
                                     <div class="elementor-icon-box-icon">
                                         <a href="{{route('logout')}}"
                                             class="elementor-icon elementor-animation-" tabindex="-1">
@@ -282,7 +282,7 @@
                                                 <i aria-hidden="true" class="far fa-user-circle"></i> </a>
                                     </div>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                         </div>

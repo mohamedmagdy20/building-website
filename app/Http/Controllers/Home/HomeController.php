@@ -25,8 +25,8 @@ class HomeController extends Controller
     {
         $data = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('is_expire',0)->take(10)->latest()->get();
         $dataOld = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('is_expire',0)->take(10)->get();
-        $dataRent = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get(); 
-        $dataSale = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get(); 
+        $dataRent = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','rent')->where('is_expire',0)->take(5)->latest()->get();
+        $dataSale = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','sale')->where('is_expire',0)->take(5)->latest()->get();
         $dataInstead = $this->model->with('adsImage')->with('user')->where('abroved',true)->notDraft()->where('type','instead')->where('is_expire',0)->take(5)->latest()->get();
         // return $data;
         $areas =$this->area->all();
@@ -60,18 +60,23 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');   
+        return view('about');
+    }
+    public function terms()
+    {
+        $currentLocale = app()->getLocale();
+        return view('terms',compact('currentLocale'));
     }
 
-    
+
     public function tip()
     {
-        return view('tip');   
+        return view('tip');
     }
-    
+
     public function ai()
     {
-        return view('ai');   
+        return view('ai');
     }
     public function create()
     {
@@ -80,7 +85,7 @@ class HomeController extends Controller
     // return $areas;
         return view('advertisment.create',['areas'=>$areas,'categories'=>$categories]);
     }
-    
+
     public function filterCategory(Request $request)
     {
         $categories = Category::where('type',$request->category)->get();
