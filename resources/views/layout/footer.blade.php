@@ -28,32 +28,51 @@
                             <div class="elementor-element elementor-element-90c2e88 elementor-widget elementor-widget-heading"
                                 data-id="90c2e88" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-15fda17 elementor-widget elementor-widget-heading"
                                 data-id="15fda17" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.about_us')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.about_us')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.about_us')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-ebfe62a elementor-widget elementor-widget-heading"
                                 data-id="ebfe62a" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.terms_and_conditions')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.terms_and_conditions')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.terms_and_conditions')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-ee60b60 elementor-widget elementor-widget-heading"
                                 data-id="ee60b60" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.faq')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.faq')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.faq')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-f7607b8 elementor-widget elementor-widget-heading"
                                 data-id="f7607b8" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.privacy_policy')
-                                    </h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.privacy_policy')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.privacy_policy')</h2>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -64,28 +83,33 @@
                             <div class="elementor-element elementor-element-2461cd9 elementor-widget elementor-widget-heading"
                                 data-id="2461cd9" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.my_account')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.my_account')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.my_account')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-49fae28 elementor-widget elementor-widget-heading"
                                 data-id="49fae28" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.information')</h2>
+                                    @endif
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-97a24ff elementor-widget elementor-widget-heading"
                                 data-id="97a24ff" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">@lang('lang.all_ads')
-                                    </h2>
+                                    @if (app()->getLocale() === 'en')
+                                    <h2 style="text-align: left" class="elementor-heading-title elementor-size-default">@lang('lang.all_ads')</h2>
+                                    @else
+                                    <h2 style="text-align: right" class="elementor-heading-title elementor-size-default">@lang('lang.all_ads')</h2>
+                                    @endif
                                 </div>
                             </div>
-                            {{-- <div class="elementor-element elementor-element-50ba8f1 elementor-widget elementor-widget-heading"
-                                data-id="50ba8f1" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">My Payments</h2>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7710731"
@@ -94,7 +118,7 @@
                             <div class="elementor-element elementor-element-37e2fa2 elementor-widget elementor-widget-heading"
                                 data-id="37e2fa2" data-element_type="widget" data-widget_type="heading.default">
                                 <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Find Us </h2>
+                                    <h2 style="margin-left: 44%" class="elementor-heading-title elementor-size-default">Find Us </h2>
                                 </div>
                             </div>
                             <div class="elementor-element elementor-element-773e528 elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"

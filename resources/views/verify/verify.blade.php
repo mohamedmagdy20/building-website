@@ -42,13 +42,13 @@
                                                             class="btn" value="Submit" />
 
                                                             <p class="rtcl-forgot-password m-2">
-                                                                <a href="{{route('resend_otp', Session::get('phone') )}}">Resend OTP</a>
+                                                                <a href="{{route('resend-otp', Session::get('phone') )}}">Resend OTP</a>
                                                             </p>
                                                     </div>
-                                                    
+
                                                     {{-- <div
                                                     class="rtcl-form-group rtcl-form-group-no-margin-bottom">
-                                                    
+
                                                     </div> --}}
                                                     <input type="hidden" id="rtcl-lost-password-nonce"
                                                         name="rtcl-lost-password-nonce"

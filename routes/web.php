@@ -83,6 +83,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('chat','chat')->name('profile.chat');
         Route::get('payment','payment')->name('profile.payment');
         Route::get('edit','edit')->name('profile.edit');
+        Route::post('update','update')->name('profile.update');
         Route::get('delete-ads/{id}','deleteAds')->name('delete.advertisment');
         Route::get('delete-fav/{id}','deleteFav')->name('delete.advertisment.fav');
     });

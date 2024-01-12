@@ -3,6 +3,7 @@
 @section('css')
 @section('css')
 <style>
+
     .phone-input-container {
     display: flex;
     align-items: center;
@@ -10,26 +11,22 @@
     border-radius: 5px;
     padding: 5px;
     background-color: #fff;
-}
-
-.country-flag {
-    width: 30px; /* Adjust as needed */
-    height: auto;
-    margin-right: 10px;
-}
-
-.country-code {
-    margin-right: 10px;
-    font-size: 16px;
-    color: #333;
-}
-
-.phone-input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-}
-
+    }
+    .country-flag {
+        width: 30px; /* Adjust as needed */
+        height: auto;
+        margin-right: 10px;
+    }
+    .country-code {
+        margin-right: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    .phone-input {
+        border: none;
+        outline: none;
+        flex-grow: 1;
+    }
 </style>
 @endsection
 @section('content')
@@ -125,12 +122,13 @@
                                                                 value="https://codedhosting.com/alfuraij/my-account/?simply_static_page=842"> --}}
                                                         </form>
                                                     </div>
+
                                                     <div class="rtcl-registration-form-wrap">
 
                                                         <h2>@lang('lang.register')</h2>
 
                                                         <form id="rtcl-register-form" action="{{route('register')}}" class="form-horizontal"
-                                                            method="post">
+                                                            method="post" enctype="multipart/form-data">
                                                             @csrf
                                                             {{-- <div class="rtcl-form-group phone-row">
                                                                 <label for="rtcl-reg-phone"
@@ -169,23 +167,58 @@
                                                                 {{-- <span class="help-block">Username cannot be
                                                                     changed.</span> --}}
 
-                                                                    
+
                                                                 @error('name')
                                                                     <span style="color: red">{{$message}}</span>
                                                                 @enderror
                                                             </div>
 
+        <div class="rtcl-form-group">
+            <label for="account-type" class="rtcl-field-label">
+                @lang('lang.account_type') <strong class="rtcl-required">*</strong>
+            </label>
+            <div class="form-check">
+                <input type="radio" id="personal-radio" name="type" value="personal" checked>
+                <label for="personal-radio">Personal</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="company-radio" name="type" value="company">
+                <label for="company-radio">Company</label>
+            </div>
+            @error('type')
+                <span style="color: red">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="rtcl-form-group" id="license-input" style="display: none;">
+            <label for="company-license" class="rtcl-field-label">
+                @lang('lang.licence') <!-- Add a translation for the label -->
+                <strong class="rtcl-required">*</strong>
+            </label>
+            <input type="file" name="licence" id="company-license" accept="application/pdf">
+            @error('licence')
+                <span style="color: red">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="rtcl-form-group">
+            <label for="account-type" class="rtcl-field-label">
+                @lang('lang.image') <strong class="rtcl-required">*</strong>
+            </label>
+            <input type="file" name="image" id="profile-image" accept="image/*">
+            @error('image')
+                <span style="color: red">{{ $message }}</span>
+            @enderror
+        </div>
                                                             <div class="rtcl-form-group">
                                                                 <label for="rtcl-reg-email"
                                                                     class="rtcl-field-label">
-                                                                    @lang('lang.email') <strong
-                                                                        class="rtcl-required">*</strong>
+                                                                    @lang('lang.email') <span class="text-muted">(@lang('lang.optional'))</span>
                                                                 </label>
                                                                 <input type="email" name="email" value="{{old('email')}}"
                                                                     autocomplete="email" id="rtcl-reg-email"
-                                                                    class="rtcl-form-control" required>
+                                                                    class="rtcl-form-control" >
 
-                                                                
+
                                                                     @error('email')
                                                                         <span style="color: red">{{$message}}</span>
                                                                     @enderror
@@ -203,7 +236,7 @@
                                                                     class="rtcl-form-control rtcl-password"
                                                                     required>
 
-                                                                    
+
                                                                 @error('password')
                                                                     <span style="color: red">{{$message}}</span>
                                                                 @enderror
@@ -283,7 +316,9 @@
                                                                 type="hidden" name="redirect_to"
                                                                 value="https://codedhosting.com/alfuraij/my-account/?simply_static_page=842">
                                                         </form> --}}
+
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -302,6 +337,20 @@
 
 @endsection
 @section('script')
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Include jQuery -->
+
+<script>
+    $(document).ready(function () {
+        $('input[name="type"]').change(function () {
+            if ($(this).val() === 'company') {
+                $('#license-input').show();
+            } else {
+                $('#license-input').hide();
+            }
+        });
+    });
+</script>
+
 <script>
     document.getElementById('phone').addEventListener('focus', function (e) {
         if (e.target.value === '') {

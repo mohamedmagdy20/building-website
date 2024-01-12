@@ -41,7 +41,8 @@ class HomeController extends Controller
         $data = Advertisment::with('adsImage')->with('user')->with('Area')->with('Category')->findOrFail($id);
         // return $data->adsImage;
         $relatedData =  Advertisment::where('type',$data->type)->get();
-        return view('advertisment.show',['data'=>$data,'relatedData'=>$relatedData]);
+        $currentLocale = app()->getLocale();
+        return view('advertisment.show',['data'=>$data,'relatedData'=>$relatedData,'currentLocale'=>$currentLocale]);
     }
     public function home(Request $request)
     {
@@ -60,7 +61,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        $currentLocale = app()->getLocale();
+        return view('about',compact('currentLocale'));
     }
     public function terms()
     {
@@ -82,7 +84,6 @@ class HomeController extends Controller
     {
         $areas = Area::all();
         $categories = Category::all();
-    // return $areas;
         return view('advertisment.create',['areas'=>$areas,'categories'=>$categories]);
     }
 

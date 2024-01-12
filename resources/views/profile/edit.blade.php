@@ -4,7 +4,6 @@
 <div id="primary" class="content-area classima-myaccount">
     <div class="container">
         <div id="post-8" class="post-8 page type-page status-publish">
-
             <div data-elementor-type="wp-page" data-elementor-id="8" class="elementor elementor-8"
                 data-elementor-post-type="page">
                 <section
@@ -21,7 +20,6 @@
                                         <div class="elementor-shortcode">
                                             <div class="rtcl">
                                                 <div class="rtcl-MyAccount-mobile-navbar">
-                                                    {{-- <h4>Account Menu</h4> --}}
                                                     <div class="rtcl-myaccount-logo">
                                                         <a href="https://codedhosting.com/alfuraij/">
                                                             <a class="light-logo"
@@ -36,60 +34,8 @@
                                                     <div class="classima-MyAccount-open-menu"><span></span>
                                                     </div>
                                                     <div class="rtcl-MyAccount-open-menu"><span></span></div>
-
-                                                    <nav class="rtcl-MyAccount-navigation">
-                                                        <h3>@lang('lang.my_account')</h3>
-                                                        <div class="rtcl-myaccount-logo">
-                                                            <a class="light-logo"
-                                                                href="https://codedhosting.com/alfuraij/">
-                                                                <img loading="lazy" decoding="async"
-                                                                    src="https://codedhosting.com/alfuraij/wp-content/uploads/2021/04/logo-light.png"
-                                                                    height="45" width="150"
-                                                                    alt="Al Furaij Real Estate">
-                                                            </a>
-                                                        </div>
-                                                        <ul>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--dashboard">
-                                                                <a
-                                                                    href="{{route('profile.main')}}">@lang('lang.dashboard')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--listings">
-                                                                <a
-                                                                    href="{{route('profile.listing')}}">@lang('lang.my_listing')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--favourites">
-                                                                <a
-                                                                    href="{{route('profile.favourite')}}">@lang('lang.favourite')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--chat rtcl-chat-unread-count">
-                                                                <a
-                                                                    href="{{route('profile.chat')}}">@lang('lang.chat')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--payments">
-                                                                <a
-                                                                    href="{{route('profile.payment')}}">@lang('lang.payment')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--edit-account is-active">
-                                                                <a
-                                                                    href="{{route('profile.edit')}}">@lang('lang.account_details')</a>
-                                                            </li>
-                                                            <li
-                                                                class="rtcl-MyAccount-navigation-link rtcl-MyAccount-navigation-link--logout">
-                                                                <a
-                                                                    href="{{route('logout')}}">@lang('lang.logout')</a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
-
                                                 </div>
                                                 <div class="rtcl-MyAccount-wrap">
-
                                                     <nav class="rtcl-MyAccount-navigation">
                                                         <h3>@lang('lang.my_account')</h3>
                                                         <div class="rtcl-myaccount-logo">
@@ -139,19 +85,14 @@
                                                             </li>
                                                         </ul>
                                                     </nav>
-
-
                                                     <div class="rtcl-MyAccount-content">
-
                                                         <form
                                                             class="rtcl-EditAccountForm rtcl-MyAccount-content-inner"
-                                                            id="rtcl-user-account" method="post">
-
+                                                            id="rtcl-user-account" action="{{route('profile.update')}}"
+                                                            method="POST" enctype="multipart/form-data">
+                                                            @csrf
                                                             <h3 class="rtcl-myaccount-content-title">@lang('lang.account_details')</h3>
-
-
                                                             <div class="rtcl-form-group-wrap">
-                                                               
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-first-name"
                                                                         class="rtcl-field-label">
@@ -162,11 +103,8 @@
                                                                             class="rtcl-form-control" />
                                                                     </div>
                                                                 </div>
-
                                                                 <input type="hidden" name="id" id="id" value="{{auth()->user()->id}}">
                                                                 <input type="hidden" name="access_token" id="access_token" value="{{auth()->user()->access_token}}">
-
-                                                              
                                                                 <div class="rtcl-form-group">
                                                                     <label for="rtcl-email"
                                                                         class="rtcl-field-label">
@@ -177,9 +115,7 @@
                                                                         <input type="email" name="email"
                                                                             id="rtcl-email"
                                                                             class="rtcl-form-control"
-                                                                            required
-                                                                            value="{{auth()->user()->email}}"
-                                                                            required="required" />
+                                                                            value="{{auth()->user()->email}}" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="rtcl-form-group">
@@ -192,20 +128,6 @@
                                                                             name="phone"
                                                                             id="rtcl-whatsapp-phone" value="{{auth()->user()->phone}}"
                                                                             class="rtcl-form-control" />
-                                                                        {{-- <p class="description small">WhatsApp
-                                                                            number with your country code.
-                                                                            e.g.+1xxxxxxxxxx</p> --}}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rtcl-form-group">
-                                                                    <label for="rtcl-phone"
-                                                                        class="rtcl-field-label">
-                                                                        @lang('lang.phone') </label>
-                                                                    <div class="rtcl-field-col">
-                                                                        <input type='text' name='phone'
-                                                                        required
-                                                                            id='rtcl-phone' value='{{auth()->user()->phone}}'
-                                                                            class='rtcl-form-control' />
                                                                     </div>
                                                                 </div>
                                                                 <div
@@ -255,21 +177,18 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <div class="rtcl-form-group rtcl-social-wrap-row">
                                                                 <label for="rtcl-social"
                                                                     class="rtcl-field-label">
-                                                                    @lang('lang.useful_link') </label>
+                                                                    @lang('lang.instegram_link') </label>
                                                                 <div class="rtcl-field-col">
-                                                                    <input type="url"
+                                                                    <input type="text"
                                                                         name="instegram_link"
                                                                         id="rtcl-account-social-instegram"
                                                                         value="{{auth()->user()->instegram_link}}" placeholder=""
                                                                         class="rtcl-form-control" />
-                                                                        
                                                                 </div>
                                                             </div>
-
                                                             <div
                                                                 class="rtcl-form-group rtcl-profile-picture-row">
                                                                 <label for="rtcl-profile-picture"
@@ -283,24 +202,21 @@
                                                                         type="file"
                                                                         name="image"
                                                                         id="image"
-                                                                        value="" 
+                                                                        value=""
                                                                         onchange="readURL(this)"
-                                                                        class="rtcl-form-control" />  
+                                                                        class="rtcl-form-control" />
                                                                     </div>
-                                                                    <img alt='' src='
                                                                     @if (auth()->user()->image == null)
-                                                                        https://secure.gravatar.com/avatar/b218d5f995cb5fd4652f6954eff6af3a?s=96&#038;d=mm&#038;r=g
-                                                                    @else
-                                                                    https://admin.alfuraij.com/uploads/users/{{auth()->user()->image}}
-                                                                    @endif'  id="blah" class='avatar avatar-96 photo' height='96' width='96' />	
+                                                                    <img alt='' src='https://secure.gravatar.com/avatar/b218d5f995cb5fd4652f6954eff6af3a?s=96&#038;d=mm&#038;r=g'/>
+                                                                @else
+                                                                    <img alt='' src='https://admin.alfuraij.com/public/uploads/users/{{ auth()->user()->image }}' class='avatar avatar-96 photo' height='96' width='96' />
+                                                                @endif
+
                                                                 </div>
                                                             </div>
-
                                                             <div class="rtcl-form-group">
                                                                 <div class="rtcl-field-col">
-                                                                    {{-- <input type="submit" name="submit"
-                                                                        class="btn" value="" /> --}}
-                                                                        <button type="submit" class="btn submit-button" >Update Account</button>
+                                                                     <button type="submit" class="btn submit-button" >Update Account</button>
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" id="rtcl_user_account_nonce"
@@ -310,7 +226,6 @@
                                                                 value="/alfuraij/my-account/edit-account/" />
                                                             <div class="rtcl-response"></div>
                                                         </form>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,13 +237,12 @@
                     </div>
                 </section>
             </div>
-
         </div>
     </div>
 </div>
 @endsection
 @section('script')
-<script>
+{{-- <script>
      function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -341,9 +255,8 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-</script>
-
-<script>
+</script> --}}
+{{-- <script>
     $(document).ready(function(){
 
      $("#rtcl-user-account").submit(function(e){
@@ -360,53 +273,34 @@
              processData:false,
              contentType:false,
              success:function(data){
-                //  console.log(data);
                  toastr.success(data.message);
-                //  if(data.status === true){
                      $(".submit-button").html('Update Profile').prop('disabled', false);
-                  
-                //      notyf.open({
-                //          type: 'success',
-                //          message: data.msg
-                //      });
-
-
-                //  }else{
-                //      console.log(data);
-                //      $(".submit-button").html('Save').prop('disabled', true);
-
-                //      notyf.open({
-                //          type: 'error',
-                //          message: "Error Accure",
-                //      });
-                //  }
-                     
              },
+
              error:function(data)
              {
-                console.log(data); 
+                console.log(data);
                 toastr.error(data.message);
                 $(".submit-button").html('Update Profile').prop('disabled', false);
                  if(data.status == 422){
-                     // printErrorMsg(data.responseJSON.errors)
                      msg = data.responseJSON.errors
                      $.each(msg,function(key,value){
                          $(`.${key}_err`).text(value)
                          notyf.open({
                                  type: 'error',
                                  message: value
-                         
                              });
                      })
                  }
 
-                 
+
              }
 
          });
      });
-             
+
      });
-    
-</script>
+
+</script> --}}
+
 @endsection

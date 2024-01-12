@@ -19,31 +19,31 @@ class AuthController extends Controller
     use  FilesTrait;
     public function loginView()
     {
-        return view('auth.auth');  
-    }    
-    
+        return view('auth.auth');
+    }
+
     public function login(AuthRequest $request)
     {
         $data =  $request->validated();
-        $user = User::where('phone',$data['phone'])->first();
+        $user = User::where('phone', $data['phone'])->first();
+        $is_login = Auth::attempt(['phone' => $request->phone, 'password' => $request->password]);
         $data['otp'] = $this->generateOtp();
-        if($user)
-        {
-            if(Hash::check($data['password'],$user->password))
-            {
-                $message =  'Your Otp is '.$data['otp'];
-                $sms = SMS::sendSms($data['phone'],$message);
-                $user->update([
-                    'otp'=>$data['otp'], 
-                ]);
-                return redirect()->route('verify')->with(['success'=>'SMS Sent','phone'=>$user->phone]);
-            }else{
-                return redirect()->back()->with('error','Invaild Phone or Password');       
+        if ($is_login) {
+            if (Hash::check($data['password'], $user->password)) {
+                // $message = 'Your Otp is ' . $data['otp'];
+                // $sms = SMS::sendSms($data['phone'], $message);
+                // $user->update([
+                //     'otp' => $data['otp'],
+                // ]);
+                return redirect()->route('home')->with(['success' => 'login succesfully !']);
+            } else {
+                return redirect()->back()->with('error', 'Invalid Phone or Password');
             }
-        }else{
-            return redirect()->back()->with('error','Invaild Phone or Password');       
+        } else {
+            return redirect()->back()->with('error', 'Invalid Phone or Password');
         }
     }
+
 
     public function registerView()
     {
@@ -52,19 +52,30 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        // return $request->all();
         $data = $request->validated();
-        if($request->hasFile('image'))
-        {
-            $data['image'] = $this->saveFile($request->file('image'),'uploads/users');
+        $data['otp'] = $this->generateOtp();
+        $img = $request->file('image');
+        $ext = $img->getClientOriginalExtension();
+        $name = "user-" . uniqid() . ".$ext";
+        $img->move(public_path('uploads/users'), $name);
+        $data['image'] = $name;
+        if ($data['type'] === 'company') {
+            $licenseImage = $request->file('licence');
+            $licenseImageName = "licence-" . uniqid() . "." . $licenseImage->getClientOriginalExtension();
+            $licenseImage->move(public_path('uploads/licence'), $licenseImageName);
+            $data['licence'] = $licenseImageName;
         }
         $data['password'] = Hash::make($data['password']);
-        if(User::create($data)){
-            return redirect()->route('login')->with('success','Registerd Please Make Login');
-        }else{
-            return redirect()->route('login')->with('error','Error Accure');
+        $message = 'Your Otp is ' . $data['otp'];
+        $sms = SMS::sendSms($data['phone'], $message);
+        if (User::create($data)) {
+            return redirect()->route('verify')->with(['success' => 'SMS Sent', 'phone' => $data['phone']]);
+        } else {
+            return redirect()->route('login')->with('error', 'Error occurred while registering.');
         }
     }
+
+
 
     public function verify()
     {
@@ -89,21 +100,31 @@ class AuthController extends Controller
     public function resend($phone)
     {
         $data['otp'] = $this->generateOtp();
-        
-        try{
-            $message =  'Your Otp is '.$data['otp'];
-            $sms = SMS::sendSms($data['phone'],$message);
-            $user  = User::where('phone',$phone)->first();
-            $user->update([
-                'otp'=>$data['otp'],
-            ]);
-            return redirect()->route('verify.view',$user->phone)->with('success','SMS Sent');
-        }catch(Exception $e)
-        {
+
+        try {
+            $message = 'Your Otp is ' . $data['otp'];
+            $sms = SMS::sendSms($phone, $message);
+
+            $user = User::where('phone', $phone)->first();
+
+            if ($user) {
+                $user->update([
+                    'otp' => $data['otp'],
+                ]);
+
+                return redirect()->route('verify.view', $user->phone)->with('success', 'SMS Sent');
+            } else {
+                // Log or handle the case where the user is not found
+                return redirect()->back()->with('error', 'User not found');
+            }
+        } catch (Exception $e) {
+            // Log or handle the exception
             return $e;
         }
-
     }
+
+
+
 
     public function updateFCM(Request $request)
     {

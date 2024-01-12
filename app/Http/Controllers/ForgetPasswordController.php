@@ -24,7 +24,7 @@ class ForgetPasswordController extends Controller
 
         $data = $request->all();
         $data['otp'] = $this->generateOtp();
-        
+
         try{
             $message =  'Your Otp is '.$data['otp'];
             $sms = SMS::sendSms($data['phone'],$message);
@@ -37,7 +37,7 @@ class ForgetPasswordController extends Controller
         {
             return $e;
         }
-        
+
     }
 
 
@@ -68,21 +68,21 @@ class ForgetPasswordController extends Controller
     public function resend($phone)
     {
         $data['otp'] = $this->generateOtp();
-        
-        try{
-            $message =  'Your Otp is '.$data['otp'];
-            $sms = SMS::sendSms($data['phone'],$message);
-            $user  = User::where('phone',$phone)->first();
+        try {
+            $message = 'Your Otp is ' . $data['otp'];
+            // Use $phone instead of $data['phone']
+            $sms = SMS::sendSms($phone, $message);
+
+            $user = User::where('phone', $phone)->first();
             $user->update([
-                'otp'=>$data['otp'],
+                'otp' => $data['otp'],
             ]);
-            return redirect()->route('verify.view',$user->phone)->with('success','SMS Sent');
-        }catch(Exception $e)
-        {
+            return redirect()->route('verify.view', $user->phone)->with('success', 'SMS Sent');
+        } catch (Exception $e) {
             return $e;
         }
-
     }
+
     public function changePasswordView()
     {
         return view('auth.change_password');

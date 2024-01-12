@@ -16,10 +16,13 @@
             <div class="col-xl-9 col-lg-8 col-sm-12 col-12">
                 <div class="site-content-block classima-single-details classima-single-details-3">
                     <div class="main-content">
+                        @if ($currentLocale == 'en')
+                        <h2 style="text-align: left; !important" class="entry-title">{{$data->title}}</h2>
+                        @else
+                        <h2 style="text-align: right; !important" class="entry-title">{{$data->title}}</h2>
+                        @endif
 
-                        <h2 class="entry-title">{{$data->title}}</h2>
 
-                      
                         <div class="single-listing-meta-wrap">
                             <ul class="single-listing-meta">
                                 <li>
@@ -44,7 +47,7 @@
                             </ul>
                             <div class="rtcl-listing-badge-wrap"></div>
                         </div>
-                        
+
 
                         {{-- <div class="rtin-slider-box">
                             <div id="rtcl-slider-wrapper" class="rtcl-slider-wrapper mb-4" data-options="">
@@ -52,11 +55,11 @@
                                 <div class="rtcl-slider">
                                     <div class="swiper-wrapper">
                                         @foreach ($data->adsImage as $item )
-                                        
+
                                         @endforeach
-                                           
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div> --}}
@@ -78,7 +81,7 @@
 														</svg>
 													</div>
 													<div class="swiper-wrapper">
-                                                        
+
                                                         @if (count($data->adsImage) > 0)
 
                                                         @foreach ($data->adsImage as $item )
@@ -88,10 +91,10 @@
                                                             decoding="async"
                                                             src="https://admin.alfuraij.com/uploads/ads/{{$item->image}}"
                                                             class="image-viewer rtcl-thumbnail" width="400px" height="800px" alt="{{$item->id}}"
-                                                            title="">	
-															
+                                                            title="">
+
 														</div>
-                                                        @endforeach      
+                                                        @endforeach
                                                         @else
                                                         <div
 															class=" swiper-slide-customize text-center listing-item rtcl-listing-item  status-publish  rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
@@ -99,12 +102,12 @@
                                                             decoding="async"
                                                             src="https://admin.alfuraij.com/assets/images/default.jpg"
                                                             class="image-viewer rtcl-thumbnail" width="400px" height="800px" alt="default"
-                                                            title="">	
-															
+                                                            title="">
+
 														</div>
                                                         @endif
-                                                      
-                                                    
+
+
 
 													</div>
 												</div> <!-- End wiper-wrapper -->
@@ -126,50 +129,58 @@
                         </div>
 
                         <div class="classima-custom-fields-wrap">
-                            <h3 class="rtin-specs-title">@lang('lang.overview')</h3>
+                            @if ($currentLocale == 'en')
+                            <h3 style="text-align: left; !important" class="entry-title">@lang('lang.overview')</h3>
+                            @else
+                            <h3 style="text-align: right; !important" class="entry-title">@lang('lang.overview')</h3>
+                            @endif
                             <div class="classima-custom-fields clearfix">
                                 <ul>
                                     <li>
                                         <span class="rtin-label">@lang('lang.category') </span>
-                                        <span class="rtin-title"><a
-                                                href="{{route('home.main')}}?category_id={{$data->category_id}}">{{app()->getLocale() === 'en' ? $data->category->name_en : $data->category->name_ar}}</a></span>
+                                        <span class="rtin-title">
+                                            <a
+                                                href="{{route('home.main')}}?category_id={{$data->category_id}}">
+                                                {{app()->getLocale() === 'en' ? $data->category->name_en : $data->category->name_ar}}
+                                            </a>
+                                        </span>
                                     </li>
                                     @if ($data->space != null)
                                     <li>
                                         <span class="rtin-label">@lang('lang.space') </span>
                                         <span class="rtin-title">{{$data->space}}</span>
-                                    </li>    
+                                    </li>
                                     @endif
-                                    
+
                                     @if ($data->advantages != null)
                                     <li>
                                         <span class="rtin-label">@lang('lang.features') </span>
                                         <span class="rtin-title">{{$data->advantages}}</span>
-                                    </li>    
+                                    </li>
                                     @endif
-                                    
+
                                     @if ($data->location != null)
                                     <li>
                                         <span class="rtin-label">: </span>
                                         <span class="rtin-title">{{$data->location}}</span>
-                                    </li>     
+                                    </li>
                                     @endif
-                                   
+
                                     @if ($data->num_of_rooms != null && $data->num_of_rooms != 0 )
                                     <li>
                                         <span class="rtin-label">@lang('lang.room_num') #: </span>
                                         <span class="rtin-title">{{$data->num_of_rooms}}</span>
                                     </li>
                                     @endif
-                                   
+
                                     @if ($data->num_of_bath != null && $data->num_of_bath != 0)
                                     <li>
                                         <span class="rtin-label">@lang('lang.bath_num') #: </span>
                                         <span class="rtin-title">{{$data->num_of_bath}}</span>
                                     </li>
                                     @endif
-                                   
-                                   
+
+
                                     @if ($data->num_of_apartments != null && $data->num_of_apartments != 0)
                                     <li>
                                         <span class="rtin-label">@lang('lang.num_of_apartments') #: </span>
@@ -183,22 +194,34 @@
                                         <span class="rtin-title">{{$data->num_of_floor}}</span>
                                     </li>
                                     @endif
-                                   
+
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="rtin-content-area">
+                        @if ($currentLocale == 'en')
+                        <div style="text-align: left; !important " class="rtin-content-area">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-                                    <h3 class="rtin-specs-title">@lang('lang.desc')</h3>
+                                    <h3 class="">@lang('lang.desc')</h3>
                                     <div class="rtin-content">
                                         <p>{{$data->description}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        @else
+                        <div style="text-align: right; !important" class="rtin-content-area">
+                            <div class="row">
+                                <div class="col-12 col-md-12">
+                                    <h3 class="">@lang('lang.desc')</h3>
+                                    <div class="rtin-content">
+                                        <p>{{$data->description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
 
                         {{-- @if ($data->advantages != null)
                         <div class="rtin-specs">
@@ -208,9 +231,9 @@
                                      <li>{{$item}}</li>
                                @endforeach
                             </ul>
-                        </div>      
+                        </div>
                         @endif --}}
-                      
+
 
 
                         <ul class="list-inline list-group-flush rtcl-single-listing-action">
@@ -219,12 +242,12 @@
                             <li class="list-inline-item" id="rtcl-favourites"><a onclick="addFavourite({{$data->id}})"
                                 class="rtcl-require-login "><span
                                     class="rtcl-icon rtcl-icon-heart-empty"></span><span
-                                    class="favourite-label">@lang('lang.add_to_fav')</span></a></li>     
+                                    class="favourite-label">@lang('lang.add_to_fav')</span></a></li>
                             @endif
                             @endauth
-                           
-                           
-                            
+
+
+
                             {{-- <li class="list-inline-item rtcl-sidebar-social">
                                 <span class="rtin-share-title"><i class="fa fa-share-alt"
                                         aria-hidden="true"></i>Share:</span>
@@ -334,9 +357,9 @@
                                     href="{{route('create.chat',$data->id)}}?user_to_id={{$data->user_id}}">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     @lang('lang.chat') </a>
-                            </div>    
-                            
-                           
+                            </div>
+
+
 
                         </div>
                     </div>
@@ -350,13 +373,28 @@
 
                 <div class="content-block-gap"></div>
                 <div class="site-content-block classima-single-related owl-wrap">
-                    <div class="main-title-block">
+                    {{-- @if ($currentLocale == 'en')
+                    <h3 style="text-align: left; !important" class="entry-title">@lang('lang.overview')</h3>
+                    @else
+                    <h3 style="text-align: right; !important" class="entry-title">@lang('lang.overview')</h3>
+                    @endif --}}
+                    @if ($currentLocale == 'en')
+                    <div style="text-align: left; !important" class="main-title-block">
                         <h3 class="main-title">@lang('lang.special_ads')</h3>
-                        <div class="owl-related-nav owl-custom-nav rtin-custom-nav-31eedb1">
-                            <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
-                            <div class="owl-next"><i class="fa fa-angle-right"></i></div>
+                        <div class="owl-related-nav owl-custom-nav rtin-custom-nav-31eedb1" style="display: flex; justify-content: space-between;">
+                            <div style="text-align: left;" class="owl-next"><i class="fa fa-angle-left"></i></div>
+                            <div style="text-align: right;" class="owl-prev"><i class="fa fa-angle-left"></i></div>
                         </div>
                     </div>
+                    @else
+                    <div style="text-align: right; !important" class="main-title-block">
+                        <h3 class="main-title">@lang('lang.special_ads')</h3>
+                        <div class="owl-related-nav owl-custom-nav rtin-custom-nav-31eedb1" style="display: flex; justify-content: space-between;">
+                            <div style="text-align: left;" class="owl-prev"><i class="fa fa-angle-left"></i></div>
+                            <div style="text-align: right;" class="owl-next"><i class="fa fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    @endif
                     <div class="main-content">
                         <div class="rtcl-carousel-slider"
                             data-options="{&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.rtin-custom-nav-31eedb1 .owl-next&quot;,&quot;prevEl&quot;:&quot;.rtin-custom-nav-31eedb1 .owl-prev&quot;},&quot;loop&quot;:false,&quot;autoplay&quot;:{&quot;delay&quot;:3000,&quot;disableOnInteraction&quot;:false,&quot;pauseOnMouseEnter&quot;:true},&quot;speed&quot;:1000,&quot;spaceBetween&quot;:20,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;500&quot;:{&quot;slidesPerView&quot;:2},&quot;1200&quot;:{&quot;slidesPerView&quot;:3}}}">
@@ -378,7 +416,7 @@
                                                         class="rtcl-thumbnail rtcl-fallback-thumbnail"
                                                         alt=" {{$item->title}}" width="400" height="280"></a>
                                                 <div class="rtin-type">
-                                                    <span>For For Sale</span>
+                                                    <span>For Sale</span>
                                                 </div>
                                             </div>
                                             <div class="rtin-content">
@@ -393,7 +431,7 @@
 
                                                 <div class="rtcl-listing-badge-wrap"></div>
 
-                                                <div class="rtcl-listable">
+                                                {{-- <div class="rtcl-listable">
                                                     <div class="rtcl-listable-item">
                                                         <span class="listable-label">Land Area</span>
                                                         <span class="listable-value">{{$item->space}}</span>
@@ -410,7 +448,7 @@
                                                         <span class="listable-label">Features</span>
                                                         <span class="listable-value">{{$item->advantages}}</span>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <ul class="rtin-meta">
                                                     <li>
                                                         <i class="far fa-fw fa-clock" aria-hidden="true"></i>{{\Carbon\Carbon::parse($item->updated_at)->diffForHumans()}}
@@ -435,22 +473,22 @@
                                                             class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
                                                                 class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
                                                     </div>
-                                                </div>    
+                                                </div>
                                                 @endif
-                                                
+
                                             </div>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                                 @endforeach
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-               
+
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-12 col-12">
                 <aside class="sidebar-widget-area">
@@ -507,7 +545,7 @@
                                         href="{{route('create.chat',$data->id)}}?user_to_id={{$data->user_id}}">
                                         <i class="fa fa-comments" aria-hidden="true"></i>
                                         @lang('lang.chat') </a>
-                                </div>   
+                                </div>
 
                                 {{-- <div class="media rtin-email">
                                     <a data-toggle="modal" data-target="#classima-mail-to-seller" href="mailto:{{$data->user->email}}">
@@ -591,7 +629,7 @@
 	        },
 	        error:function(result){
 	            console.log(result);
-	            toastr.error('Error Accure', 'Error');  
+	            toastr.error('Error Accure', 'Error');
 
 	        }
 	    });

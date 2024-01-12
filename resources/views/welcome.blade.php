@@ -19,7 +19,7 @@
 
                                         {{-- Ads Here --}}
                                         @foreach ($advertises as $item )
-                                            
+
 										    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-83f172a"
                                                 data-id="83f172a" data-element_type="column">
                                                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -37,7 +37,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
-		
+
 									</div>
 								</section>
 								<section
@@ -221,12 +221,12 @@
 																				name="area_id">
 																				<option value="">@lang('lang.choose_area')</option>
 																				@foreach ($areas as $area )
-                                                                                    
+
 																			    <option data-slug="{{$area->name_en}}" value="{{$area->id}}">{{ app()->getLocale() === 'en' ? $area->name_en : $area->name_ar}}</option>
                                                                                 @endforeach
 																			</select>
 																		</div>
-																		
+
 																	</div>
 																	<div
 																		class="form-group rtcl-flex rtcl-flex-column ws-item ws-category ws-category-dependency elementor-repeater-item-9775b9f">
@@ -248,12 +248,12 @@
 																				<option value="farm">@lang('lang.farm')</option>
 																				<option value="break">@lang('lang.break')</option>
 																				<option value="lands">@lang('lang.lands')</option>
-																				
+
 																			</select>
 
 																			<div class="rtcl-child-terms rtcl-child-terms-248">
 																				<select class="form-control rtcl-category-search d-none" id="category_id" name="category_id" >
-																					
+
 																				</select>
 																			</div>
 
@@ -289,7 +289,6 @@
 						</div>
 					</div>
 		</section>
-
         {{-- Section 1 --}}
         <section class="elementor-section elementor-top-section elementor-element elementor-element-7081049 elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
 					data-id="7081049" data-element_type="section"
@@ -338,7 +337,7 @@
 													<div class="swiper-wrapper">
 
                                                         @foreach ($data as $item )
-                                                        
+
                                                         <div
 															class="rtcl-widget-listing-item listing-item swiper-slide-customize listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
@@ -357,7 +356,7 @@
 																							"
 																							class="rtcl-thumbnail" alt="{{$item->title}}"
 																							title=""></a>
-					
+
 																							@auth
 																							@if (! $item->isFavoriteByUser($item->id))
 																							<div class="rtcl-meta-buttons-wrap horizontal-layout meta-button-count-1">
@@ -370,10 +369,10 @@
 																								</div>
 																							</div>
 																							@endif
-																								
-																								
+
+
 																							@endauth
-																							
+
 																				</div>
 															@else
 															<div class="listing-thumb">
@@ -402,13 +401,13 @@
 																			</div>
 																		</div>
 																		@endif
-																			
-																			
+
+
 																		@endauth
-																		
+
 															</div>
 															@endif
-															
+
 															<div class="item-content">
 																<div class="category"><a
 																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
@@ -428,7 +427,7 @@
 																	<div class="rtcl-listable-item">
 																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>	
+																	</div>
 																	@endif --}}
 																</div>
 																@if ($item->price != null)
@@ -437,7 +436,7 @@
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>																	
+																</div>
 																@endif
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
@@ -448,7 +447,7 @@
 																		@lang('lang.rent')
 																		@else
 																			@lang('lang.instead')
-																		@endif 
+																		@endif
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -468,7 +467,7 @@
 															</div>
 														</div>
                                                         @endforeach
-														
+
 
 													</div>
 												</div> <!-- End wiper-wrapper -->
@@ -501,9 +500,9 @@
 													</div>
 													<div class="swiper-wrapper">
 
-													
+
                                                         @foreach ($dataOld as $item )
-                                                        
+
                                                         <div
 															class="rtcl-widget-listing-item listing-item swiper-slide-customize listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
@@ -534,9 +533,9 @@
 																				</div>
 																			</div>
 																			@endif
-																
+
 																		@endauth
-																		
+
 															</div> --}}
 															@if ($item->is_sold == true)
 															<div class="listing-thumb">
@@ -566,10 +565,10 @@
 																		  </div>
 																	  </div>
 																	  @endif
-																		  
-																		  
+
+
 																	  @endauth
-																	  
+
 														  </div>
 									  @else
 									  <div class="listing-thumb">
@@ -598,13 +597,13 @@
 													  </div>
 												  </div>
 												  @endif
-													  
-													  
+
+
 												  @endauth
-												  
+
 									  </div>
 									  @endif
-									  
+
 															<div class="item-content">
 																<div class="category"><a
 																		href="{{route('home.main')}}?category_id={{$item->category_id}}">{{app()->getLocale() === 'en' ? $item->category->name_en : $item->category->name_ar}}</a></div>
@@ -617,16 +616,16 @@
 																		@if($item->space != null)
 																		<span class="listable-label">@lang('lang.space')</span>
 																		<span class="listable-value">{{$item->space}}</span>
-																		@endif	
+																		@endif
 																	</div>
 																	@if ($item->advantages != null)
 																	<br>
 																	<div class="rtcl-listable-item">
 																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>	
+																	</div>
 																	@endif --}}
-																	
+
 																</div>
 																@if ($item->price != null)
 																<div class="item-price">
@@ -634,7 +633,7 @@
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>																	
+																</div>
 																@endif
 																<ul class="rtcl-listing-meta-data">
 																	<li class="rtin-type">
@@ -645,7 +644,7 @@
 																		@lang('lang.rent')
 																		@else
 																			@lang('lang.instead')
-																		@endif 
+																		@endif
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -665,7 +664,7 @@
 															</div>
 														</div>
                                                         @endforeach
-														
+
 
 
 													</div>
@@ -684,7 +683,6 @@
 						</div>
 					</div>
 		</section>
-   
 		{{--  Our Availiable App  --}}
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-cb60108 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
 			data-id="cb60108" data-element_type="section"
@@ -766,7 +764,6 @@
 					</div>
 				</div>
 		</section>
-
 		{{-- Five Advertisments --}}
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-8392899 elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
 				data-id="8392899" data-element_type="section"
@@ -799,7 +796,7 @@
 
 
 														<div class="listing-thumb">
-															
+
 															<div class="listing-thumb-inner">
 																@if ($item->is_sold == true)
 																<span class="rtcl-sold-out">Sold Out</span>
@@ -841,7 +838,7 @@
 																	<div class="rtcl-listable-item">
 																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>	
+																	</div>
 																	@endif --}}
 																</div>
 																<ul class="rtcl-listing-meta-data">
@@ -853,7 +850,7 @@
 																		@lang('lang.rent')
 																		@else
 																			@lang('lang.instead')
-																		@endif 
+																		@endif
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -877,13 +874,13 @@
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>																	
+																</div>
 																@endif
 															</div>
 															<div class="rtin-right ">
 																<a class="rtin-details-button"
 																	href="{{route('advertisment.show',$item->id)}}">Details</a>
-																
+
 																@auth
 																@if (! $item->isFavoriteByUser($item->id))
 																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
@@ -894,17 +891,17 @@
 																				class="favourite-label">Add to
 																				Favourites</span></a>
 																	</div>
-																</div>		
+																</div>
 																@endif
-															
+
 																@endauth
-																	
+
 															</div>
 														</div>
 													</div>
-	
+
 													@endforeach
-													
+
 												</div>
 											</div>
 										</div>
@@ -914,8 +911,6 @@
 						</div>
 					</div>
 		</section>
-
-
 		{{-- Five Rent Advertisments--}}
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-b8d4c7f elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
 					data-id="b8d4c7f" data-element_type="section"
@@ -987,7 +982,7 @@
 																	<div class="rtcl-listable-item">
 																		<span class="listable-label">@lang('lang.features')</span>
 																		<span class="listable-value">{{$item->advantages}}</span>
-																	</div>	
+																	</div>
 																	@endif --}}
 																</div>
 																<ul class="rtcl-listing-meta-data">
@@ -999,7 +994,7 @@
 																		@lang('lang.rent')
 																		@else
 																			@lang('lang.instead')
-																		@endif 
+																		@endif
 																	</li>
 																	<li class="date">
 																		<i class="rtcl-icon rtcl-icon-clock"
@@ -1023,13 +1018,13 @@
 																			class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
 																				class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
 																	</div>
-																</div>																	
+																</div>
 																@endif
 															</div>
 															<div class="rtin-right ">
 																<a class="rtin-details-button"
 																	href="{{route('advertisment.show',$item->id)}}">Details</a>
-																
+
 																@auth
 																@if (! $item->isFavoriteByUser($item->id))
 																<div class="rtcl-meta-buttons-withtext meta-button-count-1">
@@ -1040,17 +1035,17 @@
 																				class="favourite-label">Add to
 																				Favourites</span></a>
 																	</div>
-																</div>	
+																</div>
 																@endif
-																
+
 																@endauth
-																	
+
 															</div>
 														</div>
 													</div>
-	
+
 													@endforeach
-													
+
 												</div>
 											</div>
 										</div>
@@ -1060,189 +1055,201 @@
 						</div>
 					</div>
 		</section>
-
-
 		{{-- Five Instead Advertisments --}}
-
 		<section
-		class="elementor-section elementor-top-section elementor-element elementor-element-f2db415 elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
-		data-id="f2db415" data-element_type="section"
-		data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-		<div class="elementor-container elementor-column-gap-default">
-			<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9511627"
-				data-id="9511627" data-element_type="column">
-				<div class="elementor-widget-wrap elementor-element-populated">
-					<div class="elementor-element elementor-element-8960e3d elementor-widget elementor-widget-rt-title"
-						data-id="8960e3d" data-element_type="widget" data-widget_type="rt-title.default">
-						<div class="elementor-widget-container">
-							<div class="rt-el-title rtin-style-1">
-								<h2 class="rtin-title">@lang('lang.Newest_Exchange_Ads')</h2>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-4d2f2ea elementor-widget elementor-widget-rtcl-listing-items"
-						data-id="4d2f2ea" data-element_type="widget"
-						data-widget_type="rtcl-listing-items.default">
-						<div class="elementor-widget-container">
+            class="elementor-section elementor-top-section elementor-element elementor-element-f2db415 elementor-section-boxed elementor-section-height-default elementor-section-height-default rt-parallax-bg-no"
+            data-id="f2db415" data-element_type="section"
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9511627"
+                    data-id="9511627" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-8960e3d elementor-widget elementor-widget-rt-title"
+                            data-id="8960e3d" data-element_type="widget" data-widget_type="rt-title.default">
+                            <div class="elementor-widget-container">
+                                <div class="rt-el-title rtin-style-1">
+                                    <h2 class="rtin-title">@lang('lang.Newest_Exchange_Ads')</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-4d2f2ea elementor-widget elementor-widget-rtcl-listing-items"
+                            data-id="4d2f2ea" data-element_type="widget"
+                            data-widget_type="rtcl-listing-items.default">
+                            <div class="elementor-widget-container">
 
-							<div class="rtcl rtcl-listings-sc-wrapper rtcl-elementor-widget ">
-								<div class="rtcl-listings-wrapper">
-									<div class="rtcl-listings rtcl-list-view rtcl-style-1-view  ">
-										@foreach ($dataInstead as $item )
-										<div
-											class="rtcl-widget-listing-item listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
-
-
-
-											<div class="listing-thumb">
-												<div class="listing-thumb-inner">
-													@if ($item->is_sold == true)
-																<span class="rtcl-sold-out">Sold Out</span>
-													@endif
-													<a href="{{route('advertisment.show',$item->id)}}"
-														title="{{$item->title}}"><img loading="lazy"
-															decoding="async" width="385" height="280"
-															src="
-															@if(count($item->adsImage) == 0)
-																https://admin.alfuraij.com/assets/images/default.jpg
-															@else
-																https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
-															@endif
-															"
-															class="rtcl-thumbnail" alt="{{$item->title}}"
-															title=""></a>
-												</div>
-											</div>
-											<div class="rtin-content-area">
-												<div class="item-content">
-													<div class="rtcl-listing-badge-wrap"></div>
-													<div class="category"><a
-															href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name}}</a></div>
-													<h3 class="listing-title rtcl-listing-title">
-														<a href="{{route('advertisment.show',$item->id)}}"
-															title="{{$item->title}}">{{$item->title}}</a>
-													</h3>
-													<div class="rtcl-listable">
-														{{-- <div class="rtcl-listable-item">
-															@if($item->space != null)
-															<span class="listable-label">@lang('lang.space')</span>
-															<span class="listable-value">{{$item->space}}</span>
-															@endif
-														</div>
-														@if ($item->advantages != null)
-															<br>
-															<div class="rtcl-listable-item">
-																<span class="listable-label">@lang('lang.features')</span>
-																<span class="listable-value">{{$item->advantages}}</span>
-															</div>	
-														@endif --}}
-													</div>
-													<ul class="rtcl-listing-meta-data">
-														<li class="rtin-type">
-															<i class="rtcl-icon-tags"
-																aria-hidden="true"></i>@if ($item->type == 'sale')
-																	@lang('lang.sale')
-																@elseif ($item->type == 'rent')
-																@lang('lang.rent')
-																@else
-																	@lang('lang.instead')
-																@endif 
-														</li>
-														<li class="date">
-															<i class="rtcl-icon rtcl-icon-clock"
-																aria-hidden="true"></i>{{\Carbon\Carbon::parse($item->updated_at)->diffForHumans()}}
-														</li>
-														<li class="location">
-															<i class="rtcl-icon rtcl-icon-location"
-																aria-hidden="true"></i><a
-																href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name}}</a><span
-																class="rtcl-delimiter"></span>
-														</li>
-														<li class="view">
-															<i class="rtcl-icon rtcl-icon-eye"
-																aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
-														</li>
-													</ul>
-													@if ($item->price != null)
-														<div class="item-price">
-															<div class="rtcl-price price-type-regular"><span
-																	class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
-																		class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
-															</div>
-														</div>																	
-													@endif
-													
-												</div>
-												<div class="rtin-right ">
-													<a class="rtin-details-button"
-														href="{{route('advertisment.show',$item->id)}}">Details</a>
-													
-													@auth
-													@if (! $item->isFavoriteByUser($item->id))
-													<div class="rtcl-meta-buttons-withtext meta-button-count-1">
-														<div class="rtcl-fav rtcl-text-el-button">
-															<a onclick="addFavourite({{$item->id}})"
-																class="rtcl-require-login "><span
-																	class="rtcl-icon rtcl-icon-heart-empty"></span><span
-																	class="favourite-label">Add to
-																	Favourites</span></a>
-														</div>
-													</div>	
-													@endif
-													
-													@endauth
-														
-												</div>
-											</div>
-										</div>
-
-										@endforeach
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-e05cf07 elementor-widget elementor-widget-rt-listing-cat-slider"
-						data-id="e05cf07" data-element_type="widget"
-						data-widget_type="rt-listing-cat-slider.default">
-						<div class="elementor-widget-container">
-							<div class="rt-el-listing-cat-slider slider-nav-enabled rtin-dark">
-								<div class="rtcl-carousel-slider"
-									data-options="{&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.rt-el-listing-cat-slider .swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.rt-el-listing-cat-slider .swiper-button-prev&quot;},&quot;loop&quot;:true,&quot;speed&quot;:200,&quot;spaceBetween&quot;:10,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;480&quot;:{&quot;slidesPerView&quot;:2},&quot;600&quot;:{&quot;slidesPerView&quot;:3},&quot;800&quot;:{&quot;slidesPerView&quot;:4},&quot;992&quot;:{&quot;slidesPerView&quot;:5},&quot;1200&quot;:{&quot;slidesPerView&quot;:6}},&quot;autoplay&quot;:{&quot;delay&quot;:&quot;5000&quot;,&quot;disableOnInteraction&quot;:false,&quot;pauseOnMouseEnter&quot;:&quot;yes&quot;}}">
-									<div class="swiper-wrapper">
-									@foreach ($categories as $item )
-									<div class="swiper-slide">
-										<a class="rtin-item"
-											href="{{route('home.main')}}?category_id={{$item->id}}">
-											<div class="rtin-title">{{app()->getLocale() === 'en' ? $item->name_en : $item->name_ar}}</div>
-											<div class="rtin-count">({{$item->advertisment->count()}})</div>
-										</a>
-									</div>
-									@endforeach
-										
-									</div>
-								</div>
-								<div class="swiper-button-prev"></div>
-								<div class="swiper-button-next"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                                <div class="rtcl rtcl-listings-sc-wrapper rtcl-elementor-widget ">
+                                    <div class="rtcl-listings-wrapper">
+                                        <div class="rtcl-listings rtcl-list-view rtcl-style-1-view  ">
+                                            @foreach ($dataInstead as $item )
+                                            <div
+                                                class="rtcl-widget-listing-item listing-item rtcl-listing-item post-3064 status-publish is-for_sale rtcl_category-residential-lands rtcl_location-hawally rtcl_location-al-salam">
 
 
 
+                                                <div class="listing-thumb">
+                                                    <div class="listing-thumb-inner">
+                                                        @if ($item->is_sold == true)
+                                                                    <span class="rtcl-sold-out">Sold Out</span>
+                                                        @endif
+                                                        <a href="{{route('advertisment.show',$item->id)}}"
+                                                            title="{{$item->title}}"><img loading="lazy"
+                                                                decoding="async" width="385" height="280"
+                                                                src="
+                                                                @if(count($item->adsImage) == 0)
+                                                                    https://admin.alfuraij.com/assets/images/default.jpg
+                                                                @else
+                                                                    https://admin.alfuraij.com/uploads/ads/{{$item->adsImage[0]->image}}
+                                                                @endif
+                                                                "
+                                                                class="rtcl-thumbnail" alt="{{$item->title}}"
+                                                                title=""></a>
+                                                    </div>
+                                                </div>
+                                                <div class="rtin-content-area">
+                                                    <div class="item-content">
+                                                        <div class="rtcl-listing-badge-wrap"></div>
+                                                        <div class="category"><a
+                                                                href="{{route('home.main')}}?category_id={{$item->category_id}}">{{$item->category->name}}</a></div>
+                                                        <h3 class="listing-title rtcl-listing-title">
+                                                            <a href="{{route('advertisment.show',$item->id)}}"
+                                                                title="{{$item->title}}">{{$item->title}}</a>
+                                                        </h3>
+                                                        <div class="rtcl-listable">
+                                                            {{-- <div class="rtcl-listable-item">
+                                                                @if($item->space != null)
+                                                                <span class="listable-label">@lang('lang.space')</span>
+                                                                <span class="listable-value">{{$item->space}}</span>
+                                                                @endif
+                                                            </div>
+                                                            @if ($item->advantages != null)
+                                                                <br>
+                                                                <div class="rtcl-listable-item">
+                                                                    <span class="listable-label">@lang('lang.features')</span>
+                                                                    <span class="listable-value">{{$item->advantages}}</span>
+                                                                </div>
+                                                            @endif --}}
+                                                        </div>
+                                                        <ul class="rtcl-listing-meta-data">
+                                                            <li class="rtin-type">
+                                                                <i class="rtcl-icon-tags"
+                                                                    aria-hidden="true"></i>@if ($item->type == 'sale')
+                                                                        @lang('lang.sale')
+                                                                    @elseif ($item->type == 'rent')
+                                                                    @lang('lang.rent')
+                                                                    @else
+                                                                        @lang('lang.instead')
+                                                                    @endif
+                                                            </li>
+                                                            <li class="date">
+                                                                <i class="rtcl-icon rtcl-icon-clock"
+                                                                    aria-hidden="true"></i>{{\Carbon\Carbon::parse($item->updated_at)->diffForHumans()}}
+                                                            </li>
+                                                            <li class="location">
+                                                                <i class="rtcl-icon rtcl-icon-location"
+                                                                    aria-hidden="true"></i><a
+                                                                    href="{{route('home.main')}}?area_id={{$item->area_id}}">{{$item->area->name}}</a><span
+                                                                    class="rtcl-delimiter"></span>
+                                                            </li>
+                                                            <li class="view">
+                                                                <i class="rtcl-icon rtcl-icon-eye"
+                                                                    aria-hidden="true"></i>{{$item->getViews()}} @lang('lang.views')
+                                                            </li>
+                                                        </ul>
+                                                        @if ($item->price != null)
+                                                            <div class="item-price">
+                                                                <div class="rtcl-price price-type-regular"><span
+                                                                        class="rtcl-price-amount amount">{{$item->price}}&nbsp;<span
+                                                                            class="rtcl-price-currencySymbol">&#x62f;.&#x643;</span></span>
+                                                                </div>
+                                                            </div>
+                                                        @endif
 
-	
-	
+                                                    </div>
+                                                    <div class="rtin-right ">
+                                                        <a class="rtin-details-button"
+                                                            href="{{route('advertisment.show',$item->id)}}">Details</a>
+
+                                                        @auth
+                                                        @if (! $item->isFavoriteByUser($item->id))
+                                                        <div class="rtcl-meta-buttons-withtext meta-button-count-1">
+                                                            <div class="rtcl-fav rtcl-text-el-button">
+                                                                <a onclick="addFavourite({{$item->id}})"
+                                                                    class="rtcl-require-login "><span
+                                                                        class="rtcl-icon rtcl-icon-heart-empty"></span><span
+                                                                        class="favourite-label">Add to
+                                                                        Favourites</span></a>
+                                                            </div>
+                                                        </div>
+                                                        @endif
+
+                                                        @endauth
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-e05cf07 elementor-widget elementor-widget-rt-listing-cat-slider"
+                            data-id="e05cf07" data-element_type="widget"
+                            data-widget_type="rt-listing-cat-slider.default">
+                            <div class="elementor-widget-container">
+                                <div class="rt-el-listing-cat-slider slider-nav-enabled rtin-dark">
+                                    <div class="rtcl-carousel-slider"
+                                        data-options="{&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.rt-el-listing-cat-slider .swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.rt-el-listing-cat-slider .swiper-button-prev&quot;},&quot;loop&quot;:true,&quot;speed&quot;:200,&quot;spaceBetween&quot;:10,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;480&quot;:{&quot;slidesPerView&quot;:2},&quot;600&quot;:{&quot;slidesPerView&quot;:3},&quot;800&quot;:{&quot;slidesPerView&quot;:4},&quot;992&quot;:{&quot;slidesPerView&quot;:5},&quot;1200&quot;:{&quot;slidesPerView&quot;:6}},&quot;autoplay&quot;:{&quot;delay&quot;:&quot;5000&quot;,&quot;disableOnInteraction&quot;:false,&quot;pauseOnMouseEnter&quot;:&quot;yes&quot;}}">
+                                        <div class="swiper-wrapper">
+                                        @foreach ($categories as $item )
+                                        <div class="swiper-slide">
+                                            <a class="rtin-item"
+                                                href="{{route('home.main')}}?category_id={{$item->id}}">
+                                                <div class="rtin-title">{{app()->getLocale() === 'en' ? $item->name_en : $item->name_ar}}</div>
+                                                <div class="rtin-count">({{$item->advertisment->count()}})</div>
+                                            </a>
+                                        </div>
+                                        @endforeach
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </section>
 			</div>
 </div>
 @endsection
 
 @section('script')
+<script>
+    // Function to check if the user is on a mobile device
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    // Redirect based on device type
+    var currentLocation = window.location.href;
+    var mobileRedirect = 'https://play.google.com/';
+    var desktopRedirect = '/'; // Change this to the desired desktop redirect URL
+
+    var redirectKey = isMobileDevice() ? 'mobileRedirected' : 'desktopRedirected';
+    var redirected = sessionStorage.getItem(redirectKey);
+
+    if (!redirected && ((isMobileDevice() && currentLocation !== mobileRedirect) || (!isMobileDevice() && currentLocation !== desktopRedirect))) {
+        // Redirect only if not already redirected and not on the correct page
+        sessionStorage.setItem(redirectKey, 'true');
+        window.location.href = isMobileDevice() ? mobileRedirect : desktopRedirect;
+    }
+</script>
+
 
 <script>
 	function addFavourite(id)
@@ -1258,7 +1265,7 @@
 	        },
 	        error:function(result){
 	            console.log(result);
-	            toastr.error('Error Accure', 'Error');  
+	            toastr.error('Error Accure', 'Error');
 
 	        }
 	    });

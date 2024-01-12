@@ -60,7 +60,7 @@ return [
     'payment'=>'المدفوعات',
     'overview'=>'ملخص',
     'category'=>'تصنيف',
-    'Seller Information'=>'معلومات البائع',
+    'Seller Information'=>'معلومات المعلن',
     'messages'=>'المحادثات',
     'select_conversetion'=>'اختر محادثة',
     'Real_estate_valuation'=>'تقييم العقارات',
@@ -206,5 +206,10 @@ return [
     'no_have_basment'=>'لايوجد طابق سفلي',
     'about_us'=>'من نحن',
     'faq'=>'التعليمات',
+    'image'=>'صوره',
+    'licence'=>'الرخصه',
+    'instegram_link' => 'الانستجرام',
+    'optional' => 'اختيارى'
+
 
 ];

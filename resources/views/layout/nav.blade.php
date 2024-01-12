@@ -65,7 +65,7 @@
                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2be6045"
                     data-id="2be6045" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-a4ed6b4 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
+                        {{-- <div class="elementor-element elementor-element-a4ed6b4 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
                             data-id="a4ed6b4" data-element_type="widget" data-widget_type="icon.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-icon-wrapper">
@@ -74,15 +74,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="elementor-element elementor-element-df41a2a elementor-widget__width-auto elementor-widget elementor-widget-heading"
                             data-id="df41a2a" data-element_type="widget" data-widget_type="heading.default">
                             <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default"> : Info@alfuraij.com
+                                <h2 class="elementor-heading-title elementor-size-default">  Info@alfuraij.com
+                                    <i style="color: yellow" aria-hidden="true" class="far fa-envelope"></i>
                                 </h2>
                             </div>
                         </div>
-                        <div class="elementor-element elementor-element-e2b1633 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
+                        {{-- <div class="elementor-element elementor-element-e2b1633 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
                             data-id="e2b1633" data-element_type="widget" data-widget_type="icon.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-icon-wrapper">
@@ -91,11 +92,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="elementor-element elementor-element-4fefa6e elementor-widget__width-auto elementor-widget elementor-widget-heading"
                             data-id="4fefa6e" data-element_type="widget" data-widget_type="heading.default">
                             <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default">+965 99661696</h2>
+                                <h2 class="elementor-heading-title elementor-size-default">+965 99661696
+                                     <i style="color: yellow" aria-hidden="true" class="fas fa-phone-alt"></i>
+                                </h2>
                             </div>
                         </div>
                     </div>

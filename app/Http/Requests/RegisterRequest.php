@@ -22,12 +22,15 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            // 'image'=>'file', //
-            'name'=>'required|string',
-            'email'=>'email|unique:users,email',
-            'phone'=>['required','starts_with:+965','unique:users,phone'],
-            'password'=>'required|confirmed'
+            'image' => 'required',
+            'licence' => 'required_if:type,company',
+            'name' => 'required|string',
+            // 'email' => 'unique:users,email', // Uncomment this line if email uniqueness is required
+            'phone' => ['required', 'starts_with:+965', 'unique:users,phone'],
+            'password' => 'required|confirmed',
+            'type' => 'required'
         ];
     }
+
+
 }
